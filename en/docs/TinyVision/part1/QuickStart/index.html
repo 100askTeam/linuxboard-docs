@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.0.1">
 <title data-rh="true">启动开发板 | 东山Π</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://dongshanpi.100ask.net/en/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://dongshanpi.100ask.net/en/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://dongshanpi.100ask.net/en/docs/TinyVision/part1/QuickStart"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" property="og:locale:alternate" content="zh_Hans"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="启动开发板 | 东山Π"><meta data-rh="true" name="description" content="制作系统启动镜像"><meta data-rh="true" property="og:description" content="制作系统启动镜像"><link data-rh="true" rel="icon" href="/en/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://dongshanpi.100ask.net/en/docs/TinyVision/part1/QuickStart"><link data-rh="true" rel="alternate" href="https://dongshanpi.100ask.net/docs/TinyVision/part1/QuickStart" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://dongshanpi.100ask.net/en/docs/TinyVision/part1/QuickStart" hreflang="en"><link data-rh="true" rel="alternate" href="https://dongshanpi.100ask.net/docs/TinyVision/part1/QuickStart" hreflang="x-default"><link rel="stylesheet" href="/en/assets/css/styles.d875fe7e.css">
-<script src="/en/assets/js/runtime~main.40e33f7a.js" defer="defer"></script>
+<script src="/en/assets/js/runtime~main.0ddcb629.js" defer="defer"></script>
 <script src="/en/assets/js/main.02c5e183.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -45,12 +45,14 @@
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="插卡启动">插卡启动<a href="#插卡启动" class="hash-link" aria-label="Direct link to 插卡启动" title="Direct link to 插卡启动">​</a></h3>
 <p>在开发板启动前需要先将SD卡接入开发板，如下图所示：</p>
 <p><img loading="lazy" src="https://photos.100ask.net/dongshanpi/TinyVision/image-20240110120118215.png" alt="image-20240110120118215" class="img_ev3q"></p>
+<p><img loading="lazy" src="https://photos.100ask.net/dongshanpi/TinyVision/TinyVision_Pin_001.jpg" alt="image-20240110141348166" class="img_ev3q"></p>
 <p>​使用40Gbps数据线连接TinyVision开发板和TypeC-SUB调试器，如下图所示：</p>
-<p><img loading="lazy" src="https://photos.100ask.net/dongshanpi/TinyVision/image-20240110141348166.png" alt="image-20240110141348166" class="img_ev3q"></p>
+<p><img loading="lazy" src="https://photos.100ask.net/dongshanpi/TinyVision/TinyVision_Pin_002.jpg" alt="image-20240110141348166" class="img_ev3q"></p>
+<p><img loading="lazy" src="https://photos.100ask.net/dongshanpi/TinyVision/TinyVision_Pin_003.jpg" alt="image-20240110141348166" class="img_ev3q"></p>
 <p>​	使用两条Type-C连接TypeC UART调试器和电脑端，连接完成后即可启动系统.</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="使用串口登录系统">使用串口登录系统<a href="#使用串口登录系统" class="hash-link" aria-label="Direct link to 使用串口登录系统" title="Direct link to 使用串口登录系统">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="1-连接串口线">1. 连接串口线<a href="#1-连接串口线" class="hash-link" aria-label="Direct link to 1. 连接串口线" title="Direct link to 1. 连接串口线">​</a></h3>
-<p>将配套的TypeC线一段连接至开发板的串口/供电接口，另一端连接至电脑USB接口，连接成功后板载的红色电源灯会亮起。
+<p>将 配套的TypeC线一段连接至开发板的串口/供电接口，另一端连接至电脑USB接口，连接成功后板载的红色电源灯会亮起。
 默认情况下系统会自动安装串口设备驱动，如果没有自动安装，可以使用驱动精灵来自动安装。</p>
 <ul>
 <li>对于Windows系统
@@ -68,7 +70,7 @@
 <p>使用Putty或者MobaXterm等串口工具来开发板设备。</p>
 <ul>
 <li>其中putty工具可以访问页面  <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/" target="_blank" rel="noopener noreferrer">https://www.chiark.greenend.org.uk/~sgtatham/putty/</a>  来获取。</li>
-<li>MobaXterm可以通过访问页面 <a href="https://mobaxterm.mobatek.net/" target="_blank" rel="noopener noreferrer">https://mobaxterm.mobatek.net/</a> 获取 (推荐使用)。</li>
+<li>MobaXterm可以通过访问页面 <a href="https://mobaxterm.mobatek.net/" target="_blank" rel="noopener noreferrer">https://mobaxterm.mobatek.net/</a> 获取 (推 荐使用)。</li>
 </ul>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="22-使用putty登录串口">2.2 使用putty登录串口<a href="#22-使用putty登录串口" class="hash-link" aria-label="Direct link to 2.2 使用putty登录串口" title="Direct link to 2.2 使用putty登录串口">​</a></h4>
 <p><img loading="lazy" src="https://photos.100ask.net/dongshanpi-docs/DongshanNezhaSTU/QuickStart-04.png" alt="QuickStart-04" class="img_ev3q"></p>
