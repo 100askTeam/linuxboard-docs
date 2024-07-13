@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[4195],{2841:(e,s,t)=>{t.r(s),t.d(s,{default:()=>n});t(7294);var u=t(6550),a=t(5893);function n(){return(0,a.jsx)(u.l_,{to:"docs/D1h-DualDisplay/BoardIntroduction"})}}}]);
