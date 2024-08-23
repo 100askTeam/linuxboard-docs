@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.0.1">
 <title data-rh="true">更新系统固件 | 东山Π</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://dshanpi.100ask.net/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://dshanpi.100ask.net/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://dshanpi.100ask.net/docs/T113i-Industrial/part1/03-1_FlashSystem"><meta data-rh="true" property="og:locale" content="zh_Hans"><meta data-rh="true" property="og:locale:alternate" content="en"><meta data-rh="true" name="docusaurus_locale" content="zh-Hans"><meta data-rh="true" name="docsearch:language" content="zh-Hans"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="更新系统固件 | 东山Π"><meta data-rh="true" name="description" content="烧写固件至SPINand"><meta data-rh="true" property="og:description" content="烧写固件至SPINand"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://dshanpi.100ask.net/docs/T113i-Industrial/part1/03-1_FlashSystem"><link data-rh="true" rel="alternate" href="https://dshanpi.100ask.net/docs/T113i-Industrial/part1/03-1_FlashSystem" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://dshanpi.100ask.net/en/docs/T113i-Industrial/part1/03-1_FlashSystem" hreflang="en"><link data-rh="true" rel="alternate" href="https://dshanpi.100ask.net/docs/T113i-Industrial/part1/03-1_FlashSystem" hreflang="x-default"><link rel="stylesheet" href="/assets/css/styles.e3ab61ce.css">
-<script src="/assets/js/runtime~main.7e461353.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.d6ea34ad.js" defer="defer"></script>
 <script src="/assets/js/main.d2d583b5.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -19,7 +19,7 @@
 </ul>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="连接开发板">连接开发板<a href="#连接开发板" class="hash-link" aria-label="连接开发板的直接链接" title="连接开发板的直接链接">​</a></h3>
 <p>参考下图所示，</p>
-<p><img loading="lazy" alt="image-20240719141106047" src="/assets/images/image-20240719141106047-d841c466c1e37b435b2ae1948cbf5e05.png" width="785" height="691" class="img_ev3q"></p>
+<p><img loading="lazy" alt="image-20240719141106047" src="/assets/images/image-20240719141106047-49f5b308b615b4bb826bdccc617de65a.png" width="785" height="691" class="img_ev3q"></p>
 <p>将两个TypeC线分别连至T113-i开发板 <code>OTG烧录接口 </code> <code>调试&amp;串口接口</code>  Typec线另一端 连接至 电脑USB接口，连接成功后，</p>
 <p>可以先获取软件 <code>全志线刷工具</code> <code>SPI Nand系统镜像</code>  <code>全志USB烧录驱动</code>安装包 进行解压缩操作。</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="安装usb驱动">安装usb驱动<a href="#安装usb驱动" class="hash-link" aria-label="安装usb驱动的直接链接" title="安装usb驱动的直接链接">​</a></h3>
@@ -51,7 +51,7 @@
 <p><img loading="lazy" src="https://photos.100ask.net/dongshanpi-docs/DongshanNezhaSTU/PhoenixSuit_001.png" alt="PhoenixSuit_001" class="img_ev3q"></p>
 <p>​	接下来 我们需要切换到 <strong>一键刷机</strong>窗口，如下图所示，点击红框标号1，在弹出的新窗口内，我们点击 红框2 <strong>浏览</strong> 找到我们的 SPI Nand 最小系统镜像  <strong>t113_i_linux_evb1_auto_uart01.img</strong> ，选中镜像后，最后点击红框3 <strong>全盘擦除升级</strong></p>
 <p>​	点击完成后，不需要理会 弹出的信息，这时 我们拿起已经连接好的开发板，先按住 <strong>FEL</strong> 烧写模式按键，之后按一下 <strong>RESET</strong> 系统复位键，就可以自动进入烧写模式并开始烧写。</p>
-<p><img loading="lazy" alt="image-20240719141619431" src="/assets/images/image-20240719141619431-1182c1ca0bf76e4b8657ebf5f431acb8.png" width="800" height="600" class="img_ev3q"></p>
+<p><img loading="lazy" alt="image-20240719141619431" src="/assets/images/image-20240719141619431-917982c444436e2d640c0f8555b28686.png" width="800" height="600" class="img_ev3q"></p>
 <p>​	烧写时会提示烧写进度条，烧写完成后 开发板会自己重启。</p>
 <p><img loading="lazy" src="https://photos.100ask.net/dongshanpi-docs/DongshanNezhaSTU/PhoenixSuit_003.png" alt="PhoenixSuit_003" class="img_ev3q"></p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="启动系统">启动系统<a href="#启动系统" class="hash-link" aria-label="启动系统的直接链接" title="启动系统的直接链接">​</a></h3>
@@ -69,7 +69,7 @@
 </ul>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="运行烧写软件烧写">运行烧写软件烧写<a href="#运行烧写软件烧写" class="hash-link" aria-label="运行烧写软件烧写的直接链接" title="运行烧写软件烧写的直接链接">​</a></h3>
 <p>首先需要下载  <strong>win32diskimage  SDcard专用格式化</strong> 这两个烧写TF卡的工具，然后可以根据开发环境搭建章节，打包出相应的镜像文件，这个文件就是我们要烧写的镜像。 同时解压缩 <strong>Tina系统TF卡烧录工具 PhoenixCard-V2.8</strong>，解压完成后，进入到烧写工具目录内，双击运行 <code>PhoenixCard.exe</code>烧录工具。</p>
-<p><img loading="lazy" alt="image-20240719141106047" src="/assets/images/image-20240719141106047-d841c466c1e37b435b2ae1948cbf5e05.png" width="785" height="691" class="img_ev3q"></p>
+<p><img loading="lazy" alt="image-20240719141106047" src="/assets/images/image-20240719141106047-49f5b308b615b4bb826bdccc617de65a.png" width="785" height="691" class="img_ev3q"></p>
 <p>步骤一： 将TF卡插进读卡器内，同时将读卡器插到电脑USB接口，使用SD CatFormat格式化TF卡，注意备份卡内数据。参考下图所示，点击刷新找到TF卡，然后点击 Format 在弹出的 对话框 点击 **是(Yes)**等待格式完成即可。</p>
 <p><img loading="lazy" src="https://photos.100ask.net/dongshanpi-docs/DongshanNezhaSTU/SDCardFormat_001.png" alt="SDCardFormat_001" class="img_ev3q"></p>
 <p>步骤二：格式化完成后，使用<strong>PhoenixCard.exe</strong>工具来烧录镜像，参考下图步骤，找到自己的TF卡盘符，点击 <code>左上角红框1</code> 固件，选择已经解压过的 <code>tina_d1s-nezha_sd_uart0.img</code> 镜像，然后点击 <code>红框2 启动卡</code>，最后点击<code>红框3 烧录</code> 等待烧录完成即可。</p>
