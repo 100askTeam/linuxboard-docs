@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.0.1">
 <title data-rh="true">启动开发板 | 东山Π</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://dshanpi.100ask.net/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://dshanpi.100ask.net/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://dshanpi.100ask.net/docs/T113s3-SdNand/part1/QuickStart"><meta data-rh="true" property="og:locale" content="zh_Hans"><meta data-rh="true" property="og:locale:alternate" content="en"><meta data-rh="true" name="docusaurus_locale" content="zh-Hans"><meta data-rh="true" name="docsearch:language" content="zh-Hans"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="启动开发板 | 东山Π"><meta data-rh="true" name="description" content="开发板启动连接接口如下："><meta data-rh="true" property="og:description" content="开发板启动连接接口如下："><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://dshanpi.100ask.net/docs/T113s3-SdNand/part1/QuickStart"><link data-rh="true" rel="alternate" href="https://dshanpi.100ask.net/docs/T113s3-SdNand/part1/QuickStart" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://dshanpi.100ask.net/en/docs/T113s3-SdNand/part1/QuickStart" hreflang="en"><link data-rh="true" rel="alternate" href="https://dshanpi.100ask.net/docs/T113s3-SdNand/part1/QuickStart" hreflang="x-default"><link rel="stylesheet" href="/assets/css/styles.e3ab61ce.css">
-<script src="/assets/js/runtime~main.1edcc3ff.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.53956800.js" defer="defer"></script>
 <script src="/assets/js/main.bb04a5fa.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -16,12 +16,12 @@
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="连接otg线">连接OTG线<a href="#连接otg线" class="hash-link" aria-label="连接OTG线的直接链接" title="连接OTG线的直接链接">​</a></h3>
 <p>将开发板配套的两根typec线，一根 直接连接至 开发板 <code>OTG烧录接口</code> 另一头连接至电脑的USB接口，开发板默认有系统，接通otg电源线就会通电并直接启动。</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="安装windows板adb">安装windows板ADB<a href="#安装windows板adb" class="hash-link" aria-label="安装windows板ADB的直接链接" title="安装windows板ADB的直接链接">​</a></h3>
-<p>点击链接下载Windows版ADB工具 <a href="https://gitlab.com/dongshanpi/tools/-/raw/main/ADB.7z" target="_blank" rel="noopener noreferrer">adb-tools</a>
+<p>点击链接下载Windows版ADB工具 <a href="https://dl.100ask.net/Hardware/MPU/T113i-Industrial/Tools/ADB.7z" target="_blank" rel="noopener noreferrer">ADB.7z</a>
 下载完成后解压，可以看到如下目录，</p>
 <p><img loading="lazy" alt="adb-tools-dir" src="/assets/images/adb-tools-dir-38cec6117268ac1d8072fe609e6a950c.png" width="911" height="464" class="img_ev3q"></p>
 <p>然后 我们单独 拷贝 上一层的 <strong>platform-tools</strong> 文件夹到任意 目录，拷贝完成后，记住这个 目录位置，我们接下来要把这个 路径添加至 Windows系统环境变量里。</p>
 <p><img loading="lazy" alt="adb-tools-dir" src="/assets/images/adb-tools-dir-001-0b3cab35d53f39acacd0c1339fc9098d.png" width="926" height="465" class="img_ev3q"></p>
-<p>我这里是把它单独拷贝到了 D盘，我的目录是 <code>D:\platform-tools</code> 接下来 我需要把它单独添加到Windows系统环境变量里面才可以在任意位置使用adb命令。</p>
+<p>我这里是把它单独拷贝到了 D盘，我的目录是 <code>D:\platform-tools</code> 接下来 我需要把它单独  添加到Windows系统环境变量里面才可以在任意位置使用adb命令。</p>
 <p><img loading="lazy" alt="adb-tools-windows_config_001" src="/assets/images/adb-tools-windows_config_001-5a1acdda929e0ffaff031ef909df21fe.png" width="734" height="306" class="img_ev3q"></p>
 <p>添加到 Windows系统环境变量里面
 <img loading="lazy" alt="adb-tools-windows_config_001" src="/assets/images/adb-tools-windows_config_002-b7029aa1867b9406d79191389cf341f0.png" width="1631" height="658" class="img_ev3q"></p>

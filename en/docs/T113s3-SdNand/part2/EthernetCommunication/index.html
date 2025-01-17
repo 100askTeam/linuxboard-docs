@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.0.1">
 <title data-rh="true">以太网测试 | 东山Π</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://dshanpi.100ask.net/en/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://dshanpi.100ask.net/en/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://dshanpi.100ask.net/en/docs/T113s3-SdNand/part2/EthernetCommunication"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" property="og:locale:alternate" content="zh_Hans"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="以太网测试 | 东山Π"><meta data-rh="true" name="description" content="本章节来讲解如何在 T113s3ProV1.3SdNand 开发板上测试以太网功能。"><meta data-rh="true" property="og:description" content="本章节来讲解如何在 T113s3ProV1.3SdNand 开发板上测试以太网功能。"><link data-rh="true" rel="icon" href="/en/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://dshanpi.100ask.net/en/docs/T113s3-SdNand/part2/EthernetCommunication"><link data-rh="true" rel="alternate" href="https://dshanpi.100ask.net/docs/T113s3-SdNand/part2/EthernetCommunication" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://dshanpi.100ask.net/en/docs/T113s3-SdNand/part2/EthernetCommunication" hreflang="en"><link data-rh="true" rel="alternate" href="https://dshanpi.100ask.net/docs/T113s3-SdNand/part2/EthernetCommunication" hreflang="x-default"><link rel="stylesheet" href="/en/assets/css/styles.e3ab61ce.css">
-<script src="/en/assets/js/runtime~main.584a53ed.js" defer="defer"></script>
+<script src="/en/assets/js/runtime~main.762ee984.js" defer="defer"></script>
 <script src="/en/assets/js/main.acf4a287.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -12,13 +12,16 @@
 <p>本章节来讲解如何在 T113s3ProV1.3SdNand 开发板上测试以太网功能。</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="准备工作">准备工作<a href="#准备工作" class="hash-link" aria-label="Direct link to 准备工作" title="Direct link to 准备工作">​</a></h2>
 <p>在进入本章节实验之前，请做好以下准备。</p>
+<p><strong>硬件：</strong></p>
 <ul>
-<li>硬件：T113s3ProV1.3SdNand 开发板</li>
-<li>硬件： typeC线 X2</li>
-<li>硬件：一根能用来上网的网线</li>
-<li>软件： 全志线刷工具：<a href="https://gitlab.com/dongshanpi/tools/-/raw/main/AllwinnertechPhoeniSuit.zip" target="_blank" rel="noopener noreferrer">AllwinnertechPhoeniSuit</a></li>
-<li>软件： 全志USB烧录驱动：<a href="https://gitlab.com/dongshanpi/tools/-/raw/main/AllwinnerUSBFlashDeviceDriver.zip" target="_blank" rel="noopener noreferrer">AllwinnerUSBFlashDeviceDriver</a></li>
-<li>软件： 镜像：t113_linux_evb1_auto_uart0.img</li>
+<li>T113s3-SDNAND 开发板</li>
+<li>usb typeC线 X2</li>
+<li>一根能用来上网的网线</li>
+</ul>
+<p><strong>软件：</strong></p>
+<ul>
+<li>全志线刷工具：<a href="https://dl.100ask.net/Hardware/MPU/T113i-Industrial/Tools/AllwinnertechPhoeniSuit.zip" target="_blank" rel="noopener noreferrer">AllwinnertechPhoeniSuit.zip</a></li>
+<li>全志USB烧录驱动：<a href="https://dl.100ask.net/Hardware/MPU/T113i-Industrial/Tools/AllwinnerUSBFlashDeviceDriver.zip" target="_blank" rel="noopener noreferrer">AllwinnerUSBFlashDeviceDriver.zip</a></li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="硬件连接">硬件连接<a href="#硬件连接" class="hash-link" aria-label="Direct link to 硬件连接" title="Direct link to 硬件连接">​</a></h2>
 <p>在进行以太网测试之前，需要先使用卡槽把下图排针中间的引脚连接到左边的引脚上，因为这个四根引脚与RS485引脚是共用的，硬件连接图如下，</p>

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.0.1">
 <title data-rh="true">Wi-Fi联网 | 东山Π</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://dshanpi.100ask.net/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://dshanpi.100ask.net/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://dshanpi.100ask.net/docs/H616-YuzukiHD-Chameleon/part2/WiFiNetworking"><meta data-rh="true" property="og:locale" content="zh_Hans"><meta data-rh="true" property="og:locale:alternate" content="en"><meta data-rh="true" name="docusaurus_locale" content="zh-Hans"><meta data-rh="true" name="docsearch:language" content="zh-Hans"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Wi-Fi联网 | 东山Π"><meta data-rh="true" name="description" content="本文将介绍如何使用Wi-Fi。H616开发板板载的是 XradioTech 所设计的 XR829 Wi-Fi 模组。"><meta data-rh="true" property="og:description" content="本文将介绍如何使用Wi-Fi。H616开发板板载的是 XradioTech 所设计的 XR829 Wi-Fi 模组。"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://dshanpi.100ask.net/docs/H616-YuzukiHD-Chameleon/part2/WiFiNetworking"><link data-rh="true" rel="alternate" href="https://dshanpi.100ask.net/docs/H616-YuzukiHD-Chameleon/part2/WiFiNetworking" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://dshanpi.100ask.net/en/docs/H616-YuzukiHD-Chameleon/part2/WiFiNetworking" hreflang="en"><link data-rh="true" rel="alternate" href="https://dshanpi.100ask.net/docs/H616-YuzukiHD-Chameleon/part2/WiFiNetworking" hreflang="x-default"><link rel="stylesheet" href="/assets/css/styles.e3ab61ce.css">
-<script src="/assets/js/runtime~main.1edcc3ff.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.53956800.js" defer="defer"></script>
 <script src="/assets/js/main.bb04a5fa.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -17,14 +17,17 @@
 <p>当前版本<code>xr829 Wi-Fi模组</code>和<code>天线接口</code>硬件位置图，如下：</p>
 <p><img loading="lazy" alt="image-20240816155401444" src="/assets/images/image-20240816155401444-b21e2333dc57bb5317336e2a6fd46a31.png" width="1273" height="722" class="img_ev3q"></p>
 <p><strong>准备工作：</strong></p>
+<p><strong>硬件：</strong></p>
 <ol>
-<li>硬件：  变色龙-H616开发板（YuzuKiHD-Chamelen）</li>
-<li>硬件： typeC线 X1</li>
-<li>硬件： ipex 2.4G天线 X1</li>
-<li>硬件： 串口模块</li>
-<li>软件： 全志线刷工具：<a href="https://gitlab.com/dongshanpi/tools/-/raw/main/AllwinnertechPhoeniSuit.zip" target="_blank" rel="noopener noreferrer">AllwinnertechPhoeniSuit</a></li>
-<li>软件： 全志USB烧录驱动：<a href="https://gitlab.com/dongshanpi/tools/-/raw/main/AllwinnerUSBFlashDeviceDriver.zip" target="_blank" rel="noopener noreferrer">AllwinnerUSBFlashDeviceDriver</a></li>
-<li>软件： 支持Wi-Fi镜像：tina_h616-p2_uart0.img</li>
+<li>变色龙-H616开发板（YuzuKiHD-Chamelen）</li>
+<li>usb typeC线 X1</li>
+<li>ipex 2.4G天线 X1</li>
+<li>串口模块</li>
+</ol>
+<p><strong>软件：</strong></p>
+<ol>
+<li>全志线刷工具：<a href="https://dl.100ask.net/Hardware/MPU/T113i-Industrial/Tools/AllwinnertechPhoeniSuit.zip" target="_blank" rel="noopener noreferrer">AllwinnertechPhoeniSuit.zip</a></li>
+<li>全志USB烧录驱动：<a href="https://dl.100ask.net/Hardware/MPU/T113i-Industrial/Tools/AllwinnerUSBFlashDeviceDriver.zip" target="_blank" rel="noopener noreferrer">AllwinnerUSBFlashDeviceDriver.zip</a></li>
 </ol>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="硬件介绍">硬件介绍<a href="#硬件介绍" class="hash-link" aria-label="硬件介绍的直接链接" title="硬件介绍的直接链接">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="wi-fi功能特性">Wi-Fi功能特性<a href="#wi-fi功能特性" class="hash-link" aria-label="Wi-Fi功能特性的直接链接" title="Wi-Fi功能特性的直接链接">​</a></h3>
@@ -35,7 +38,7 @@
 <li><strong>Monitor模式管理</strong>：提供Monitor模式，用于监听无线网络的流量。</li>
 <li><strong>配网管理</strong>：支持多种配网方式，如softap、soundwave、xconfig等，方便用户连接到无线网络。</li>
 <li><strong>P2P模式管理</strong>：正在考虑支持P2P（Peer to Peer）模式，用于设备间的直接连接。</li>
-<li><strong>软件结构</strong>：wifimanger2.0支持AP模式和monitor模式，集成了多种配网模式，方便用户使用。</li>
+<li><strong>软件结构</strong>：wifimanger2.0支持AP模式和monitor模式，集 成了多种配网模式，方便用户使用。</li>
 <li><strong>硬件资源适配</strong>：需要根据硬件原理图进行配置，包括时钟、电源、SDIO等资源的适配。</li>
 <li><strong>内核驱动适配</strong>：需要在内核中添加Kconfig和Makefile配置，并通过menuconfig启用XR829 WLAN支持。</li>
 <li><strong>Firmware支持</strong>：根据不同晶振（24M或40M）提供相应的固件支持。</li>
@@ -51,7 +54,7 @@
 <li><strong>hostapd</strong>：是一个用户态用于AP和认证服务器的守护进程。</li>
 <li><strong>monitor</strong>：Wi-Fi处于混杂设备监听模式的处理应用。</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="wi-fi天线安装">Wi-Fi天线安装<a href="#wi-fi天线安装" class="hash-link" aria-label="Wi-Fi天线安装的直接链接" title="Wi-Fi天线安装的直接链接">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="wi-fi天线安装">Wi-Fi天线安装<a href="#wi-fi天线安装" class="hash-link" aria-label="Wi-Fi天线安装的直接链接" title="Wi-Fi  天线安装的直接链接">​</a></h3>
 <p>要使用Wi-Fi，需要连接一根ipex 2.4G天线，下面是将天线连接到H616开发板的指南图。</p>
 <p><img loading="lazy" alt="image-20240816181858576" src="/assets/images/image-20240816181858576-182bfe49092ee6ac046dfbeb55892267.png" width="1392" height="862" class="img_ev3q"></p>
 <p>参考上图，拿到一根天线，对准天线接口，稍微用点力摁下去，听到咔擦一声，安装完毕。</p>
@@ -69,7 +72,7 @@
 <p>串口模块的GND线 连接 开发板的GND引脚</p>
 </blockquote>
 <p><img loading="lazy" alt="image-20240816170306406" src="/assets/images/image-20240816170306406-b63db4b0740d6ddfc4c160e858929f36.png" width="1312" height="478" class="img_ev3q"></p>
-<p>连接好设备后，打开设备管理  器，可以看到有一个名为CH340的COM94端口号，说明串口连接成功。（这边使用的串口模块的转换芯片是CH340）</p>
+<p>连接好设备后，打开设备管理器，可以看到有一个名为CH340的COM94端口号，说明串口连接成功。（这边使用的串口模块的转换芯片是CH340）</p>
 <p><img loading="lazy" alt="image-20240816174622755" src="/assets/images/image-20240816174622755-a3b7fc525e2db25eab366ec0484158c2.png" width="1206" height="383" class="img_ev3q"></p>
 <p>打开串口终端工具（类似的工具也可以），这里以MobaXterm为例讲解。</p>
 <p>点击<code>Session</code>。</p>
@@ -112,7 +115,7 @@
 <p>能扫描到附近的Wi-Fi节点，即可证明 XR829 Wi-Fi 模组可以正常使用。接下来就可以开始连接Wi-Fi节点了。</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="连接wi-fi">连接Wi-Fi<a href="#连接wi-fi" class="hash-link" aria-label="连接Wi-Fi的直接链接" title="连接Wi-Fi的直接链接">​</a></h3>
 <p>连接Wi-Fi节点，需要使用 <code>wpa_supplican</code>，该工具也已适配上。</p>
-<p><code>wpa_supplicant</code> 连接Wi-Fi节点的时候会从配置文件中 读取账号和密码，以及加密方式等， 所以我们在运行wpa_supplicant工具的时候要提前写好配置文件。 配置文件名称自定，但是要以 .conf 为后缀，并保存在 /etc/ 目录下，这边给出一个配置文件的例子。</p>
+<p><code>wpa_supplicant</code> 连接Wi-Fi节点的时候会从配置文件中读取账 号和密码，以及加密方式等， 所以我们在运行wpa_supplicant工具的时候要提前写好配置文件。 配置文件名称自定，但是要以 .conf 为后缀，并保存在 /etc/ 目录下，这边给出一个配置文件的例子。</p>
 <hr>
 <p>执行以下指令，进入配置文件：</p>
 <div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">vim /etc/wpa_supplicant.conf</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="复制代码到剪贴板" title="复制" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
@@ -165,7 +168,7 @@
 <p><img loading="lazy" alt="image-20240817142310617" src="/assets/images/image-20240817142310617-631f65ff54c692f3186fda910c852934.png" width="1659" height="890" class="img_ev3q"></p>
 <p>选择成功后，控制键盘上的方向键，选择<code>Save</code>保存，然后一路回车。</p>
 <p><img loading="lazy" alt="image-20240817142506195" src="/assets/images/image-20240817142506195-430d57c175e0bfd6026eca63c88a10b9.png" width="1659" height="890" class="img_ev3q"></p>
-<p>保存完成后，控制键盘上的方向键 ，选择<code>Exit</code>回车即可退出，</p>
+<p>保存完成后，控制键盘上的方向键，选择<code>Exit</code>回车即可退出，</p>
 <p><img loading="lazy" alt="image-20240817142648211" src="/assets/images/image-20240817142648211-938b0ab66b50d9a3f572b5c038d46e08.png" width="1659" height="890" class="img_ev3q"></p>
 <p>退出到最初进入的界面，找到<code>Kernel modules</code>，回车进入。</p>
 <p><img loading="lazy" alt="image-20240817142941236" src="/assets/images/image-20240817142941236-32392693b583daf02bd967d8491b97e6.png" width="1659" height="890" class="img_ev3q"></p>
@@ -179,7 +182,7 @@
 <p><img loading="lazy" alt="image-20240817143542845" src="/assets/images/image-20240817143542845-7b81f0ce735a9f11ef1c92c4f24da634.png" width="1659" height="890" class="img_ev3q"></p>
 <p>一路退出到最初进入的界面，找到<code>Network</code>，回车进入。</p>
 <p><img loading="lazy" alt="image-20240817145625346" src="/assets/images/image-20240817145625346-e0e4aeed0729fefd2a5a888a92bc3f49.png" width="1659" height="890" class="img_ev3q"></p>
-<p>进入<code>Network</code> 界面后，找到<code>iw</code>，点击键盘上的<code>y</code>键，选上。<code>iw</code>工具就是用来扫描附近的Wi-Fi。</p>
+<p>进入<code>Network</code>界面后  ，找到<code>iw</code>，点击键盘上的<code>y</code>键，选上。<code>iw</code>工具就是用来扫描附近的Wi-Fi。</p>
 <p><img loading="lazy" alt="image-20240817145953344" src="/assets/images/image-20240817145953344-5307d512c55712954077ac55dbfac3ca.png" width="1659" height="890" class="img_ev3q"></p>
 <p>同样先保存，然后退出，一样的操作退出两次即可退到串口终端。</p>
 <p><img loading="lazy" alt="image-20240817143730232" src="/assets/images/image-20240817143730232-40cf09e97b2f5cc4cafcafd76b847937.png" width="1395" height="524" class="img_ev3q"></p>

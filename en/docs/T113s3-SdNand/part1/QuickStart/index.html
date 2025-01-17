@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.0.1">
 <title data-rh="true">启动开发板 | 东山Π</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://dshanpi.100ask.net/en/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://dshanpi.100ask.net/en/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://dshanpi.100ask.net/en/docs/T113s3-SdNand/part1/QuickStart"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" property="og:locale:alternate" content="zh_Hans"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="启动开发板 | 东山Π"><meta data-rh="true" name="description" content="开发板启动连接接口如下："><meta data-rh="true" property="og:description" content="开发板启动连接接口如下："><link data-rh="true" rel="icon" href="/en/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://dshanpi.100ask.net/en/docs/T113s3-SdNand/part1/QuickStart"><link data-rh="true" rel="alternate" href="https://dshanpi.100ask.net/docs/T113s3-SdNand/part1/QuickStart" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://dshanpi.100ask.net/en/docs/T113s3-SdNand/part1/QuickStart" hreflang="en"><link data-rh="true" rel="alternate" href="https://dshanpi.100ask.net/docs/T113s3-SdNand/part1/QuickStart" hreflang="x-default"><link rel="stylesheet" href="/en/assets/css/styles.e3ab61ce.css">
-<script src="/en/assets/js/runtime~main.584a53ed.js" defer="defer"></script>
+<script src="/en/assets/js/runtime~main.762ee984.js" defer="defer"></script>
 <script src="/en/assets/js/main.acf4a287.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -16,7 +16,7 @@
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="连接otg线">连接OTG线<a href="#连接otg线" class="hash-link" aria-label="Direct link to 连接OTG线" title="Direct link to 连接OTG线">​</a></h3>
 <p>将开发板配套的两根typec线，一根 直接连接至 开发板 <code>OTG烧录接口</code> 另一头连接至电脑的USB接口，开发板默认有系统，接通otg电源线就会通电并直接启动。</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="安装windows板adb">安装windows板ADB<a href="#安装windows板adb" class="hash-link" aria-label="Direct link to 安装windows板ADB" title="Direct link to 安装windows板ADB">​</a></h3>
-<p>点击链接下载Windows版ADB工具 <a href="https://gitlab.com/dongshanpi/tools/-/raw/main/ADB.7z" target="_blank" rel="noopener noreferrer">adb-tools</a>
+<p>点击链接下载Windows版ADB工具 <a href="https://dl.100ask.net/Hardware/MPU/T113i-Industrial/Tools/ADB.7z" target="_blank" rel="noopener noreferrer">ADB.7z</a>
 下载完成后解压，可以看到如下目录，</p>
 <p><img loading="lazy" alt="adb-tools-dir" src="/en/assets/images/adb-tools-dir-38cec6117268ac1d8072fe609e6a950c.png" width="911" height="464" class="img_ev3q"></p>
 <p>然后 我们单独 拷贝 上一层的 <strong>platform-tools</strong> 文件夹到任意 目录，拷贝完成后，记住这个 目录位置，我们接下来要把这个 路径添加至 Windows系统环境变量里。</p>
@@ -51,7 +51,7 @@
 可以查看是否多出一个/dev/tty 设备,一般情况设备节点为 /dev/ttyACM0  。</li>
 </ul>
 <p><img loading="lazy" alt="QuickStart-02" src="/en/assets/images/QuickStart-02-6dc8f5236e7bca81597417ffacce6d58.png" width="914" height="286" class="img_ev3q"></p>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="2-打开串口控制台">2. 打开串口控制台<a href="#2-打开串口控制台" class="hash-link" aria-label="Direct link to 2. 打开串口控制台" title="Direct link to 2. 打开串口控制台">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="2-打开串口控制台">2. 打开串口控制台<a href="#2-打开串口控制台" class="hash-link" aria-label="Direct link to 2. 打开串口控  制台" title="Direct link to 2. 打开串口控制台">​</a></h3>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="获取串口工具">获取串口工具<a href="#获取串口工具" class="hash-link" aria-label="Direct link to 获取串口工具" title="Direct link to 获取串口工具">​</a></h4>
 <p>使用Putty或者MobaXterm等串口工具来开发板设备。</p>
 <ul>
