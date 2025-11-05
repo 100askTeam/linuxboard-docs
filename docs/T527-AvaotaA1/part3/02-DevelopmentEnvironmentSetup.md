@@ -3,9 +3,13 @@ sidebar_position: 2
 ---
 # 开发环境搭建
 
-本章节将介绍如何搭建 H616 开发板 Tina 开发环境。
+本章节将介绍如何搭建 全志527 Tina 开发环境。
 
 ## 1.获取Tina源码SDK
+
+通过网盘分享的文件：AvaotaA1-T527-Tina5SDK
+链接: https://pan.baidu.com/s/15zFYFGKBZjs6KlcOt827ug?pwd=jkdz 提取码: jkdz 
+--来自百度网盘超级会员v8的分享
 
 首先，在 Windows 上，打开前面的章节《源码工具文档手册》，找到SDK源码。
 
@@ -39,8 +43,8 @@ cd tina
 
 ~~~bash
 cd ~/
-git clone https://github.com/DongshanPI/YuzukiHD-Chameleon-H616_TinaSDK.git
-cd YuzukiHD-Chameleon-H616_TinaSDK
+git clone https://github.com/DongshanPI/T527-AvaotaA1_Tina5SDK.git
+cd T527-AvaotaA1_Tina5SDK.git
 git submodule update --init
 cp ./* -rfvd ~/h616-tina-v0.8/
 ~~~
