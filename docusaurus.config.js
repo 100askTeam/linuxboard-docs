@@ -89,27 +89,15 @@ const config = {
         items: [ 
           {
             type: 'docSidebar',
-            sidebarId: 't113s4sdnandSidebar',
+            sidebarId: 't113xSidebar',
             position: 'left',
-            label: 'T113s4-SdNand',
-          },
-          {
-            type: 'docSidebar',
-            sidebarId: 't113s3proSidebar',
-            position: 'left',
-            label: 'T113s3-Pro',
-          },         
+            label: 'T113x',
+          },    
           {
             type: 'docSidebar',
             sidebarId: 'd1dSidebar',
             position: 'left',
             label: 'D1-Nezha',
-          },
-          {
-            type: 'docSidebar',
-            sidebarId: 't113iSidebar',
-            position: 'left',
-            label: 'T113i-Industrial',
           },
           {
             type: 'docSidebar',
