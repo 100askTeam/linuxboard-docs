@@ -6,13 +6,13 @@ sidebar_position: 2
 ## 烧写固件至SDNand
 ### 准备工作
 **硬件：**
-* T113s3-SDNAND主板 x1
+* T113s4-SDNAND主板 x1
 * usb TypeC线 X2
 
 **软件：**
 * 全志线刷工具：[AllwinnertechPhoeniSuit.zip](https://dl.100ask.net/Hardware/MPU/T113i-Industrial/Tools/AllwinnertechPhoeniSuit.zip)
 * 全志USB烧录驱动：[AllwinnerUSBFlashDeviceDriver.zip](https://dl.100ask.net/Hardware/MPU/T113i-Industrial/Tools/AllwinnerUSBFlashDeviceDriver.zip)
-* 镜像：[T113s3-SDNAND-DefaultSystem.7z](https://dl.100ask.net/Hardware/MPU/T113s3-SDNAND/Images/T113s3-SDNAND-DefaultSystem.7z)
+* 镜像：[T113s4-SDNAND-DefaultSystem.7z](https://dl.100ask.net/Hardware/MPU/T113s4-SDNAND/Images/100ask_t113s4sdnand-pro_tina5sdkv1.2_v1.zip)
 > 镜像说明：该镜像不支持CAN，RS485功能，与网口，触摸屏引脚冲突，在相应的板载功能文档里有提供对应的镜像。该镜像的md5值：9a559e0814e6c5a8019c8da2c0d4e912
 
 ### 连接开发板
@@ -20,10 +20,10 @@ sidebar_position: 2
 
 ![image-20241126161856166](images/image-20241126161856166.png)
 
-将两个TypeC线分别连至 T113s3-SDNAND 开发板 ①`OTG烧录接口 ` 、②`调试&串口接口`  Typec线另一端 连接至 电脑USB接口，接着将电源线接入③`电源接口`，连接成功后，开关往上图右边方向拨动。
+将两个TypeC线分别连至 T113s4-SDNAND 开发板 ①`OTG烧录接口 ` 、②`调试&串口接口`  Typec线另一端 连接至 电脑USB接口，接着将电源线接入③`电源接口`，连接成功后，开关往上图右边方向拨动。
 
 ### 安装usb驱动
-在我们连接好开发板以后，先按住 T113s3-SDNAND 开发板 `烧录模式按键` 也称为**FEL** 烧写模式按键，之后按一下 `系统复位按键`也称 **RESET** 复位键，就可以自动进入烧写模式。
+在我们连接好开发板以后，先按住 T113s4-SDNAND 开发板 `烧录模式按键` 也称为**FEL** 烧写模式按键，之后按一下 `系统复位按键`也称 **RESET** 复位键，就可以自动进入烧写模式。
 
 ![image-20241126162218125](images/image-20241126162218125.png)
 
@@ -77,7 +77,7 @@ install.bat
 ### 运行软件烧写
 将下载下来的全志线刷工具 **AllwinnertechPhoeniSuit** 解压缩，同时将**SDNand系统镜像**下载下来也进行解压缩。
 
-解压后，得到一个 **T113s3-SDNAND-DefaultSystem.img** 镜像，是用于烧录到SDNand镜像得。另一个是**AllwinnertechPhoeniSuit**文件夹。
+解压后，得到一个 **T113s4-SDNAND-DefaultSystem.img** 镜像，是用于烧录到SDNand镜像得。另一个是**AllwinnertechPhoeniSuit**文件夹。
 
 首先我们进入到 **AllwinnertechPhoeniSuit** 目录下 找到 **PhoenixSuit.exe** 双击运行。
 
@@ -86,7 +86,7 @@ install.bat
 ![PhoenixSuit_001](images/PhoenixSuit_001.png)
 
 
-​接下来 我们需要切换到 **一键刷机**窗口，如下图所示，点击红框标号①，在弹出的新窗口内，我们点击 红框② **浏览** 找到我们的 SD Nand 系统镜像  **T113s3-SDNAND-DefaultSystem.img** ，选中镜像后，最后点击红框③ **全盘擦除升级** 
+​接下来 我们需要切换到 **一键刷机**窗口，如下图所示，点击红框标号①，在弹出的新窗口内，我们点击 红框② **浏览** 找到我们的 SD Nand 系统镜像  **T113s4-SDNAND-DefaultSystem.img** ，选中镜像后，最后点击红框③ **全盘擦除升级** 
 
 ![image-20241126161345831](images/image-20241126161345831.png)
 

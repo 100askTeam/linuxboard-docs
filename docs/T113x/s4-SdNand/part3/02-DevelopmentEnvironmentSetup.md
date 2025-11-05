@@ -4,54 +4,34 @@ sidebar_position: 2
 
 # 开发环境搭建
 
-本章节将讲解如何在 **ubuntu18.04.6** 搭建 T113s3prov1.3 sdnand版本的开发环境。
+本章节将讲解如何在 **ubuntu18.04.6** 搭建 T113s4prov1.3 sdnand版本的开发环境。
 
-## 获取Tina5.0-SDK源码
+## 获取Tina5源码
 
-首先，在Windows上访问下面的论坛地址，打开Tina5-SDK基础包获取：[tina5.0-sdk下载地址](https://forums.100ask.net/t/topic/7393) 。
+首先，在Windows上访问下面的论坛地址，打开Tina5-SDK基础包获取：通过网盘分享的文件：T113s4sdnand-SDK
+链接: https://pan.baidu.com/s/1JhS8JNbhPgcCiaVDay_rYw?pwd=bdz2 提取码: bdz2 
 
-> 通过百度网盘下载，大小约3.3G，名称为tina5sdk-bsp-50ae436fe556be2253856af283b1e094.tar.gz 下载完成后通过网络等方式拷贝到虚拟机目录下。
+> 通过百度网盘下载，大小约21.81G，名称为t113s4-tin5SDK-8939a92cf6401f1d2e156bc1e248d5e4.tar.gz 下载完成后通过网络等方式拷贝到虚拟机目录下。
 
 把基础包拷贝到虚拟机之后，执行以下指令，进行解压：
 
 ~~~bash
-ubuntu@ubuntu1804:~$ tar -xvf  tina5sdk-bsp-50ae436fe556be2253856af283b1e094.tar.gz
+ubuntu@ubuntu1804:~$ tar -xvf t113s4-tin5SDK-8939a92cf6401f1d2e156bc1e248d5e4.tar.gz -c tina5sdk-bsp
 ~~~
 
-解压后，sdk基础包的命名是`tina5sdk-bsp`。
-
-以上只是获取一个Tina5-SDK的一个基础包，并 **不是完整** 的SDK源码，还需要获取执行以下几步，才可以得到一个完整的Tina5-SDK源码包。
-
-~~~bash
-ubuntu@ubuntu1804:~$ cd tina5sdk-bsp/
-ubuntu@ubuntu1804:~/tina5sdk-bsp$ git clone https://e.coding.net/weidongshan/tina5/buildroot.git
-ubuntu@ubuntu1804:~/tina5sdk-bsp$ git clone https://e.coding.net/weidongshan/tina5/openwrt.git
-ubuntu@ubuntu1804:~/tina5sdk-bsp$ git clone https://e.coding.net/weidongshan/tina5/platform.git
-ubuntu@ubuntu1804:~/tina5sdk-bsp$ ls
-brandy  build  buildroot  build.sh  device  kernel  openwrt    platform  prebuilt    tools
-ubuntu@ubuntu1804:~/tina5sdk-bsp$ 
-~~~
+解压后，sdk基础包的命名是`t113s4-tin5SDK`。
 
 出现以上文件，说明Tina5-SDK源码获取成功。
 
 ## 获取补丁包
 
-在获取补丁包之前，先删除几个目录，
 
-~~~bash
-rm /home/ubuntu/tina5sdk-bsp/platform/allwinner/wireless/firmware/aic8800/aic8800d80/* -rf
-rm /home/ubuntu/tina5sdk-bsp/kernel/linux-5.4/drivers/net/wireless/aic8800/ -rf
-rm /home/ubuntu/tina5sdk-bsp/brandy/brandy-2.0/spl-pub/* -rf
-~~~
+基于T113s4pro v1.3 sdnand版本开发板，我们提供了一个扩展补丁包，执行以下指令，获取扩展支持仓库，然后加以应用，
 
-基于T113s3pro v1.3 sdnand版本开发板，我们提供了一个扩展补丁包，执行以下指令，获取扩展支持仓库，然后加以应用，
-
-~~~bash
-ubuntu@ubuntu1804:~/tina5sdk-bsp$ cd ~/
-ubuntu@ubuntu1804:~$ git clone https://github.com/DongshanPI/100ASK_T113s3-SdNand_TinaSDK5.git
-ubuntu@ubuntu1804:~$ cd T113S3-PRO_TinaSDK5
-ubuntu@ubuntu1804:~/T113S3-PRO_TinaSDK5$ git submodule update --init
-ubuntu@ubuntu1804:~/T113S3-PRO_TinaSDK5$ cp ./* -rfvd ~/tina5sdk-bsp
+~~~ bash
+ubuntu@ubuntu1804:~$ git clone https://github.com/DongshanPI/100ASK_T113s4-SdNand_TinaSDK5.git
+ubuntu@ubuntu1804:~$ cd ~/tina5sdk-bsp
+ubuntu@ubuntu1804:~/tina5sdk-bsp$ cp ./100ASK_T113s4-SdNand_TinaSDK5/* -rfvd .
 ~~~
 
 ## 编译固件
