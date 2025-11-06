@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkdshanpi_website=globalThis.webpackChunkdshanpi_website||[]).push([[8121],{68070:e=>{e.exports=JSON.parse('{"tags":[{"label":"Allwinner","permalink":"/blog/tags/allwinner","description":"Allwinner tag description","count":2},{"label":"T113x","permalink":"/blog/tags/t113","description":"T113 tag description","count":2}]}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkdshanpi_website=globalThis.webpackChunkdshanpi_website||[]).push([[2634],{30192:(s,e,a)=>{a.r(e),a.d(e,{default:()=>b});a(96540);var i=a(56347),t=a(74848);function b(){return(0,t.jsx)(i.rd,{to:"blog"})}}}]);
