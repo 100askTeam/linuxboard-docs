@@ -11,43 +11,48 @@ sidebar_position: 2
 首先，在Windows上访问下面的论坛地址，打开Tina5-SDK基础包获取：通过网盘分享的文件：T113s4sdnand-SDK
 链接: https://pan.baidu.com/s/1JhS8JNbhPgcCiaVDay_rYw?pwd=bdz2 提取码: bdz2 
 
-> 通过百度网盘下载，大小约21.81G，名称为t113s4-tin5SDK-8939a92cf6401f1d2e156bc1e248d5e4.tar.gz 下载完成后通过网络等方式拷贝到虚拟机目录下。
+> 通过百度网盘下载，大小约21.81G，名称为 t113s4-tin5SDK-8939a92cf6401f1d2e156bc1e248d5e4.tar.gz 下载完成后通过网络等方式拷贝到虚拟机目录下。
 
 把基础包拷贝到虚拟机之后，执行以下指令，进行解压：
 
 ~~~bash
-ubuntu@ubuntu1804:~$ tar -xvf t113s4-tin5SDK-8939a92cf6401f1d2e156bc1e248d5e4.tar.gz -c tina5sdk-bsp
+ubuntu@ubuntu1804:~$ tar -xvf t113s4-tin5SDK-8939a92cf6401f1d2e156bc1e248d5e4.tar.gz 
 ~~~
 
-解压后，sdk基础包的命名是`t113s4-tin5SDK`。
+解压后，sdk基础包的命名是`t113-tin5-v1.2`。
 
 出现以上文件，说明Tina5-SDK源码获取成功。
 
 ## 获取补丁包
 
-
 基于T113s4pro v1.3 sdnand版本开发板，我们提供了一个扩展补丁包，执行以下指令，获取扩展支持仓库，然后加以应用，
 
 ~~~ bash
 ubuntu@ubuntu1804:~$ git clone https://github.com/DongshanPI/100ASK_T113s4-SdNand_TinaSDK5.git
-ubuntu@ubuntu1804:~$ cd ~/tina5sdk-bsp
-ubuntu@ubuntu1804:~/tina5sdk-bsp$ cp ./100ASK_T113s4-SdNand_TinaSDK5/* -rfvd .
+ubuntu@ubuntu1804:~$ cd t113-tin5-v1.2/
+ubuntu@ubuntu1804:~/t113-tin5-v1.2$ cp ../100ASK_T113s4-SdNand_TinaSDK5/* -rfvd .
 ~~~
+
+![image-20251106114156868](./images/image-20251106114156868.png)
 
 ## 编译固件
 
-进入 sdk 源码根目录 `tina5sdk-bsp` ，执行以下指令，删除配置文件：
+进入 sdk 源码根目录 `t113-tin5-v1.2` ，执行以下指令，删除配置文件：
 
 ~~~bash
-ubuntu@ubuntu1804:~$ cd tina5sdk-bsp/
-ubuntu@ubuntu1804:~/tina5sdk-bsp$ rm .buildconfig
+ubuntu@ubuntu1804:~$ cd t113-tin5-v1.2/
+ubuntu@ubuntu1804:~/t113-tin5-v1.2$ rm .buildconfig
 ~~~
 
 继续在当前路径下，执行指令，初始化环境变量，
 
+```bash
+ubuntu@ubuntu1804:~/t113-tin5-v1.2$ source build/envsetup.sh
+```
+
 ~~~bash
-ubuntu@ubuntu1804:~/tina5sdk-bsp$ source build/envsetup.sh
-NOTE: The SDK(/home/ubuntu/tina5sdk-bsp) was successfully loaded
+
+NOTE: The SDK(/home/ubuntu/t113-tin5-v1.2) was successfully loaded
 load openwrt... ok
 Please run lunch next for openwrt.
 load buildroot,bsp...ok
@@ -91,129 +96,118 @@ Usage: pack [args]
 
 接着执行编译指令，首次编译需要我们选择相应的单板选项。如下：
 
+![image-20251106114416322](./images/image-20251106114416322.png)
+
 ~~~bash
-ubuntu@ubuntu1804:~/tina5sdk-bsp$ ./build.sh 
+ubuntu@ubuntu1804:~/t113-tin5-v1.2$ ./build.sh config
+11-05 22:42:48.281    2929 D mkcommon  : ========ACTION List: mk_config ;========
+11-05 22:42:48.282    2929 D mkcommon  : options : 
 All available platform:
    0. android
    1. linux
-Choice [android]: 1
+Choice [linux]: 1
 All available linux_dev:
    0. bsp
    1. buildroot
    2. openwrt
-Choice [bsp]: 1
+Choice [buildroot]: 1
 All available ic:
-   0. t113
-   1. t113_i
-Choice [t113]: 0
+   0. t113_s4
+Choice [t113_s4]: 0
 All available board:
-   0. dev
-   1. evb1
-   2. evb1_auto
-   3. evb1_auto_nor
-   4. pro
-Choice [dev]: 2
+   0. 100ask
+   1. 100ask_linux5_10
+Choice [100ask]: 0
 All available flash:
    0. default
    1. nor
 Choice [default]: 0
-INFO: Prepare toolchain ...
-INFO: kernel defconfig: generate /home/ubuntu/tina5sdk-bsp/out/t113/kernel/build/.config by /home/ubuntu/tina5sdk-bsp/device/config/chips/t113/configs/evb1_auto/linux-5.4/config-5.4
-INFO: Prepare toolchain ...
-make: Entering directory '/home/ubuntu/tina5sdk-bsp/kernel/linux-5.4'
-make[1]: Entering directory '/home/ubuntu/tina5sdk-bsp/out/t113/kernel/build'
-  GEN     Makefile
-*** Default configuration is based on '../../../../../device/config/chips/t113/configs/evb1_auto/linux-5.4/config-5.4'
-#
-# No change to .config
-#
-make[1]: Leaving directory '/home/ubuntu/tina5sdk-bsp/out/t113/kernel/build'
-make: Leaving directory '/home/ubuntu/tina5sdk-bsp/kernel/linux-5.4'
-make: Entering directory '/home/ubuntu/tina5sdk-bsp/buildroot/buildroot-201902'
-  GEN     /home/ubuntu/tina5sdk-bsp/out/t113/evb1_auto/buildroot/buildroot/Makefile
+11-05 22:42:58.438    2929 I mkcommon  : kernel relative recovery defconfig: ../../../../../device/config/chips/t113_s4/configs/100ask/linux-5.4/config-5.4-recovery
+11-05 22:42:58.438    2929 I mkcommon  : kernel absolute recovery defconfig: /home/ubuntu/t113-tin5-v1.2/device/config/chips/t113_s4/configs/100ask/linux-5.4/config-5.4-recovery
+11-05 22:42:58.487    2929 I mkcommon  : Prepare toolchain ...
+11-05 22:42:58.494    2929 D mkcommon  : Uncompressing '/home/ubuntu/t113-tin5-v1.2/prebuilt/kernelbuilt/arm/gcc-linaro-5.3.1-2016.05-x86_64_arm-linux-gnueabi.tar.xz' to '/home/ubuntu/t113-tin5-v1.2/out/toolchain/gcc-linaro-5.3.1-2016.05-x86_64_arm-linux-gnueabi' ...
+11-05 22:43:14.850    2929 I mkcommon  : kernel defconfig: generate /home/ubuntu/t113-tin5-v1.2/out/t113_s4/kernel/build/.config by /home/ubuntu/t113-tin5-v1.2/device/config/chips/t113_s4/configs/100ask/linux-5.4/config-5.4
+11-05 22:43:14.851    2929 I mkcommon  : Prepare toolchain ...
+11-05 22:43:14.932    2929 D mkcommon  : make: Entering directory '/home/ubuntu/t113-tin5-v1.2/kernel/linux-5.4'
+11-05 22:43:14.934    2929 D mkcommon  : make[1]: Entering directory '/home/ubuntu/t113-tin5-v1.2/out/t113_s4/kernel/build'
+11-05 22:43:15.055    2929 D mkcommon  : GEN     Makefile
+11-05 22:43:15.062    2929 D mkcommon  : HOSTCC  scripts/basic/fixdep
+11-05 22:43:15.472    2929 D mkcommon  : HOSTCC  scripts/kconfig/conf.o
+11-05 22:43:15.601    2929 D mkcommon  : HOSTCC  scripts/kconfig/confdata.o
+11-05 22:43:15.842    2929 D mkcommon  : HOSTCC  scripts/kconfig/expr.o
+11-05 22:43:16.017    2929 D mkcommon  : LEX     scripts/kconfig/lexer.lex.c
+11-05 22:43:16.040    2929 D mkcommon  : YACC    scripts/kconfig/parser.tab.[ch]
+11-05 22:43:16.080    2929 D mkcommon  : HOSTCC  scripts/kconfig/lexer.lex.o
+11-05 22:43:16.247    2929 D mkcommon  : HOSTCC  scripts/kconfig/parser.tab.o
+11-05 22:43:16.562    2929 D mkcommon  : HOSTCC  scripts/kconfig/preprocess.o
+11-05 22:43:16.662    2929 D mkcommon  : HOSTCC  scripts/kconfig/symbol.o
+11-05 22:43:16.931    2929 D mkcommon  : HOSTLD  scripts/kconfig/conf
+11-05 22:43:16.949    2929 D mkcommon  : *** Default configuration is based on '../../../../../device/config/chips/t113_s4/configs/100ask/linux-5.4/config-5.4'
+11-05 22:43:17.611    2929 D mkcommon  : #
+11-05 22:43:17.612    2929 D mkcommon  : # configuration written to .config
+11-05 22:43:17.613    2929 D mkcommon  : #
+11-05 22:43:17.616    2929 D mkcommon  : make[1]: Leaving directory '/home/ubuntu/t113-tin5-v1.2/out/t113_s4/kernel/build'
+11-05 22:43:17.618    2929 D mkcommon  : make: Leaving directory '/home/ubuntu/t113-tin5-v1.2/kernel/linux-5.4'
+make: Entering directory '/home/ubuntu/t113-tin5-v1.2/buildroot/buildroot-201902'
+mkdir -p /home/ubuntu/t113-tin5-v1.2/out/t113_s4/100ask/buildroot/buildroot/build/buildroot-config/lxdialog
+PKG_CONFIG_PATH="" make CC="/usr/bin/gcc" HOSTCC="/usr/bin/gcc" \
+    obj=/home/ubuntu/t113-tin5-v1.2/out/t113_s4/100ask/buildroot/buildroot/build/buildroot-config -C support/kconfig -f Makefile.br conf
+/usr/bin/gcc -D_GNU_SOURCE -D_DEFAULT_SOURCE -I/usr/include/ncursesw -DCURSES_LOC="<ncurses.h>" -DNCURSES_WIDECHAR=1 -DLOCALE  -I/home/ubuntu/t113-tin5-v1.2/out/t113_s4/100ask/buildroot/buildroot/build/buildroot-config -DCONFIG_=\"\"  -MM *.c > /home/ubuntu/t113-tin5-v1.2/out/t113_s4/100ask/buildroot/buildroot/build/buildroot-config/.depend 2>/dev/null || :
+/usr/bin/gcc -D_GNU_SOURCE -D_DEFAULT_SOURCE -I/usr/include/ncursesw -DCURSES_LOC="<ncurses.h>" -DNCURSES_WIDECHAR=1 -DLOCALE  -I/home/ubuntu/t113-tin5-v1.2/out/t113_s4/100ask/buildroot/buildroot/build/buildroot-config -DCONFIG_=\"\"   -c conf.c -o /home/ubuntu/t113-tin5-v1.2/out/t113_s4/100ask/buildroot/buildroot/build/buildroot-config/conf.o
+/usr/bin/gcc -D_GNU_SOURCE -D_DEFAULT_SOURCE -I/usr/include/ncursesw -DCURSES_LOC="<ncurses.h>" -DNCURSES_WIDECHAR=1 -DLOCALE  -I/home/ubuntu/t113-tin5-v1.2/out/t113_s4/100ask/buildroot/buildroot/build/buildroot-config -DCONFIG_=\"\"  -I. -c /home/ubuntu/t113-tin5-v1.2/out/t113_s4/100ask/buildroot/buildroot/build/buildroot-config/zconf.tab.c -o /home/ubuntu/t113-tin5-v1.2/out/t113_s4/100ask/buildroot/buildroot/build/buildroot-config/zconf.tab.o
+/usr/bin/gcc -D_GNU_SOURCE -D_DEFAULT_SOURCE -I/usr/include/ncursesw -DCURSES_LOC="<ncurses.h>" -DNCURSES_WIDECHAR=1 -DLOCALE  -I/home/ubuntu/t113-tin5-v1.2/out/t113_s4/100ask/buildroot/buildroot/build/buildroot-config -DCONFIG_=\"\"   /home/ubuntu/t113-tin5-v1.2/out/t113_s4/100ask/buildroot/buildroot/build/buildroot-config/conf.o /home/ubuntu/t113-tin5-v1.2/out/t113_s4/100ask/buildroot/buildroot/build/buildroot-config/zconf.tab.o  -o /home/ubuntu/t113-tin5-v1.2/out/t113_s4/100ask/buildroot/buildroot/build/buildroot-config/conf
+rm /home/ubuntu/t113-tin5-v1.2/out/t113_s4/100ask/buildroot/buildroot/build/buildroot-config/zconf.tab.c
+  GEN     /home/ubuntu/t113-tin5-v1.2/out/t113_s4/100ask/buildroot/buildroot/Makefile
+../config/buildroot/allwinner/display/gpu_um_pub/Config.in:21:warning: config symbol defined without type
 Config.in.legacy:1769:warning: choice value used outside its choice group
 #
-# configuration written to /home/ubuntu/tina5sdk-bsp/out/t113/evb1_auto/buildroot/buildroot/.config
+# configuration written to /home/ubuntu/t113-tin5-v1.2/out/t113_s4/100ask/buildroot/buildroot/.config
 #
-make: Leaving directory '/home/ubuntu/tina5sdk-bsp/buildroot/buildroot-201902'
-INFO: buildroot defconfig is sun8iw20p1_t113_defconfig 
-INFO: clean buildserver
-INFO: prepare_buildserver
-========ACTION List: build_linuxdev;========
-options : 
-INFO: ----------------------------------------
-INFO: build linuxdev ...
-INFO: chip: sun8iw20p1
-INFO: platform: linux
-INFO: kernel: linux-5.4
-INFO: board: evb1_auto
-INFO: output: /home/ubuntu/tina5sdk-bsp/out/t113/evb1_auto/buildroot
-INFO: ----------------------------------------
-INFO: don't build dtbo ...
-INFO: build arisc
-find: '/home/ubuntu/tina5sdk-bsp/brandy/brandy-2.0/spl': No such file or directory
-find: '/home/ubuntu/tina5sdk-bsp/brandy/dramlib': No such file or directory
-INFO: build_bootloader: brandy_path=/home/ubuntu/tina5sdk-bsp/brandy/brandy-2.0
-INFO: skip build brandy.
-INFO: build kernel ...
-INFO: prepare_buildserver
-INFO: Prepare toolchain ...
-Makefile:681: arch//Makefile: No such file or directory
-make: *** No rule to make target 'arch//Makefile'.  Stop.
-ERROR: build  Failed
-INFO: build kernel failed
+make: Leaving directory '/home/ubuntu/t113-tin5-v1.2/buildroot/buildroot-201902'
+11-05 22:43:25.031    2929 I mkcommon  : buildroot defconfig is sun8iw20p1_t113_defconfig 
+11-05 22:43:25.352    2929 I mkcommon  : clean buildserver
+11-05 22:43:25.353    2929 I mkcommon  : prepare_buildserve
 ~~~
 
-首次编译，会出现以上报错，加上参数 `-d` ，接着编译。
+配置完成后，可以执行 ./build.sh 开始编译。
 
 ~~~bash
-ubuntu@ubuntu1804:~/tina5sdk-bsp$ ./build.sh -d
-========ACTION List: build_linuxdev;========
-options : 
-INFO: ----------------------------------------
-INFO: build linuxdev ...
-INFO: chip: sun8iw20p1
-INFO: platform: linux
-INFO: kernel: linux-5.4
-INFO: board: evb1_auto
-INFO: output: /home/ubuntu/tina5sdk-bsp/out/t113/evb1_auto/buildroot
-INFO: ----------------------------------------
-INFO: don't build dtbo ...
-INFO: build arisc
-......省略
-Exportable Squashfs 4.0 filesystem, xz compressed, data block size 131072
-        compressed data, compressed metadata, compressed fragments, no xattrs
-        duplicates are removed
-Filesystem size 56836.34 Kbytes (55.50 Mbytes)
-        38.89% of uncompressed filesystem size (146148.83 Kbytes)
-Inode table size 54570 bytes (53.29 Kbytes)
-        23.73% of uncompressed inode table size (229985 bytes)
-Directory table size 70900 bytes (69.24 Kbytes)
-        49.04% of uncompressed directory table size (144579 bytes)
-Number of duplicate files found 37
-Number of inodes 6685
-Number of files 5570
-Number of fragments 397
-Number of symbolic links  813
-Number of device nodes 0
-Number of fifo nodes 0
-Number of socket nodes 0
-Number of directories 302
-Number of ids (unique uids + gids) 1
-Number of uids 1
-        root (0)
-Number of gids 1
-        root (0)
-INFO: pack rootfs ok ...
-INFO: ----------------------------------------
-INFO: build Tina OK.
-INFO: ----------------------------------------
+ubuntu@ubuntu1804:~/t113-tin5-v1.2$ ./build.sh
+11-05 22:46:00.269    6893 D mkcommon  : ========ACTION List: build_linuxdev;========
+11-05 22:46:00.270    6893 D mkcommon  : options : 
+11-05 22:46:00.271    6893 I mkcommon  : ----------------------------------------
+11-05 22:46:00.271    6893 I mkcommon  : build linuxdev ...
+11-05 22:46:00.272    6893 I mkcommon  : chip: sun8iw20p1
+11-05 22:46:00.273    6893 I mkcommon  : platform: linux
+11-05 22:46:00.275    6893 I mkcommon  : kernel: linux-5.4
+11-05 22:46:00.276    6893 I mkcommon  : board: 100ask
+11-05 22:46:00.277    6893 I mkcommon  : output: /home/ubuntu/t113-tin5-v1.2/out/t113_s4/100ask/buildroot
+11-05 22:46:00.278    6893 I mkcommon  : ----------------------------------------
+11-05 22:46:00.288    6893 I mkcommon  : build rtos ...
+11-05 22:46:00.325    6893 D mkcommon  : Setup env done!
+11-05 22:46:00.327    6893 D mkcommon  : Run lunch_rtos to select project
+11-05 22:46:00.360    6893 D mkcommon  : last=t113_s4_c906_evb1_auto
+11-05 22:46:00.361    6893 D mkcommon  : select=t113_s4_c906_evb1_auto...
+11-05 22:46:00.362    6893 D mkcommon  : t113_s4_c906/evb1_auto
+11-05 22:46:00.366    6893 D mkcommon  : '/home/ubuntu/t113-tin5-v1.2/rtos/lichee/rtos/projects/t113_s4_c906/evb1_auto/defconfig' -> '/home/ubuntu/t113-tin5-v1.2/rtos/lichee/rtos/.config'
+11-05 22:46:00.381    6893 D mkcommon  : ============================================
+11-05 22:46:00.382    6893 D mkcommon  : RTOS_BUILD_TOP=/home/ubuntu/t113-tin5-v1.2/rtos
+11-05 22:46:00.383    6893 D mkcommon  : RTOS_TARGET_ARCH=riscv
+11-05 22:46:00.384    6893 D mkcommon  : RTOS_TARGET_CHIP=sun8iw20p1
+11-05 22:46:00.385    6893 D mkcommon  : RTOS_TARGET_DEVICE=t113_s4_c906
+11-05 22:46:00.386    6893 D mkcommon  : RTOS_PROJECT_NAME=t113_s4_c906_evb1_auto
+11-05 22:46:00.386    6893 D mkcommon  : ============================================
+11-05 22:46:00.392    6893 D mkcommon  : Run mrtos_menuconfig to config rtos
+11-05 22:46:00.393    6893 D mkcommon  : Run m or mrtos to build rtos
+11-05 22:46:00.393    6893 D mkcommon  : build rtos ...
+11-05 22:46:00.408    6893 D mkcommon  : Dark Builder
+
 ~~~
 
-需要等待一段时间，编译完成后，在当前目录下，执行以下指令，进行镜像打包，
+等待一段时间（约30~90分）具体根据电脑性能而定，编译完成后，在当前目录下，执行以下指令，进行镜像打包，
 
 ~~~bash
-ubuntu@ubuntu1804:~/tina5sdk-bsp$ ./build.sh pack
+ubuntu@ubuntu1804:~/t113-tin5-v1.2$ ./build.sh pack
 ~~~
 
 镜像打包完成后，执行 `cout` 会进入到镜像生成的路径。
