@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 1
 ---
 # 安装并配置开发环境
 
@@ -18,19 +18,17 @@ sidebar_position: 3
 
 ### 获取Ubuntu系统镜像
 
-* 使用浏览器打开  https://www.linuxvmimages.com/images/ubuntu-1804/     找到如下箭头所示位置，点击 **VMware Image** 下载。
+* 使用浏览器打开  https://www.linuxvmimages.com/images/ubuntu-2404/     找到如下箭头所示位置，点击 **VMware Image** 下载。
 
-![linuxvmimage_downlaod_001](https://photos.100ask.net/dongshanpi-docs/DongshanNezhaSTU/linuxvmimage_downlaod_001.png)
+![image-20251105193109852](./images/image-20251105193109852.png)
 
 下载过程可能会持续 10 到 30 分钟，具体要依据网速而定。
-
-
 
 ## 运行虚拟机系统
 
 1. 解压缩 虚拟机系统镜像压缩包，解压缩完成后，可以看到里面有如下两个文件，接下来，我们会使用 后缀名为 .vmx 这个 配置文件。
 
-![ConfigHost_003](https://photos.100ask.net/dongshanpi-docs/DongshanNezhaSTU/ConfigHost_003.png)
+![image-20251105193254350](./images/image-20251105193254350.png)
 
 2.  打开已经安装好的 vmware workstation 软件 点击左上角的 **文件** --> **打开** 找到上面的 Ubuntu_18.04.6_VM_LinuxVMImages.COM.vmx  文件，之后会弹出新的虚拟机对话框页面。
 
@@ -38,7 +36,9 @@ sidebar_position: 3
 
 3. 如下图所示为  为我们已经虚拟机的配置界面，那面我们可以 点击 红框 2 编辑虚拟机设置 里面 去调正 我们虚拟机的 内存 大小 和处理器个数，建议 最好 内存为 4GB 及以上，处理器至少4 个。 调整好以后，就可以 点击 **开启此虚拟机** 来运行此虚拟机了
 
-![ConfigHost_005](https://photos.100ask.net/dongshanpi-docs/DongshanNezhaSTU/ConfigHost_005.png)
+![image-20251105193322428](./images/image-20251105193322428.png)
+
+![image-20251105193356713](./images/image-20251105193356713.png)
 
 第一次打开会提示  一个 虚拟机已经复制的 对话框，我们这时，只需要 点击  我已复制虚拟机  就可以继续启动虚拟机系统了。
 
@@ -83,4 +83,4 @@ sudo apt install open-vm-tools-desktop
 
 ![ConfigHost_008](https://photos.100ask.net/dongshanpi-docs/DongshanNezhaSTU/ConfigHost_008.png)
 
-做完这一步以后，就可以继续往下，获取源码 开始 DshanPI-ROSx R818 开发板的开发之旅了。
+做完这一步以后，就可以继续往下，获取源码 开始开发板的开发之旅了。

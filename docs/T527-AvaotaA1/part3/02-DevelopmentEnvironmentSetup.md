@@ -1,7 +1,7 @@
 ---
 sidebar_position: 2
 ---
-# 开发环境搭建
+# Tina5SDK源码配置
 
 本章节将介绍如何搭建 全志527 Tina 开发环境。
 
