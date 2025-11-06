@@ -110,13 +110,8 @@ const config = {
             sidebarId: 't527Sidebar',
             position: 'left',
             label: 'T527-AvaotaA1',
-          },          
-          {
-            type: 'docSidebar',
-            sidebarId: 'h616Sidebar',
-            position: 'left',
-            label: 'H616-YuzukiHD',
-          },         
+          },
+          {to: '/blog', label: 'Blog', position: 'right'},
           {
             type: 'localeDropdown',
             position: 'right',
