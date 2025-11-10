@@ -1,7 +1,70 @@
 ---
 sidebar_position: 1
 ---
+
+import LearningPathGuide from '@site/src/components/LearningPathGuide';
+
 # T527-AvaotaA1
+
+<LearningPathGuide 
+  title="T527-AvaotaA1开发板学习路线"
+  sections={[
+    {
+      id: 'intro',
+      title: '01 入门',
+      description: '本章节将详细介绍T527-AvaotaA1开发板的基本信息、技术参数，以及如何快速上手使用。',
+      items: [
+        { name: '产品介绍', url: '/docs/T527-AvaotaA1/BoardIntroduction' },
+        { name: '源码与镜像系统', url: '/docs/T527-AvaotaA1/SourceCodeImageSystem' },
+      ]
+    },
+    {
+      id: 'quick-start',
+      title: '02 快速启动',
+      description: '本章节将指导您完成系统烧录和快速启动T527-AvaotaA1开发板。',
+      items: [
+        { name: '主线系统烧录', url: '/docs/T527-AvaotaA1/part1/part1-1/FlashSystemMianLine' },
+        { name: 'TinaSUNXI系统烧录', url: '/docs/T527-AvaotaA1/part1/part1-1/FlashSystemTinaSUNXI' },
+        { name: '快速上手', url: '/docs/T527-AvaotaA1/part1/QuickStart' },
+        { name: '常见问题', url: '/docs/T527-AvaotaA1/part1/SomeQustion' },
+        { name: '学习路径', url: '/docs/T527-AvaotaA1/part1/StudyPath' }
+      ]
+    },
+    {
+      id: 'board-functions',
+      title: '03 板载功能体验',
+      description: '本章节将介绍T527-AvaotaA1开发板的各种板载功能和使用方法。',
+      items: [
+        { name: 'WiFi联网', url: '/docs/T527-AvaotaA1/part2/WiFiNetworking' },
+        { name: 'WiFi联网(版本2)', url: '/docs/T527-AvaotaA1/part2/part2-1/WiFiNetworking' },
+        { name: 'WiFi联网(版本3)', url: '/docs/T527-AvaotaA1/part2/part2-2/WiFiNetworking' },
+        { name: 'WiFi联网(版本4)', url: '/docs/T527-AvaotaA1/part2/part2-3/WiFiNetworking' },
+        { name: 'WiFi联网(版本5)', url: '/docs/T527-AvaotaA1/part2/part2-4/WiFiNetworking' }
+      ]
+    },
+    {
+      id: 'dev-env',
+      title: '04 开发环境搭建',
+      description: '本章节将介绍如何搭建T527-AvaotaA1开发板的开发环境。',
+      items: [
+        { name: '配置主机环境', url: '/docs/T527-AvaotaA1/part3/ConfigHostEnv' },
+        { name: '开发环境搭建', url: '/docs/T527-AvaotaA1/part3/DevelopmentEnvironmentSetup' }
+      ]
+    },
+    {
+      id: 'app-dev',
+      title: '05 应用开发',
+      description: '本章节将介绍如何在T527-AvaotaA1平台上进行应用程序开发。',
+      items: [
+        { name: 'HelloWorld应用', url: '/docs/T527-AvaotaA1/part4/HelloWorld' },
+        { name: 'HelloWorld应用(进阶)', url: '/docs/T527-AvaotaA1/part5/HelloWorld' }
+      ]
+    }
+  ]}
+/>
+
+
+
 
 * 此开发板的任何问题都可以在我们的论坛交流讨论 https://forums.100ask.net/c/aw/15 
 
@@ -32,4 +95,3 @@ import TabItem from '@theme/TabItem';
 ### SOC框架
 
 ![image-20240606123235242](./images/image-20240606123235242-e6f956e289acaf0de84be5204a242748.png)
-
