@@ -1,0 +1,310 @@
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.guideTitle {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.guideTitle::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(to right, #3366cc, #66a3ff);
+  border-radius: 2px;
+}
+
+.guideContainer {
+  position: relative;
+  width: 100%;
+  min-height: 800px;
+}
+
+/* 行容器 - 包含左右两个章节 */
+.rowContainer {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+/* 中间连接线 - 水平连接左右浮动块 */
+.rowContainer.withConnection::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #3366cc;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+/* 中心圆点 - 连接水平线与中心竖直线 */
+.rowContainer.withConnection::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #3366cc;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+/* 左右章节的圆点 - 连接浮动块与水平线 */
+.sectionContainer::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #3366cc;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.sectionContainer.left::after {
+  right: -6px; /* 圆点位于右侧边缘 */
+}
+
+.sectionContainer.right::after {
+  left: -6px; /* 圆点位于左侧边缘 */
+}
+
+/* 中心竖直线 - 带有底部箭头，表示学习路线 */
+.guideContainer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 20px;
+  left: 50%;
+  width: 4px;
+  background: linear-gradient(to bottom, 
+    #cc0000, /* 暗红 */
+    #cc6600, /* 暗橙 */
+    #cccc00, /* 暗黄 */
+    #009900, /* 暗绿 */
+    #0066cc, /* 暗蓝 */
+    #3d0066, /* 暗靛 */
+    #660099  /* 暗紫 */
+  );
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+/* 底部箭头 - 表示学习路线方向 */
+.guideContainer::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 15px solid #660099; /* 暗紫色，与彩虹渐变的最后一色相匹配 */
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+/* 章节容器 */
+.sectionContainer {
+  position: relative;
+  width: 48%;
+  padding: 0;
+  margin-bottom: 0; /* 移除底部边距，使用rowContainer的边距 */
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.sectionContainer.left {
+  margin-right: auto;
+  margin-left: 0;
+  padding-right: 20px;
+}
+
+.sectionContainer.right {
+  margin-left: auto;
+  margin-right: 0;
+  padding-left: 20px;
+  /* 移除margin-top，使左右浮动块在同一水平线上 */
+}
+
+/* 章节内容 */
+.sectionContent {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid #eaeaea;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.sectionContent::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background-color: #3366cc;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.sectionContainer.active .sectionContent::before {
+  opacity: 1;
+}
+
+.sectionContainer:hover .sectionContent {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+/* 章节标题 */
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  color: #333;
+}
+
+/* 章节描述 */
+.sectionDescription {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #666;
+  margin: 0 0 1.5rem 0;
+}
+
+/* 章节项 */
+.sectionItems {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.item {
+  background-color: #f5f7fa;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  color: #3366cc;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.item:hover {
+  background-color: #e6f0ff;
+  border-color: #3366cc;
+}
+
+/* 箭头连接器 */
+.arrowConnector {
+  position: absolute;
+  top: 50%;
+  width: 4%;
+  height: 2px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+}
+
+.arrowConnector.connectRight {
+  left: 48%;
+}
+
+.arrowConnector.connectLeft {
+  right: 48%;
+  /* 移除top偏移，使箭头连接器在同一水平线上 */
+}
+
+/* 水平连接器 - 连接左右章节 */
+.arrowConnector.connectHorizontal {
+  position: absolute;
+  top: 50%;
+  left: 48%;
+  width: 4%;
+  height: 2px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  transform: translateY(-50%);
+}
+
+/* 箭头线 */
+.arrowLine {
+  flex-grow: 1;
+  height: 2px;
+  background-color: #3366cc;
+}
+
+/* 箭头头部 */
+.arrowHead {
+  width: 0;
+  height: 0;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+}
+
+.arrowHead.pointRight {
+  border-left: 10px solid #3366cc;
+  margin-left: -1px;
+}
+
+.arrowHead.pointLeft {
+  border-right: 10px solid #3366cc;
+  margin-right: -1px;
+}
+
+/* 响应式设计 */
+@media (max-width: 996px) {
+  .sectionContainer {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 3rem;
+  }
+  
+  .sectionContainer::before {
+    content: '';
+    position: absolute;
+    left: 1rem;
+    top: 1.5rem;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: #3366cc;
+  }
+  
+  .guideContainer::after {
+    left: 1.5rem;
+    width: 2px;
+  }
+  
+  .arrowConnector {
+    display: none;
+  }
+}

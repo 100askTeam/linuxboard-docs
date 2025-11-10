@@ -1,7 +1,7 @@
 ---
-sidebar_position: 3
+sidebar_position: 1
 ---
-# 安装并配置开发环境
+# 配置开发环境
 
 
 ## 获取虚拟机系统
