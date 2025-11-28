@@ -16,8 +16,9 @@ sidebar_position: 2
 * 全志线刷工具：[AllwinnertechPhoeniSuit.zip](https://dl.100ask.net/Hardware/MPU/T113i-Industrial/Tools/AllwinnertechPhoeniSuit.zip)
 * 全志USB烧录驱动：[AllwinnerUSBFlashDeviceDriver.zip](https://dl.100ask.net/Hardware/MPU/T113i-Industrial/Tools/AllwinnerUSBFlashDeviceDriver.zip)
 * SpiNand Tina4SDK系统镜像（XR829版本）：[Tina-T113s3-Pro-DefaultSystem.7z](https://dl.100ask.net/Hardware/MPU/100ask_t113-pro/Images/Tina-T113s3-Pro-DefaultSystem.7z)
-* SpiNand Tina4SDK系统镜像（WiFi6增强版本）：[T113s3-WiFi6-DefaultSysterm.7z](https://dl.100ask.net/Hardware/MPU/100ask_t113-pro/Images/T113s3-WiFi6-DefaultSysterm.7z)
-* SpiNand Tina5SDK系统镜像（WiFi6增强版本）：[T113s3-WiFi6-Tina5-DefaultSysterm.7z](https://dl.100ask.net/Hardware/MPU/100ask_t113-pro/Images/T113s3-WiFi6-Tina5-DefaultSysterm.7z)
+* SpiNand Tina4SDK系统镜像（WiFi6增强版本）：[T113s3-WiFi6-DefaultSystem.7z](https://dl.100ask.net/Hardware/MPU/100ask_t113-pro/Images/T113s3-WiFi6-DefaultSystem.7z)
+* SpiNand Tina5SDK系统镜像（XR829版本）：[T113s3-XR829-Tina5-DefaultSystem.7z](https://dl.100ask.net/Hardware/MPU/100ask_t113-pro/Images/T113s3-XR829-Tina5-DefaultSystem.7z)
+* SpiNand Tina5SDK系统镜像（WiFi6增强版本）：[T113s3-WiFi6-Tina5-DefaultSystem.7z](https://dl.100ask.net/Hardware/MPU/100ask_t113-pro/Images/T113s3-WiFi6-Tina5-DefaultSystem.7z)
 
 > 镜像说明：购买哪款开发板，就下载对应的系统镜像。烧录步骤是一致的，下面以SpiNand系统镜像（XR829版本）举例。
 
@@ -148,7 +149,7 @@ install.bat
 
 ### 启动系统
 
-如下启动信息：
+如下启动信息（如果需要输入登录信息，输入 `root`）：
 
 ~~~bash
 [29]HELLO! BOOT0 is starting!

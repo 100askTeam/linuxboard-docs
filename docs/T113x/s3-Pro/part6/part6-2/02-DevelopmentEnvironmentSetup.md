@@ -3,9 +3,7 @@ sidebar_position: 1
 ---
 # 开发环境搭建
 
-本章节将讲解 T113s3-pro (WiFi6增强版aic8800d80) 开发板 Tina5-SDK 的环境搭建。
-
-> T113s3-pro(XR829版本) 目前不支持Tina5-SDK 。
+本章节将讲解 T113s3-pro 开发板 Tina5-SDK 的环境搭建。
 
 ## 获取Tina5-SDK源码
 
@@ -64,7 +62,7 @@ ubuntu@ubuntu1804:~/Tina_SDK$ mv 100ASK_T113s3-PRO_TinaSDK5 ~/
 > 
 > SDK源码包名：100ASK_T113s3-PRO_TinaSDK5
 
-T113s3-pro(WiFi6增强版) 按照如下方式获取扩展支持仓库，然后加以应用：
+如果购买的是 T113s3-pro(WiFi6增强版) 按照如下方式获取扩展支持仓库，然后加以应用：
 
 ~~~bash
 ubuntu@ubuntu1804:~/Tina_SDK$ cd ~/
@@ -72,6 +70,26 @@ ubuntu@ubuntu1804:~$ git clone https://github.com/DongshanPI/100ASK_T113-PRO_Tin
 ubuntu@ubuntu1804:~$ cd 100ASK_T113-PRO_TinaSDK5/
 ubuntu@ubuntu1804:~/100ASK_T113-PRO_TinaSDK5$ ls
 buildroot  device  kernel  platform  README.md
+ubuntu@ubuntu1804:~/100ASK_T113-PRO_TinaSDK5$ git submodule update --init
+ubuntu@ubuntu1804:~/100ASK_T113-PRO_TinaSDK5$ cp ./* -rfvd ~/100ASK_T113s3-PRO_TinaSDK5
+~~~
+
+## T113s3-pro(XR829版)补丁获取
+
+> 注意区分：补丁包名 和 SDK源码包名 有点类似。
+>
+> 补丁包名：   100ASK_T113-PRO_TinaSDK5
+>
+> SDK源码包名：100ASK_T113s3-PRO_TinaSDK5
+
+如果购买的是 T113s3-pro(XR829版) 按照如下方式获取扩展支持仓库，然后加以应用：
+
+~~~bash
+ubuntu@ubuntu1804:~/Tina_SDK$ cd ~/
+ubuntu@ubuntu1804:~$ git clone -b tina5v1p2-xr829 https://github.com/DongshanPI/100ASK_T113-PRO_TinaSDK5.git
+ubuntu@ubuntu1804:~$ cd 100ASK_T113-PRO_TinaSDK5/
+ubuntu@ubuntu1804:~/100ASK_T113-PRO_TinaSDK5$ ls
+buildroot  device  kernel
 ubuntu@ubuntu1804:~/100ASK_T113-PRO_TinaSDK5$ git submodule update --init
 ubuntu@ubuntu1804:~/100ASK_T113-PRO_TinaSDK5$ cp ./* -rfvd ~/100ASK_T113s3-PRO_TinaSDK5
 ~~~
