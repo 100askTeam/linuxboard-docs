@@ -80,44 +80,124 @@ const config = {
       colorMode: {
         respectPrefersColorScheme: true,
       },
+      docs: {
+        sidebar: {
+          autoCollapseCategories: true,
+          hideable: true,
+        },
+      },
       navbar: {
         title: '东山Π',
         logo: {
           alt: '东山PI',
           src: 'img/logo.svg',
         },
-        items: [ 
+        items: [
+          { to: '/blog', label: 'Blog', position: 'right' },
           {
-            type: 'docSidebar',
-            sidebarId: 't113xSidebar',
+            type: 'dropdown',
+            label: 'T113系列',
             position: 'left',
-            label: 'T113x',
-          },    
-          {
-            type: 'docSidebar',
-            sidebarId: 'd1dSidebar',
-            position: 'left',
-            label: 'D1-Nezha',
+            items: [
+              {
+              type: 'docSidebar',
+              sidebarId: 't113s3proSidebar',
+              label: 'T113s3-PRO',
+              },
+              {
+              type: 'docSidebar',
+              sidebarId: 't113s4sdnandSidebar',
+              label: 'T113s4-SDNAND',
+              },
+              {
+              type: 'docSidebar',
+              sidebarId: 't113iSidebar',
+              label: 'T113i-Industrial',
+              },
+              {
+              type: 'docSidebar',
+              sidebarId: 't113s3sdnandSidebar',
+              label: 'T113s3-SdNand',
+              },                             
+            ],
           },
           {
-            type: 'docSidebar',
-            sidebarId: 'a133Sidebar',
+            type: 'dropdown',
+            label: 'D1系列',
             position: 'left',
-            label: 'A133-mCore',
-          },
+            items: [
+              {
+              type: 'docSidebar',
+              sidebarId: 'dshannezhastuSidebar',
+              label: '东山哪吒STU',
+              },
+              {
+              type: 'docSidebar',
+              sidebarId: 'd1hdualdisplaySidebar',
+              label: 'D1双屏异显',
+              },
+              {
+              type: 'docSidebar',
+              sidebarId: 'd1scvbsSidebar',
+              label: 'D1s-CVBS',
+              },
+              {
+              label: 'Dongshanpi-D1s',
+              href: 'https://dongshanpi.com/',
+              },                                            
+            ],
+          }, 
           {
-            type: 'docSidebar',
-            sidebarId: 't527Sidebar',
+            type: 'dropdown',
+            label: 'A133(R818)系列',
             position: 'left',
-            label: 'T527-AvaotaA1',
+            items: [
+              {
+              type: 'docSidebar',
+              sidebarId: 'a133Sidebar',
+              label: 'A133-mCore',
+              },
+              {
+              type: 'docSidebar',
+              sidebarId: 'r818Sidebar',
+              label: 'DshanPI-R818',
+              },                           
+            ],
           },
-          {to: '/blog', label: 'Blog', position: 'right'},
           {
-            type: 'localeDropdown',
-            position: 'right',
+            type: 'dropdown',
+            label: 'T(A)527系列',
+            position: 'left',
+            items: [
+              {
+              type: 'docSidebar',
+              sidebarId: 't527Sidebar',
+              label: 'T527-AvaotaA1',
+              },
+              {
+              type: 'docSidebar',
+              sidebarId: 'a527Sidebar',
+              label: 'A527-AvaotaA1',
+              },                           
+            ],
           },
           {
-            href: 'https://github.com/100askTeam/linuxboard-docs',
+            type: 'dropdown',
+            label: 'T153系列',
+            position: 'left',
+            items: [
+              {
+              label: 'T153-MX',
+              href: 'https://www.100ask.net/',
+              },
+              {
+              label: 'T153-M3',
+              href: 'https://www.100ask.net/',              
+              },                           
+            ],
+          },                                                     
+          {
+            href: 'https://github.com/dshanpi/Docs',
             label: 'GitHub',
             position: 'right',
           },
@@ -132,12 +212,23 @@ const config = {
         darkTheme: prismThemes.dracula,
       },
     }),
-     // Add the Mermaid plugin and enable it in markdown
+
+  // Add the Mermaid plugin and enable it in markdown
   markdown: {
     mermaid: true,
   },
-  themes: ['@docusaurus/theme-mermaid'],
-};
 
+  themes: ['@docusaurus/theme-mermaid'],
+
+  plugins: [
+    [
+      "@easyops-cn/docusaurus-search-local",
+      {
+        hashed: true,
+        language: ["en", "zh"],
+      },
+    ],
+  ],
+};
 
 export default config;
