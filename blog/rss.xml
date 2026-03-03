@@ -4,10 +4,27 @@
         <title>东山Π Blog</title>
         <link>https://dshanpi.100ask.net/blog</link>
         <description>东山Π Blog</description>
-        <lastBuildDate>Thu, 06 Nov 2025 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 02 Mar 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-Hans</language>
+        <item>
+            <title><![CDATA[OpenixSuit]]></title>
+            <link>https://dshanpi.100ask.net/blog/2026/3/2/openixsuit-usermanual</link>
+            <guid>https://dshanpi.100ask.net/blog/2026/3/2/openixsuit-usermanual</guid>
+            <pubDate>Mon, 02 Mar 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[软件介绍]]></description>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="软件介绍">软件介绍<a href="https://dshanpi.100ask.net/blog/2026/3/2/openixsuit-usermanual#%E8%BD%AF%E4%BB%B6%E4%BB%8B%E7%BB%8D" class="hash-link" aria-label="软件介绍的直接链接" title="软件介绍的直接链接" translate="no">​</a></h2>
+<p>Open Source Tool to Flash Firmware to Devices. Support Windows, Linux, macOS.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="获取工具">获取工具<a href="https://dshanpi.100ask.net/blog/2026/3/2/openixsuit-usermanual#%E8%8E%B7%E5%8F%96%E5%B7%A5%E5%85%B7" class="hash-link" aria-label="获取工具的直接链接" title="获取工具的直接链接" translate="no">​</a></h2>
+<ul>
+<li class="">官方仓库地址： <a href="https://github.com/YuzukiTsuru/OpenixSuit/releases" target="_blank" rel="noopener noreferrer" class="">https://github.com/YuzukiTsuru/OpenixSuit/releases</a></li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="使用烧写">使用烧写<a href="https://dshanpi.100ask.net/blog/2026/3/2/openixsuit-usermanual#%E4%BD%BF%E7%94%A8%E7%83%A7%E5%86%99" class="hash-link" aria-label="使用烧写的直接链接" title="使用烧写的直接链接" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="高级用法">高级用法<a href="https://dshanpi.100ask.net/blog/2026/3/2/openixsuit-usermanual#%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95" class="hash-link" aria-label="高级用法的直接链接" title="高级用法的直接链接" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="更多玩法">更多玩法<a href="https://dshanpi.100ask.net/blog/2026/3/2/openixsuit-usermanual#%E6%9B%B4%E5%A4%9A%E7%8E%A9%E6%B3%95" class="hash-link" aria-label="更多玩法的直接链接" title="更多玩法的直接链接" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="扩展更新">扩展更新<a href="https://dshanpi.100ask.net/blog/2026/3/2/openixsuit-usermanual#%E6%89%A9%E5%B1%95%E6%9B%B4%E6%96%B0" class="hash-link" aria-label="扩展更新的直接链接" title="扩展更新的直接链接" translate="no">​</a></h2>]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[T113x系列异构简介]]></title>
             <link>https://dshanpi.100ask.net/blog/T113异构介绍</link>

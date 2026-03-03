@@ -2,11 +2,44 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://dshanpi.100ask.net/en/blog</id>
     <title>东山Π Blog</title>
-    <updated>2025-11-06T00:00:00.000Z</updated>
+    <updated>2026-03-02T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://dshanpi.100ask.net/en/blog"/>
     <subtitle>东山Π Blog</subtitle>
     <icon>https://dshanpi.100ask.net/en/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[OpenixSuit]]></title>
+        <id>https://dshanpi.100ask.net/en/blog/2026/3/2/openixsuit-usermanual</id>
+        <link href="https://dshanpi.100ask.net/en/blog/2026/3/2/openixsuit-usermanual"/>
+        <updated>2026-03-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[软件介绍]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="软件介绍">软件介绍<a href="https://dshanpi.100ask.net/en/blog/2026/3/2/openixsuit-usermanual#%E8%BD%AF%E4%BB%B6%E4%BB%8B%E7%BB%8D" class="hash-link" aria-label="Direct link to 软件介绍" title="Direct link to 软件介绍" translate="no">​</a></h2>
+<p>Open Source Tool to Flash Firmware to Devices. Support Windows, Linux, macOS.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="获取工具">获取工具<a href="https://dshanpi.100ask.net/en/blog/2026/3/2/openixsuit-usermanual#%E8%8E%B7%E5%8F%96%E5%B7%A5%E5%85%B7" class="hash-link" aria-label="Direct link to 获取工具" title="Direct link to 获取工具" translate="no">​</a></h2>
+<ul>
+<li class="">官方仓库地址： <a href="https://github.com/YuzukiTsuru/OpenixSuit/releases" target="_blank" rel="noopener noreferrer" class="">https://github.com/YuzukiTsuru/OpenixSuit/releases</a></li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="使用烧写">使用烧写<a href="https://dshanpi.100ask.net/en/blog/2026/3/2/openixsuit-usermanual#%E4%BD%BF%E7%94%A8%E7%83%A7%E5%86%99" class="hash-link" aria-label="Direct link to 使用烧写" title="Direct link to 使用烧写" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="高级用法">高级用法<a href="https://dshanpi.100ask.net/en/blog/2026/3/2/openixsuit-usermanual#%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95" class="hash-link" aria-label="Direct link to 高级用法" title="Direct link to 高级用法" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="更多玩法">更多玩法<a href="https://dshanpi.100ask.net/en/blog/2026/3/2/openixsuit-usermanual#%E6%9B%B4%E5%A4%9A%E7%8E%A9%E6%B3%95" class="hash-link" aria-label="Direct link to 更多玩法" title="Direct link to 更多玩法" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="扩展更新">扩展更新<a href="https://dshanpi.100ask.net/en/blog/2026/3/2/openixsuit-usermanual#%E6%89%A9%E5%B1%95%E6%9B%B4%E6%96%B0" class="hash-link" aria-label="Direct link to 扩展更新" title="Direct link to 扩展更新" translate="no">​</a></h2>]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Welcome]]></title>
+        <id>https://dshanpi.100ask.net/en/blog/welcome</id>
+        <link href="https://dshanpi.100ask.net/en/blog/welcome"/>
+        <updated>2025-11-06T00:00:00.000Z</updated>
+        <author>
+            <name>世玉轩</name>
+            <uri>https://dongshanpi.com</uri>
+        </author>
+        <author>
+            <name>韦东山</name>
+            <uri>https://100ask.net</uri>
+        </author>
+        <category label="Allwinner" term="Allwinner"/>
+        <category label="T113x" term="T113x"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[T113x系列异构简介]]></title>
         <id>https://dshanpi.100ask.net/en/blog/T113异构介绍</id>
@@ -231,22 +264,6 @@ include 目录主要包含驱动相关头文件以及系统相关接口头文件
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="rtos-固件打包">RTOS 固件打包<a href="https://dshanpi.100ask.net/en/blog/T113%E5%BC%82%E6%9E%84%E4%BB%8B%E7%BB%8D#rtos-%E5%9B%BA%E4%BB%B6%E6%89%93%E5%8C%85" class="hash-link" aria-label="Direct link to RTOS 固件打包" title="Direct link to RTOS 固件打包" translate="no">​</a></h3>
 <p>编译完成后， 生成的镜像文件会自动拷贝到对应平台方案中， 并且rt_system.elf 重名为 amp_rv0.bin 。</p>
 <p><img decoding="async" loading="lazy" alt="image-20240910184339126" src="https://dshanpi.100ask.net/en/assets/images/image-20240910184339126-29d0ae7d8aeee730da580eb2573c5494.png" width="3772" height="1726" class="img_ev3q"></p>]]></content>
-        <author>
-            <name>世玉轩</name>
-            <uri>https://dongshanpi.com</uri>
-        </author>
-        <author>
-            <name>韦东山</name>
-            <uri>https://100ask.net</uri>
-        </author>
-        <category label="Allwinner" term="Allwinner"/>
-        <category label="T113x" term="T113x"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Welcome]]></title>
-        <id>https://dshanpi.100ask.net/en/blog/welcome</id>
-        <link href="https://dshanpi.100ask.net/en/blog/welcome"/>
-        <updated>2025-11-06T00:00:00.000Z</updated>
         <author>
             <name>世玉轩</name>
             <uri>https://dongshanpi.com</uri>
