@@ -54,22 +54,6 @@
 <p><img decoding="async" loading="lazy" alt="image-20260305112305639" src="https://dshanpi.100ask.net/assets/images/image-20260305112305639-6c4ddcbde020e12c92f3d3e1eab1804f.png" width="2560" height="1759" class="img_ev3q"></p>]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Welcome]]></title>
-        <id>https://dshanpi.100ask.net/blog/welcome</id>
-        <link href="https://dshanpi.100ask.net/blog/welcome"/>
-        <updated>2025-11-06T00:00:00.000Z</updated>
-        <author>
-            <name>世玉轩</name>
-            <uri>https://dongshanpi.com</uri>
-        </author>
-        <author>
-            <name>韦东山</name>
-            <uri>https://100ask.net</uri>
-        </author>
-        <category label="Allwinner" term="Allwinner"/>
-        <category label="T113x" term="T113x"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[T113x系列异构简介]]></title>
         <id>https://dshanpi.100ask.net/blog/T113异构介绍</id>
         <link href="https://dshanpi.100ask.net/blog/T113异构介绍"/>
@@ -293,6 +277,22 @@ include 目录主要包含驱动相关头文件以及系统相关接口头文件
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="rtos-固件打包">RTOS 固件打包<a href="https://dshanpi.100ask.net/blog/T113%E5%BC%82%E6%9E%84%E4%BB%8B%E7%BB%8D#rtos-%E5%9B%BA%E4%BB%B6%E6%89%93%E5%8C%85" class="hash-link" aria-label="RTOS 固件打包的直接链接" title="RTOS 固件打包的直接链接" translate="no">​</a></h3>
 <p>编译完成后， 生成的镜像文件会自动拷贝到对应平台方案中， 并且rt_system.elf 重名为 amp_rv0.bin 。</p>
 <p><img decoding="async" loading="lazy" alt="image-20240910184339126" src="https://dshanpi.100ask.net/assets/images/image-20240910184339126-29d0ae7d8aeee730da580eb2573c5494.png" width="3772" height="1726" class="img_ev3q"></p>]]></content>
+        <author>
+            <name>世玉轩</name>
+            <uri>https://dongshanpi.com</uri>
+        </author>
+        <author>
+            <name>韦东山</name>
+            <uri>https://100ask.net</uri>
+        </author>
+        <category label="Allwinner" term="Allwinner"/>
+        <category label="T113x" term="T113x"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Welcome]]></title>
+        <id>https://dshanpi.100ask.net/blog/welcome</id>
+        <link href="https://dshanpi.100ask.net/blog/welcome"/>
+        <updated>2025-11-06T00:00:00.000Z</updated>
         <author>
             <name>世玉轩</name>
             <uri>https://dongshanpi.com</uri>
