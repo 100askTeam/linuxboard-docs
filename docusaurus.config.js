@@ -11,7 +11,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: '东山Π',
-  tagline: 'DshanPI Linux Boards Docs.',
+  tagline: 'Allwinner Linux  Docs.',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -160,7 +160,7 @@ const config = {
               {
               type: 'docSidebar',
               sidebarId: 'r818Sidebar',
-              label: 'DshanPI-R818',
+              label: 'R818 DshanPI-ROSx',
               },                           
             ],
           },
@@ -187,12 +187,14 @@ const config = {
             position: 'left',
             items: [
               {
-              label: 'T153-MX',
-              href: 'https://www.100ask.net/',
+              type: 'docSidebar',
+              sidebarId: 't153mxSidebar',
+              label: 'T153-Dual4GGateway',
               },
               {
-              label: 'T153-M3',
-              href: 'https://www.100ask.net/',              
+              type: 'docSidebar',
+              sidebarId: 't153m3Sidebar',
+              label: 'T153-mCore',
               },                           
             ],
           },                                                     
