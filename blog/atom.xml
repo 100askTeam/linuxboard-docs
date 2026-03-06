@@ -26,21 +26,48 @@
 <table><thead><tr><th>Windows</th><th>Linux</th><th>macOS (Apple Silicon)</th></tr></thead><tbody><tr><td><img decoding="async" loading="lazy" alt="image-20260304174628403" src="https://dshanpi.100ask.net/assets/images/image-20260304174628403-2e071354aa99803c05ac77732db76100.png" width="583" height="301" class="img_ev3q"></td><td><img decoding="async" loading="lazy" alt="image-20260304174638502" src="https://dshanpi.100ask.net/assets/images/image-20260304174638502-d1df18dc48854eaa67a9dc1d99bcd233.png" width="971" height="364" class="img_ev3q"></td><td><img decoding="async" loading="lazy" alt="image-20260304174650440" src="https://dshanpi.100ask.net/assets/images/image-20260304174650440-b4eb198182b7727f1f720f3f4ea552b0.png" width="1050" height="335" class="img_ev3q"></td></tr></tbody></table>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="工具介绍">工具介绍<a href="https://dshanpi.100ask.net/blog/2026/3/2/openixsuit/openixsuit-usermanual#%E5%B7%A5%E5%85%B7%E4%BB%8B%E7%BB%8D" class="hash-link" aria-label="工具介绍的直接链接" title="工具介绍的直接链接" translate="no">​</a></h2>
 <p><img decoding="async" loading="lazy" alt="image-20260304191719575" src="https://dshanpi.100ask.net/assets/images/image-20260304191719575-509892fdf35087bd2ce216a80abfea55.png" width="2560" height="1816" class="img_ev3q"></p>
-<h3></h3>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="-1"><a href="https://dshanpi.100ask.net/blog/2026/3/2/openixsuit/openixsuit-usermanual#-1" class="hash-link" aria-label="-1的直接链接" title="-1的直接链接" translate="no">​</a></h3>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="-2"><a href="https://dshanpi.100ask.net/blog/2026/3/2/openixsuit/openixsuit-usermanual#-2" class="hash-link" aria-label="-2的直接链接" title="-2的直接链接" translate="no">​</a></h3>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="烧写系统">烧写系统<a href="https://dshanpi.100ask.net/blog/2026/3/2/openixsuit/openixsuit-usermanual#%E7%83%A7%E5%86%99%E7%B3%BB%E7%BB%9F" class="hash-link" aria-label="烧写系统的直接链接" title="烧写系统的直接链接" translate="no">​</a></h2>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="fel固件烧写">FEL固件烧写<a href="https://dshanpi.100ask.net/blog/2026/3/2/openixsuit/openixsuit-usermanual#fel%E5%9B%BA%E4%BB%B6%E7%83%A7%E5%86%99" class="hash-link" aria-label="FEL固件烧写的直接链接" title="FEL固件烧写的直接链接" translate="no">​</a></h3>
+<p>FEL固件主要是指全志Tina系统编译出来的固件镜像，比如Tina4 Tina5 longan 等全志原厂SDK 生成的镜像，原用 PhoenixSuit 所烧写的镜像文件。</p>
+<p>如下图所示，烧写T113s3系统，参考如下步骤，但是需要确保你的电脑已经安装过全志的USB烧录驱动，安装驱动方式请参考网页：<a href="https://dshanpi.100ask.org/docs/T113s4-SdNand/part1/03-1_FlashSystem" target="_blank" rel="noopener noreferrer" class="">https://dshanpi.100ask.org/docs/T113s4-SdNand/part1/03-1_FlashSystem</a> 。</p>
+<p><img decoding="async" loading="lazy" alt="image-20260306160452438" src="https://dshanpi.100ask.net/assets/images/image-20260306160452438-64938f0fec9ae603aebeb69c85d9cd3a.png" width="3273" height="1813" class="img_ev3q"></p>
+<ul>
+<li class="">支持的硬件</li>
+</ul>
+<table><thead><tr><th>芯片名称</th><th>镜像名称</th><th>镜像描述</th></tr></thead><tbody><tr><td>T113s3</td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr></tbody></table>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="通用固件烧写">通用固件烧写<a href="https://dshanpi.100ask.net/blog/2026/3/2/openixsuit/openixsuit-usermanual#%E9%80%9A%E7%94%A8%E5%9B%BA%E4%BB%B6%E7%83%A7%E5%86%99" class="hash-link" aria-label="通用固件烧写的直接链接" title="通用固件烧写的直接链接" translate="no">​</a></h3>
+<p>通用固件指的是使用 社区主线Linux内核 编译出来的系统，一般有armbian ubuntu  openwrt等,这里以 Avaota-A1 T527为例演示如何配置烧录。</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="高级用法">高级用法<a href="https://dshanpi.100ask.net/blog/2026/3/2/openixsuit/openixsuit-usermanual#%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95" class="hash-link" aria-label="高级用法的直接链接" title="高级用法的直接链接" translate="no">​</a></h2>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="扇区固件烧写">扇区固件烧写<a href="https://dshanpi.100ask.net/blog/2026/3/2/openixsuit/openixsuit-usermanual#%E6%89%87%E5%8C%BA%E5%9B%BA%E4%BB%B6%E7%83%A7%E5%86%99" class="hash-link" aria-label="扇区固件烧写的直接链接" title="扇区固件烧写的直接链接" translate="no">​</a></h3>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="efel工具箱">EFEL工具箱<a href="https://dshanpi.100ask.net/blog/2026/3/2/openixsuit/openixsuit-usermanual#efel%E5%B7%A5%E5%85%B7%E7%AE%B1" class="hash-link" aria-label="EFEL工具箱的直接链接" title="EFEL工具箱的直接链接" translate="no">​</a></h3>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="更多玩法">更多玩法<a href="https://dshanpi.100ask.net/blog/2026/3/2/openixsuit/openixsuit-usermanual#%E6%9B%B4%E5%A4%9A%E7%8E%A9%E6%B3%95" class="hash-link" aria-label="更多玩法的直接链接" title="更多玩法的直接链接" translate="no">​</a></h2>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="固件解析提取">固件解析提取<a href="https://dshanpi.100ask.net/blog/2026/3/2/openixsuit/openixsuit-usermanual#%E5%9B%BA%E4%BB%B6%E8%A7%A3%E6%9E%90%E6%8F%90%E5%8F%96" class="hash-link" aria-label="固件解析提取的直接链接" title="固件解析提取的直接链接" translate="no">​</a></h3>
+<p><img decoding="async" loading="lazy" alt="image-20260306161953526" src="https://dshanpi.100ask.net/assets/images/image-20260306161953526-1e36be87a4b62f397e84e49ea85622a1.png" width="2448" height="1816" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" alt="2026-03-06_162101" src="https://dshanpi.100ask.net/assets/images/2026-03-06_162101-0bf3544c2c8fc88e1e290ff5aefd2b9c.png" width="1945" height="9531" class="img_ev3q"></p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="adb文件浏览">ADB文件浏览<a href="https://dshanpi.100ask.net/blog/2026/3/2/openixsuit/openixsuit-usermanual#adb%E6%96%87%E4%BB%B6%E6%B5%8F%E8%A7%88" class="hash-link" aria-label="ADB文件浏览的直接链接" title="ADB文件浏览的直接链接" translate="no">​</a></h3>
+<p><img decoding="async" loading="lazy" alt="image-20260306173148352" src="https://dshanpi.100ask.net/assets/images/image-20260306173148352-5f6091b43e9928578bb4b741418a5b85.png" width="2448" height="1759" class="img_ev3q"></p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="扩展更新">扩展更新<a href="https://dshanpi.100ask.net/blog/2026/3/2/openixsuit/openixsuit-usermanual#%E6%89%A9%E5%B1%95%E6%9B%B4%E6%96%B0" class="hash-link" aria-label="扩展更新的直接链接" title="扩展更新的直接链接" translate="no">​</a></h2>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="语言设置">语言设置<a href="https://dshanpi.100ask.net/blog/2026/3/2/openixsuit/openixsuit-usermanual#%E8%AF%AD%E8%A8%80%E8%AE%BE%E7%BD%AE" class="hash-link" aria-label="语言设置的直接链接" title="语言设置的直接链接" translate="no">​</a></h3>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="版本更新">版本更新<a href="https://dshanpi.100ask.net/blog/2026/3/2/openixsuit/openixsuit-usermanual#%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B0" class="hash-link" aria-label="版本更新的直接链接" title="版本更新的直接链接" translate="no">​</a></h3>]]></content>
+<p>支持中英文 两种语言</p>
+<p><img decoding="async" loading="lazy" alt="image-20260306173410539" src="https://dshanpi.100ask.net/assets/images/image-20260306173410539-41af0833d0f76ac7988bac41c4f571e5.png" width="2448" height="1759" class="img_ev3q"></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="版本更新">版本更新<a href="https://dshanpi.100ask.net/blog/2026/3/2/openixsuit/openixsuit-usermanual#%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B0" class="hash-link" aria-label="版本更新的直接链接" title="版本更新的直接链接" translate="no">​</a></h3>
+<p><img decoding="async" loading="lazy" alt="image-20260305112305639" src="https://dshanpi.100ask.net/assets/images/image-20260305112305639-6c4ddcbde020e12c92f3d3e1eab1804f.png" width="2560" height="1759" class="img_ev3q"></p>]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Welcome]]></title>
+        <id>https://dshanpi.100ask.net/blog/welcome</id>
+        <link href="https://dshanpi.100ask.net/blog/welcome"/>
+        <updated>2025-11-06T00:00:00.000Z</updated>
+        <author>
+            <name>世玉轩</name>
+            <uri>https://dongshanpi.com</uri>
+        </author>
+        <author>
+            <name>韦东山</name>
+            <uri>https://100ask.net</uri>
+        </author>
+        <category label="Allwinner" term="Allwinner"/>
+        <category label="T113x" term="T113x"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[T113x系列异构简介]]></title>
@@ -266,22 +293,6 @@ include 目录主要包含驱动相关头文件以及系统相关接口头文件
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="rtos-固件打包">RTOS 固件打包<a href="https://dshanpi.100ask.net/blog/T113%E5%BC%82%E6%9E%84%E4%BB%8B%E7%BB%8D#rtos-%E5%9B%BA%E4%BB%B6%E6%89%93%E5%8C%85" class="hash-link" aria-label="RTOS 固件打包的直接链接" title="RTOS 固件打包的直接链接" translate="no">​</a></h3>
 <p>编译完成后， 生成的镜像文件会自动拷贝到对应平台方案中， 并且rt_system.elf 重名为 amp_rv0.bin 。</p>
 <p><img decoding="async" loading="lazy" alt="image-20240910184339126" src="https://dshanpi.100ask.net/assets/images/image-20240910184339126-29d0ae7d8aeee730da580eb2573c5494.png" width="3772" height="1726" class="img_ev3q"></p>]]></content>
-        <author>
-            <name>世玉轩</name>
-            <uri>https://dongshanpi.com</uri>
-        </author>
-        <author>
-            <name>韦东山</name>
-            <uri>https://100ask.net</uri>
-        </author>
-        <category label="Allwinner" term="Allwinner"/>
-        <category label="T113x" term="T113x"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Welcome]]></title>
-        <id>https://dshanpi.100ask.net/blog/welcome</id>
-        <link href="https://dshanpi.100ask.net/blog/welcome"/>
-        <updated>2025-11-06T00:00:00.000Z</updated>
         <author>
             <name>世玉轩</name>
             <uri>https://dongshanpi.com</uri>
