@@ -16,7 +16,7 @@ sidebar_position: 2
 
 * 全志线刷工具：[AllwinnertechPhoeniSuit](https://dl.100ask.net/Hardware/MPU/T113i-Industrial/Tools/AllwinnertechPhoeniSuit.zip)
 * 全志USB烧录驱动：[AllwinnerUSBFlashDeviceDriver](https://dl.100ask.net/Hardware/MPU/T113i-Industrial/Tools/AllwinnerUSBFlashDeviceDriver.zip)
-* 镜像：[Tina-R818-DshanPI-ROSx-Default-Systerm.7z](https://dl.100ask.net/Hardware/MPU/R818-DshanPI-ROSx/Images/Tina-R818-DshanPI-ROSx-Default-Systerm.7z)
+* 镜像：https://dl.100ask.net/Hardware/MPU/mCore-A133/images/mCore-A133_DshanPI-ROSx_Tina2.5-uart0-V1.img
 > 镜像说明：支持文档所有描述的板载功能。MD5值：9674cb76398b7b36534ba6e0841df3e4
 
 ### 连接开发板

@@ -11,42 +11,28 @@ sidebar_position: 2
 
 如下：
 
-![image-20241216193933542](images/image-20241216193933542.png)
+![image-20260306184259954](./images/image-20260306184259954.png)
 
-SDK源码需要通过百度网盘下载，一共有三个压缩包，如下所示：
-
-![image-20241216194220831](images/image-20241216194220831.png)
+![image-20260306184358166](./images/image-20260306184358166.png)
 
 下载完成后，通过网络等方式拷贝到 Ubuntu 虚拟机目录下(路径自行选择)。
-
-拷贝完成之后，先比对一下MD5值，查看是否拷贝完整，执行以下指令:
-
-~~~bash
-md5sum DshanPI-ROSx-TinaSDK-V1.tar.gz.0*
-~~~
-
-比对值应如下：
-
-![image-20241216194811704](images/image-20241216194811704.png)
 
 比对完整之后，执行以下指令，进行解压。
 
 ~~~bash
-cat DshanPI-ROSx-TinaSDK-V1.tar.gz.0* | tar -xzvf -
+ tar -xzvf 2023-12-18 SDK 打包
 ~~~
-
-解压后，SDK包名是**DshanPI-ROSx-TinaSDK-V1** 。
 
 ## 获取补丁包
 
-基于 R818-DshanPI-ROSx 开发板，我们提供了一个扩展补丁包，执行以下指令，获取扩展支持仓库，然后加以应用，这里把SDK源码放在**用户目录下 ~/** 。
+基于 mCore-A133-DshanPI-ROSx 开发板，我们提供了一个扩展补丁包，执行以下指令，获取扩展支持仓库，然后加以应用，这里把SDK源码放在**用户目录下 ~/** 。
 
 ~~~bash
 cd ~/
-git clone https://github.com/DongshanPI/TinaSDK_R818-DshanPI-ROSx.git
-cd TinaSDK_R818-DshanPI-ROSx
+git clone https://github.com/DongshanPI/A133-DshanPI-ROSx_Tina5SDK
+cd TinaSDK5_A133-DshanPI-ROSx
 git submodule update --init
-cp ./* -rfvd ~/DshanPI-ROSx-TinaSDK-V1/
+cp ./* -rfvd ~/A133-DshanPI-ROSx_Tina5SDK/
 ~~~
 
 ## 编译固件
@@ -54,7 +40,7 @@ cp ./* -rfvd ~/DshanPI-ROSx-TinaSDK-V1/
 进入SDK源码目录下，执行以下指令，选择相应板卡**r818_sc3917-tina**。
 
 ~~~bash
-ubuntu@ubuntu1804:~/$ cd ~/DshanPI-ROSx-TinaSDK-V1/
+ubuntu@ubuntu1804:~/$ cd ~/TinaSDK5_A133-DshanPI-ROSx/
 ubuntu@ubuntu1804:~/DshanPI-ROSx-TinaSDK-V1$ source build/envsetup.sh
 ubuntu@ubuntu1804:~/DshanPI-ROSx-TinaSDK-V1$ lunch
 
