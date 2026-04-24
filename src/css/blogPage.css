@@ -1,0 +1,215 @@
+/**
+ * Blog list page custom styles - 仅增强样式，不改变原有布局
+ */
+
+.blogHeroBanner {
+  background: linear-gradient(135deg, var(--ifm-color-primary) 0%, #1a5276 100%);
+  color: white;
+  border-radius: var(--ifm-card-border-radius);
+  padding: 2rem 1.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  box-shadow: var(--ifm-global-shadow-lw);
+}
+
+.blogHeroBannerTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+}
+
+.blogHeroBannerSubtitle {
+  font-size: 1rem;
+  opacity: 0.9;
+  margin: 0;
+}
+
+.blogQuickTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+.blogQuickTag {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.blogQuickTag:hover {
+  background: rgba(255, 255, 255, 0.3);
+  color: white;
+  text-decoration: none;
+}
+
+.blog-sidebar-enhanced {
+  position: sticky;
+  top: calc(var(--ifm-navbar-height) + 1rem);
+  max-height: calc(100vh - var(--ifm-navbar-height) - 2rem);
+  overflow-y: auto;
+  padding: 1rem;
+  background: var(--ifm-card-background-color);
+  border-radius: var(--ifm-card-border-radius);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  box-shadow: var(--ifm-global-shadow-lw);
+}
+
+.blog-sidebar-section {
+  margin-bottom: 1.5rem;
+}
+
+.blog-sidebar-section:last-child {
+  margin-bottom: 0;
+}
+
+.blog-sidebar-section-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 0 0 0.75rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--ifm-color-primary);
+  color: var(--ifm-heading-color);
+}
+
+.blog-sidebar-post-item {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--ifm-card-border-radius);
+  transition: all 0.2s ease;
+  text-decoration: none;
+  margin-bottom: 0.25rem;
+  border-left: 3px solid transparent;
+}
+
+.blog-sidebar-post-item:hover {
+  background: var(--ifm-color-emphasis-100);
+  border-left-color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+.blog-sidebar-post-title {
+  font-weight: 500;
+  color: var(--ifm-font-color-base);
+  font-size: 0.85rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.blog-sidebar-post-date {
+  font-size: 0.75rem;
+  color: var(--ifm-color-emphasis-600);
+  margin-top: 0.15rem;
+}
+
+.blog-sidebar-link {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--ifm-card-border-radius);
+  transition: all 0.2s ease;
+  text-decoration: none;
+  margin-bottom: 0.25rem;
+  color: var(--ifm-font-color-base);
+  font-size: 0.85rem;
+  border-left: 3px solid transparent;
+}
+
+.blog-sidebar-link:hover {
+  background: var(--ifm-color-emphasis-100);
+  border-left-color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+.blog-sidebar-year-group {
+  margin-bottom: 0.75rem;
+}
+
+.blog-sidebar-year-label {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--ifm-color-primary);
+  padding: 0.25rem 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
+@media (max-width: 996px) {
+  .blogHeroBanner {
+    padding: 1.5rem 1rem;
+  }
+  
+  .blogHeroBannerTitle {
+    font-size: 1.5rem;
+  }
+}
+
+/**
+ * 博客文章详情页 - 优化 1080p 显示器阅读体验
+ * 隐藏左侧边栏，让正文区域更宽
+ */
+
+/* 博客文章详情页 - 隐藏左侧边栏，让内容更宽 */
+.blog-page-expanded .row .col--3:first-child {
+  display: none !important;
+}
+
+/* 调整正文区域为 10 列宽度 */
+.blog-page-expanded .row .col--7 {
+  flex: 0 0 83.3333% !important;
+  max-width: 83.3333% !important;
+}
+
+/* 调整右侧目录为 2 列宽度，保持不变 */
+.blog-page-expanded .row .col--2 {
+  flex: 0 0 16.6666% !important;
+  max-width: 16.6666% !important;
+}
+
+/* 如果页面没有 col--2 目录区域，让正文占满全部 */
+.blog-page-expanded .row .col--7:only-child {
+  flex: 0 0 100% !important;
+  max-width: 100% !important;
+}
+
+/* 博客列表页 - 保持侧边栏但调整比例 */
+.blog-list-page .row .col--3 {
+  flex: 0 0 16.6666% !important;
+  max-width: 16.6666% !important;
+}
+
+.blog-list-page .row .col--7 {
+  flex: 0 0 83.3333% !important;
+  max-width: 83.3333% !important;
+}
+
+/* 限制最大阅读宽度，提升大尺寸显示器体验 */
+.blog-page-expanded .main-wrapper .col--7 .markdown,
+.blog-list-page .main-wrapper .col--7 article {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* 移动端响应式 - 保持原有布局 */
+@media (max-width: 996px) {
+  .blog-page-expanded .row .col--7,
+  .blog-list-page .row .col--7 {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+  
+  .blog-page-expanded .row .col--3,
+  .blog-list-page .row .col--3 {
+    display: none !important;
+  }
+  
+  .blog-page-expanded .main-wrapper .col--7 .markdown,
+  .blog-list-page .main-wrapper .col--7 article {
+    max-width: none;
+  }
+}

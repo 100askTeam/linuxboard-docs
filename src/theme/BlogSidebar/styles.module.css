@@ -1,0 +1,105 @@
+/**
+ * Blog sidebar styles
+ */
+
+.sidebarContainer {
+  position: sticky;
+  top: calc(var(--ifm-navbar-height) + 1rem);
+  max-height: calc(100vh - var(--ifm-navbar-height) - 2rem);
+  overflow-y: auto;
+  padding: 1.25rem;
+  background: var(--ifm-card-background-color);
+  border-radius: var(--ifm-card-border-radius);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  box-shadow: var(--ifm-global-shadow-lw);
+}
+
+.sidebarTitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 0 0 0.75rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--ifm-color-primary);
+  color: var(--ifm-heading-color);
+}
+
+.sidebarPostList {
+  margin-bottom: 1.5rem;
+}
+
+.sidebarPostItem {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--ifm-card-border-radius);
+  transition: all 0.2s ease;
+  text-decoration: none;
+  margin-bottom: 0.25rem;
+  border-left: 3px solid transparent;
+}
+
+.sidebarPostItem:hover {
+  background: var(--ifm-color-emphasis-100);
+  border-left-color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+.sidebarPostItem--active {
+  background: var(--ifm-menu-color-background-active);
+  border-left-color: var(--ifm-color-primary);
+  font-weight: 500;
+}
+
+.sidebarPostTitle {
+  font-weight: 500;
+  color: var(--ifm-font-color-base);
+  font-size: 0.85rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 1.3;
+}
+
+.sidebarPostDate {
+  font-size: 0.75rem;
+  color: var(--ifm-color-emphasis-600);
+  margin-top: 0.15rem;
+}
+
+.sidebarYearGroup {
+  margin-bottom: 0.75rem;
+}
+
+.sidebarYearLabel {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--ifm-color-primary);
+  padding: 0.25rem 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.sidebarQuickLink {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--ifm-card-border-radius);
+  transition: all 0.2s ease;
+  text-decoration: none;
+  margin-bottom: 0.25rem;
+  color: var(--ifm-font-color-base);
+  font-size: 0.85rem;
+  border-left: 3px solid transparent;
+}
+
+.sidebarQuickLink:hover {
+  background: var(--ifm-color-emphasis-100);
+  border-left-color: var(--ifm-color-primary);
+  text-decoration: none;
+  color: var(--ifm-font-color-base);
+}
+
+@media (max-width: 996px) {
+  .sidebarContainer {
+    position: static;
+    max-height: none;
+    margin-bottom: 2rem;
+  }
+}
