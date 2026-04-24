@@ -78,12 +78,6 @@ export default function BlogSidebar({sidebar}: Props): JSX.Element {
 
         <div className={styles.sidebarPostList}>
           <h3 className={styles.sidebarTitle}>🔗 快速导航</h3>
-          <Link to="/docs" className={styles.sidebarQuickLink}>
-            📚 开发板文档
-          </Link>
-          <Link to="/blog/archive" className={styles.sidebarQuickLink}>
-            📦 文章归档
-          </Link>
           <Link to="/blog/tags" className={styles.sidebarQuickLink}>
             🏷️ 标签列表
           </Link>

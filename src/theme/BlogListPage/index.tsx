@@ -47,11 +47,6 @@ function BlogListPageContent(props: Props): ReactNode {
         <p className={styles.blogHeroBannerSubtitle}>
           分享嵌入式 Linux 开发经验、全志芯片方案、异构计算等技术内容
         </p>
-        <div className={styles.blogQuickTags}>
-          <Link to="/blog/tags/allwinner" className={styles.blogQuickTag}>🔧 Allwinner</Link>
-          <Link to="/blog/tags/t113" className={styles.blogQuickTag}>📦 T113 系列</Link>
-          <Link to="/blog/tags/tools" className={styles.blogQuickTag}>🛠️ 工具推荐</Link>
-        </div>
       </div>
       <BlogPostItems items={items} />
       <BlogListPaginator metadata={metadata} />

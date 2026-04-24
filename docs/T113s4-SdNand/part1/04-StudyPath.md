@@ -16,7 +16,7 @@
 | 2️⃣ | 学习 Git 版本控制工具 | [B站教程](https://www.bilibili.com/video/BV1CL4y1A7YG) |
 | 3️⃣ | 学习 Linux C 编程 | 小甲鱼课程 |
 | 4️⃣ | 学习嵌入式 Linux 基础知识 | [B站教程](https://www.bilibili.com/video/BV1VN4y137Tf) |
-| 5️⃣ | **回到本文档** | 从 [开发板介绍](../01-BoardIntroduction) 开始 |
+| 5️⃣ | **回到本文档** | 从 [开发板介绍](../BoardIntroduction) 开始 |
 
 ### 🟡 阶段二：有一定基础
 
@@ -26,8 +26,8 @@
 |:---:|:---|:---|
 | 1️⃣ | 学习 Git 版本控制工具 | [B站教程](https://www.bilibili.com/video/BV1CL4y1A7YG) |
 | 2️⃣ | 学习嵌入式 Linux 基础知识 | [B站教程](https://www.bilibili.com/video/BV1VN4y137Tf) |
-| 3️⃣ | **搭建开发环境** | 参考 [开发环境](../part3/02-DevelopmentEnvironmentSetup) 章节 |
-| 4️⃣ | **编译 Tina5 SDK** | 参考 [源码工具文档手册](../02-SourceCodeToolDocumentationManual) |
+| 3️⃣ | **搭建开发环境** | 参考 [开发环境](../part3/ConfigHostEnv) 章节 |
+| 4️⃣ | **编译 Tina5 SDK** | 参考 [源码工具文档手册](../SourceCodeToolDocumentationManual) |
 | 5️⃣ | **学习应用开发** | 从 WiFi 联网 → RS485/CAN 通信 → Qt/LVGL GUI 开发 |
 
 ### 🔴 阶段三：进阶高级开发
