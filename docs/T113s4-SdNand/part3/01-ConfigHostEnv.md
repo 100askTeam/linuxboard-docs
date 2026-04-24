@@ -1,86 +1,84 @@
 ---
 sidebar_position: 1
 ---
+
 # 配置开发环境
 
+本章节将指导你搭建 T113s4-SdNand 的开发环境。
 
-## 获取虚拟机系统
+---
 
-### 下载vmware虚拟机工具
+## 方式一：使用预配置虚拟机（推荐）
 
-使用浏览器打开网址    https://www.vmware.com/products/workstation-pro/workstation-pro-evaluation.html   参考下图箭头所示，点击下载安装 Windows版本的VMware Workstation ，点击 **DOWNLOAD NOW**  即可开始下载。
+如果你不熟悉 Linux 环境配置，推荐使用百问网提供的预配置虚拟机。
 
-![vmwareworkstation_download_001](https://photos.100ask.net/dongshanpi-docs/DongshanNezhaSTU/vmwareworkstation_download_001.png)
+### 1. 安装 VMware Workstation
 
-下载完成后全部使用默认配置一步步安装即可。
+1. 访问 VMware 官网下载页面
+2. 点击 **DOWNLOAD NOW** 下载 Windows 版本
+3. 使用默认配置一步步安装
 
+### 2. 获取 Ubuntu 虚拟机镜像
 
+1. 访问 [Linux VM Images - Ubuntu 18.04](https://www.linuxvmimages.com/images/ubuntu-1804/)
+2. 点击 **VMware Image** 下载
+3. 下载时间约 10～30 分钟（取决于网速）
 
-### 获取Ubuntu系统镜像
+### 3. 运行虚拟机
 
-* 使用浏览器打开  https://www.linuxvmimages.com/images/ubuntu-1804/     找到如下箭头所示位置，点击 **VMware Image** 下载。
+1. 解压缩虚拟机镜像压缩包
+2. 打开 VMware Workstation → **文件** → **打开** → 选择 `.vmx` 文件
+3. 编辑虚拟机设置：
+   - 内存：**建议 4GB 及以上**
+   - 处理器：**建议 4 核及以上**
+4. 点击 **开启此虚拟机**
+5. 首次启动会提示「虚拟机已经复制」，点击 **我已复制虚拟机**
 
-![linuxvmimage_downlaod_001](https://photos.100ask.net/dongshanpi-docs/DongshanNezhaSTU/linuxvmimage_downlaod_001.png)
+**默认登录信息：**
+- 用户名：`ubuntu`
+- 密码：`ubuntu`
 
-下载过程可能会持续 10 到 30 分钟，具体要依据网速而定。
+> **提示**：Ubuntu 默认会自动共享 Windows 的网络，无需额外配置。
 
+---
 
+## 方式二：使用本地 Ubuntu 系统
 
-## 运行虚拟机系统
+如果你已有 Ubuntu 系统（18.04 或更高版本），可以直接使用。
 
-1. 解压缩 虚拟机系统镜像压缩包，解压缩完成后，可以看到里面有如下两个文件，接下来，我们会使用 后缀名为 .vmx 这个 配置文件。
+---
 
-![ConfigHost_003](https://photos.100ask.net/dongshanpi-docs/DongshanNezhaSTU/ConfigHost_003.png)
+## 配置开发环境
 
-2.  打开已经安装好的 vmware workstation 软件 点击左上角的 **文件** --> **打开** 找到上面的 Ubuntu_18.04.6_VM_LinuxVMImages.COM.vmx  文件，之后会弹出新的虚拟机对话框页面。
+### 1. 安装必要依赖包
 
-![ConfigHost_004](https://photos.100ask.net/dongshanpi-docs/DongshanNezhaSTU/ConfigHost_004.png)
-
-3. 如下图所示为  为我们已经虚拟机的配置界面，那面我们可以 点击 红框 2 编辑虚拟机设置 里面 去调正 我们虚拟机的 内存 大小 和处理器个数，建议 最好 内存为 4GB 及以上，处理器至少4 个。 调整好以后，就可以 点击 **开启此虚拟机** 来运行此虚拟机了
-
-![ConfigHost_005](https://photos.100ask.net/dongshanpi-docs/DongshanNezhaSTU/ConfigHost_005.png)
-
-第一次打开会提示  一个 虚拟机已经复制的 对话框，我们这时，只需要 点击  我已复制虚拟机  就可以继续启动虚拟机系统了。
-
-![ConfigHost_006](https://photos.100ask.net/dongshanpi-docs/DongshanNezhaSTU/ConfigHost_006.png)
-
-等待数秒，系统就会自动启动了，启动以后 鼠标点击   **Ubuntu**  字样，就可以进入登录对话框，输入  密码 ubuntu 即可登录进入ubuntu系统内。
-
-注意： 
-
-**Ubuntu默认的用户名密码分别为 ubuntu ubuntu** 
-
-**Ubuntu默认的用户名密码分别为 ubuntu ubuntu** 
-
-**Ubuntu默认的用户名密码分别为 ubuntu ubuntu** 
-
-**ubuntu默认需要联网，如果你的 Windows电脑已经可以访问Internet 互联网，ubuntu系统后就会自动共享 Windows电脑的网络 进行连接internet 网络。**
-
-
-
-### 配置开发环境
-
-
-
-* 安装必要软件包, 鼠标点击进入 ubuntu界面内，键盘同时 按下 **ctrl + alt + t** 三个按键会快速唤起，终端界面，唤起成功后，在终端里面执行如下命令进行安装必要依赖包。
+打开终端（Ctrl + Alt + T），执行以下命令：
 
 ```bash
 sudo apt install build-essential subversion git-core libncurses5-dev zlib1g-dev gawk flex quilt libssl-dev xsltproc libxml-parser-perl mercurial bzr ecj cvs unzip lib32z1 lib32z1-dev lib32stdc++6 libstdc++6 bison -y
 ```
 
-如果你发现你的ubuntu虚拟机 第一次启动 无法 通过 windows下复制 命令 粘贴到 ubuntu内，则需要先手敲 执行如下命令 安装一个 用于 虚拟机和 windows共享剪切板的工具包。
+### 2. 安装 VMware 共享工具（仅虚拟机需要）
+
+如果无法从 Windows 复制命令到 Ubuntu，先安装：
 
 ```bash
 sudo apt install open-vm-tools
-sudo apt install open-vm-tools-desktop 
+sudo apt install open-vm-tools-desktop
 ```
 
-![ConfigHost_007](https://photos.100ask.net/dongshanpi-docs/DongshanNezhaSTU/ConfigHost_007.png)
+安装完成后重启虚拟机：
 
-安装完成后，点击右上角的 电源按钮，重启ubuntu系统，或者 直接输入 sudo reboot 命令进行重启。
+```bash
+sudo reboot
+```
 
-这时就可以 通过windows端向ubuntu内粘贴文件，或者拷贝拷出文件了。
+### 3. 验证环境
 
-![ConfigHost_008](https://photos.100ask.net/dongshanpi-docs/DongshanNezhaSTU/ConfigHost_008.png)
+重启后，可以从 Windows 复制粘贴文件到 Ubuntu，说明环境配置完成。
 
-做完这一步以后，就可以继续往下，获取源码 开始 T113s3ProV1.3SdNand 开发板的开发之旅了。
+---
+
+## 下一步
+
+环境配置完成后，参考《获取 Tina5 源码》章节开始开发之旅。

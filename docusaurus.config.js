@@ -93,7 +93,6 @@ const config = {
           src: 'img/logo.svg',
         },
         items: [
-          { to: '/blog', label: 'Blog', position: 'right' },
           {
             type: 'dropdown',
             label: 'T113系列',
@@ -198,6 +197,7 @@ const config = {
               },                           
             ],
           },                                                     
+          { to: '/blog', label: 'Blog', position: 'right' },
           {
             href: 'https://github.com/dshanpi/Docs',
             label: 'GitHub',

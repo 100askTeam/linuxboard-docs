@@ -1,69 +1,104 @@
 ---
 sidebar_position: 6
 ---
+
 # 以太网测试
 
-本章节来讲解如何在 T113s3ProV1.3SdNand 开发板上测试以太网功能。
+本章节将讲解如何在 T113s4-SdNand 开发板上测试以太网功能。
+
+---
 
 ## 准备工作
 
-在进入本章节实验之前，请做好以下准备。
-
 **硬件：**
-- T113s3-SDNAND 开发板
-- usb typeC线 X2
-- 一根能用来上网的网线
+- T113s4-SdNand 开发板
+- USB Type-C 线 ×1（串口/供电）
+- 电源适配器（12V）
+- 一根能访问外网的网线
 
 **软件：**
-- 全志线刷工具：[AllwinnertechPhoeniSuit.zip](https://dl.100ask.net/Hardware/MPU/T113i-Industrial/Tools/AllwinnertechPhoeniSuit.zip)
-- 全志USB烧录驱动：[AllwinnerUSBFlashDeviceDriver.zip](https://dl.100ask.net/Hardware/MPU/T113i-Industrial/Tools/AllwinnerUSBFlashDeviceDriver.zip)
+- 串口终端工具（Putty、MobaXterm 等）
+
+---
 
 ## 硬件连接
 
-在进行以太网测试之前，需要先使用卡槽把下图排针中间的引脚连接到左边的引脚上，因为这个四根引脚与RS485引脚是共用的，硬件连接图如下，
+以太网引脚与 RS485 引脚共用，需要使用跳线帽切换到以太网模式。
 
-![image-20241127155302579](images/image-20241127155302579.png)
+| 跳线帽位置 | 功能 |
+|:---:|:---|
+| 左侧 | RS485 模式 |
+| 右侧 | 以太网模式 |
 
-## 登录串口终端
+进行以太网测试前，请确保跳线帽已切换到**右侧**（以太网模式）。
 
-如果不清楚如何连接开发板登录串口，请参考 快速启动 中的《启动开发板》章节。
+![以太网跳线帽连接](images/image-20241127155302579.png)
 
-## 启用eth0接口
+---
 
-打开串口终端后，执行指令`ifconfig -a`，可以查看到存在eth0接口节点，
+## 启用 eth0 接口
 
-![image-20241127155453660](images/image-20241127155453660.png)
+### 1. 登录串口终端
 
-执行以下指令，启用eth0接口，
+参考《快速入门》中的「启动开发板」章节。
 
-~~~bash
+### 2. 查看网络接口
+
+```bash
+ifconfig -a
+```
+
+确认存在 `eth0` 接口节点。
+
+### 3. 启用 eth0 接口
+
+```bash
 ifconfig eth0 up
-~~~
+```
 
-![image-20241127155629461](images/image-20241127155629461.png)
+---
 
 ## 测试以太网
 
-执行`ifconfig`，看到eth0接口之后，把网线接入以太网接口，以太网接口位置如下图所示，
+### 1. 连接网线
 
-![image-20241127155856858](images/image-20241127155856858.png)
+将网线插入开发板的以太网接口，串口终端会输出连接信息。
 
-接入网线之后，串口终端上会出现以下信息，
+### 2. 获取 IP 地址
 
-![image-20241127160037561](images/image-20241127160037561.png)
-
-接着，执行以下指令，获取ip地址，
-
-~~~bash
+```bash
 udhcpc -i eth0
-~~~
+```
 
-如下图所示，
+获取成功示例：
 
-![image-20241127160131706](images/image-20241127160131706.png)
+```
+udhcpc: started, v1.31.1
+udhcpc: sending discover
+udhcpc: sending select for 192.168.1.100
+udhcpc: lease of 192.168.1.100 obtained, lease time 86400
+```
 
-最后测试一下是否能ping通，如果接的网线能访问外网可以直接ping百度来测试，这里ping网关地址，
+### 3. 测试网络连通性
 
-![image-20241127160345157](images/image-20241127160345157.png)
+```bash
+ping 192.168.1.1
+```
 
-能ping通，表示以太网接口可用。
+如果网线能访问外网，可以直接 ping 百度：
+
+```bash
+ping www.baidu.com
+```
+
+能收到回复表示以太网接口工作正常。
+
+---
+
+## 常见问题
+
+| 问题 | 解决方法 |
+|:---|:---|
+| eth0 不存在 | 检查跳线帽是否切换到以太网模式 |
+| 获取不到 IP | 确认网线另一端连接的路由器 DHCP 已开启 |
+| ping 不通 | 检查网线和网络连接 |

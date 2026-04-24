@@ -1,74 +1,136 @@
 ---
 sidebar_position: 1
 ---
-# LVGL从零实现一个多媒体播放器
+
+# LVGL 从零实现多媒体播放器
+
+本章节将讲解如何在 T113s4-SdNand 开发板上基于 LVGL + TPlayer 实现一个多媒体播放器。
+
+---
 
 ## 前置条件
 
-+ 硬件
-    - 百问网T113S3-V1.3开发板
-    - 百问网7寸RGB屏幕
-    - 3.5mm耳机或功放扬声器套件
-    - 12V锂电池或12V电源适配器
-+ 软件
-    - 参考100ask官方文档[开发环境搭建 | 东山Π](https://docs.100ask.net/dshanpi/docs/T113s3-Pro/part3/DevelopmentEnvironmentSetup/)完成开发环境搭建并完成tina5sdk编译打包烧录
-+ 源码：
-    + 仓库地址： https://github.com/DongshanPI/100ASK_T113s3-SdNand_TinaSDK5/tree/pj-100ask_cat_tv
-    + 作者原始仓库：https://gitee.com/wangxiankang/t113s3_cattv_demo
+**硬件：**
+- T113s4-SdNand 开发板
+- 百问网 7 寸 RGB 屏幕（或其他兼容屏幕）
+- 3.5mm 耳机或功放扬声器套件
+- 12V 锂电池或 12V 电源适配器
+- SD 卡（预存 MP4 视频文件）
 
+**软件：**
+- 已完成 Tina5 SDK 开发环境搭建
+- 已完成 Tina5 SDK 编译打包烧录
+
+**源码：**
+- 仓库地址：[100ASK_T113s3-SdNand_TinaSDK5 (pj-100ask_cat_tv 分支)](https://github.com/DongshanPI/100ASK_T113s3-SdNand_TinaSDK5/tree/pj-100ask_cat_tv)
+- 作者原始仓库：[t113s3_cattv_demo](https://gitee.com/wangxiankang/t113s3_cattv_demo)
+
+---
 
 ## 实现原理
-基于lvgl+tplayer库实现，tplayer为全志tinasdk内置，lvgl参考100ask官方进行移植和修改，tplayer负责解码播放sd卡内的mp4文件播放，lvgl负责UI交互，lvgl图层位于tplayer图层之上并将lvgl中心设置透明窗口用于显示tplayer播放内容。
+
+基于 **LVGL + TPlayer** 库实现：
+
+- **TPlayer**：全志 Tina SDK 内置的多媒体播放库，负责解码和播放 SD 卡内的 MP4 文件
+- **LVGL**：负责 UI 交互，图层位于 TPlayer 图层之上，并将中心区域设置为透明窗口，用于显示 TPlayer 播放内容
+
+```
+┌─────────────────────────────────┐
+│           LVGL UI 图层           │
+│  (透明窗口区域显示 TPlayer 视频)  │
+├─────────────────────────────────┤
+│         TPlayer 视频图层         │
+└─────────────────────────────────┘
+```
+
+---
 
 ## 编译项目
-修改cat_tv项目顶层makefile的TINA_SDK_ROOT环境变量为你tina5sdk的所在位置，如下：
+
+### 1. 克隆源码
 
 ```bash
-git clone  https://github.com/DongshanPI/100ASK_T113s3-SdNand_TinaSDK5/ -b pj-100ask_cat_tv
+git clone https://github.com/DongshanPI/100ASK_T113s3-SdNand_TinaSDK5/ -b pj-100ask_cat_tv
 cd 100ASK_T113s3-SdNand_TinaSDK5
 ```
 
-之后编辑 内置的Makefile 修改交叉编译器位置，注意需要先 编译过 Tina5SDK 系统镜像，才可以继续后续操作。
+### 2. 配置 Makefile
 
-![](images/1740894874041-d0e88c86-cd2b-4aa5-9e3d-4a66c20f51a7.png)
+编辑项目内置的 `Makefile`，修改以下内容：
 
-在cat_tv项目顶层目录下打开终端，执行make -j32完成对cat_tv项目编译，编译成功输出如下：
+- `TINA_SDK_ROOT`：设置为你的 Tina5 SDK 路径
+- 交叉编译器路径：设置为 Tina5 SDK 编译输出的工具链路径
 
-![](images/1740895163774-661c01d0-d59d-420c-85c6-fe9d6c3decd8.png)
+> **注意**：必须先编译过 Tina5 SDK 系统镜像，才可以继续后续操作。
 
-## 运行测试
-sd卡预存一些mp4文件并将sd卡插入开发板，上电开机，通过adb将cattv可执行程序上传至开发板，如下：
+### 3. 编译
 
-```c
-# 设置开发板音频属性
-amixer -D hw:audiocodec cset numid=39 1
-amixer -D hw:audiocodec cset numid=38 1
+在项目根目录下执行：
 
-# 上传cattv程序到开发板
-adb push cattv /mnt/UDISK
-
-# 给予可执行程序(开发板端)
-chmod +x cattv
-
-# 执行测试
-./ cattv
-
-# 补充
-sd卡的目录结构为(每套视频都有一个目录存放)：
-tom&jerry/001.mp4、tom&jerry/999.mp4
-xiyangyang/001.mp4、xiyangyang/999.mp4
+```bash
+make -j32
 ```
 
-# 开机自启
-修改/etc/profile文件，在文件尾部添加如下内容：
+编译成功后会生成 `cattv` 可执行程序。
 
-```c
+---
+
+## 运行测试
+
+### 1. 准备 SD 卡
+
+SD 卡预存一些 MP4 文件，目录结构如下：
+
+```
+SD 卡根目录/
+├── tom&jerry/
+│   ├── 001.mp4
+│   └── 999.mp4
+├── xiyangyang/
+│   ├── 001.mp4
+│   └── 999.mp4
+└── ...
+```
+
+将 SD 卡插入开发板。
+
+### 2. 设置音频属性
+
+```bash
+amixer -D hw:audiocodec cset numid=39 1
+amixer -D hw:audiocodec cset numid=38 1
+```
+
+### 3. 上传程序到开发板
+
+```bash
+adb push cattv /mnt/UDISK
+```
+
+### 4. 运行测试
+
+在开发板串口终端中执行：
+
+```bash
+cd /mnt/UDISK
+chmod +x cattv
+./cattv
+```
+
+---
+
+## 开机自启
+
+修改 `/etc/profile` 文件，在文件尾部添加：
+
+```bash
 amixer -D hw:audiocodec cset numid=39 1
 amixer -D hw:audiocodec cset numid=38 1
 
 cd /mnt/UDISK
 chmod +x cattv
-./ cattv > /dev/null &
+./cattv > /dev/null &
 cd /
 ```
 
+保存后重启开发板，播放器将自动启动。

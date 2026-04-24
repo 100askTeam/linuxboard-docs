@@ -1,48 +1,81 @@
----
-sidebar_position: 4
----
-
 # 学习路线
 
-## 基础情况
+> 本页面根据你当前的基础，为你规划一条从入门到精通的学习路径。
 
-### 纯小白同学不懂Linux
-* 学习操作使用ubuntu系统： https://www.bilibili.com/video/BV1dU4y1D7fz
-* 学习Git工具： https://www.bilibili.com/video/BV1CL4y1A7YG
-* 学习Linux C编程： 参考小甲鱼课程
-* 学习嵌入式Linux 基本知识 ： https://www.bilibili.com/video/BV1VN4y137Tf
+---
 
+## 📊 你属于哪个阶段？
 
+### 🟢 阶段一：零基础入门
 
-### 懂一点Linux概念
+**适合人群**：没接触过 Linux，刚接触嵌入式开发的同学。
 
-* 学习Git工具： https://www.bilibili.com/video/BV1CL4y1A7YG
+| 学习步骤 | 内容 | 推荐资源 |
+|:---:|:---|:---|
+| 1️⃣ | 学习使用 Ubuntu 系统 | [B站教程](https://www.bilibili.com/video/BV1dU4y1D7fz) |
+| 2️⃣ | 学习 Git 版本控制工具 | [B站教程](https://www.bilibili.com/video/BV1CL4y1A7YG) |
+| 3️⃣ | 学习 Linux C 编程 | 小甲鱼课程 |
+| 4️⃣ | 学习嵌入式 Linux 基础知识 | [B站教程](https://www.bilibili.com/video/BV1VN4y137Tf) |
+| 5️⃣ | **回到本文档** | 从 [开发板介绍](../01-BoardIntroduction) 开始 |
 
-* 学习嵌入式Linux 基本知识 ： https://www.bilibili.com/video/BV1VN4y137Tf
+### 🟡 阶段二：有一定基础
 
+**适合人群**：熟悉 Linux 基本命令操作，了解基本的编程概念。
 
+| 学习步骤 | 内容 | 推荐资源 |
+|:---:|:---|:---|
+| 1️⃣ | 学习 Git 版本控制工具 | [B站教程](https://www.bilibili.com/video/BV1CL4y1A7YG) |
+| 2️⃣ | 学习嵌入式 Linux 基础知识 | [B站教程](https://www.bilibili.com/video/BV1VN4y137Tf) |
+| 3️⃣ | **搭建开发环境** | 参考 [开发环境](../part3/02-DevelopmentEnvironmentSetup) 章节 |
+| 4️⃣ | **编译 Tina5 SDK** | 参考 [源码工具文档手册](../02-SourceCodeToolDocumentationManual) |
+| 5️⃣ | **学习应用开发** | 从 WiFi 联网 → RS485/CAN 通信 → Qt/LVGL GUI 开发 |
 
+### 🔴 阶段三：进阶高级开发
 
-### 熟悉嵌入式Linux开发
+**适合人群**：已经熟悉嵌入式 Linux 开发，想深入学习特定领域。
 
-* 学习Tina-SDK开发
-* 学习Linux驱动开发
-* 学习专题课程（比如RISC-V架构专题）
+| 学习方向 | 重点内容 |
+|:---|:---|
+| **Tina SDK 开发** | Buildroot 系统构建、自定义系统开发、系统优化 |
+| **Linux 驱动开发** | 内核定制、设备树修改、驱动编写 |
+| **C906 RISC-V 异构开发** | 利用 T113s4 独有的 RISC-V 核心进行异构编程（⭐ T113s4 独有特性） |
+| **LVGL 多媒体播放器** | 基于 LVGL + TPlayer 实现视频播放器 |
+| **Qt 应用开发** | 在嵌入式 Linux 上部署 Qt 应用程序 |
 
+---
 
+## 🎯 对应工作岗位
 
-## 工作岗位
+完成学习后，你可以胜任以下岗位：
 
-### 嵌入式Linux 应用开发 
+| 岗位方向 | 初级要求 | 中级要求 | 高级要求 |
+|:---|:---|:---|:---|
+| **嵌入式 Linux 应用开发** | C/C++ 基础、Linux API 使用 | 多线程编程、网络编程 | GUI 开发（Qt/LVGL） |
+| **嵌入式 Linux 驱动开发** | C 语言基础、Linux 基本操作 | 内核模块编写、设备树 | 复杂驱动调试、性能优化 |
+| **嵌入式系统开发** | Buildroot 基本使用 | 交叉编译、系统集成 | Tina SDK 构建优化 |
+| **RISC-V 异构开发** | RISC-V 架构了解 | AMP 双系统编程 | 异构通信与调试 |
 
-初级 高级
+---
 
-### 嵌入式Linux驱动开发 
+## 📋 T113s4 学习路线图
 
-初级 中级 高级
-
-
-
-### 嵌入式系统开发
-
-嵌入式Linux系统优化工程师
+```
+┌─────────────────────────────────────────┐
+│        T113s4-SdNand 学习路线            │
+├─────────────────────────────────────────┤
+│                                         │
+│  开发板介绍 → 快速入门 → 登录系统         │
+│        ↓                                │
+│  WiFi 联网 → 网络测试                    │
+│        ↓                                │
+│  搭建开发环境 → 编译 Tina5 SDK → 烧录     │
+│        ↓                                │
+│  ┌───────┬────────┬────────┬────────┐   │
+│  │应用开发│驱动开发 │系统开发 │异构开发│   │
+│  │WiFi    │内核定制│Buildroot│C906    │   │
+│  │CAN     │设备树  │系统优化 │RISC-V  │   │
+│  │RS485   │U-Boot  │自定义镜像│AMP双系统│   │
+│  │Qt/LVGL │        │        │        │   │
+│  └───────┴────────┴────────┴────────┘   │
+└─────────────────────────────────────────┘
+```

@@ -1,97 +1,94 @@
 ---
 sidebar_position: 1
 ---
-# HelloWorld快速入门
 
-本章节将讲解如何在T113s3ProV1.3SdNand 开发板上进行简单的应用开发。
+# HelloWorld 快速入门
+
+本章节将指导你在 T113s4-SdNand 开发板上运行第一个应用程序。
+
+---
 
 ## 编写程序
 
-在 ubuntu 上，编写程序 `helloworld.c`，填入以下内容，
+在 Ubuntu 上创建并编辑 `helloworld.c`：
 
-~~~bash
+```c
 #include <stdio.h>
 
 int main()
 {
-        printf("T113s3ProV1.3SdNand Hello World!\n");
-        return 0;
+    printf("T113s4-SdNand Hello World!\n");
+    return 0;
 }
+```
 
-~~~
+---
 
-保存退出。
+## 交叉编译
 
-## 交叉编译工具链准备
+### 为什么需要交叉编译？
 
-在 ubuntu 中可以执行以下命令编译、执行：
+使用 `gcc` 编译的程序只能在 Ubuntu（x86 架构）上运行，无法在 ARM 开发板上执行。
 
-~~~bash
-gcc -o hello helloworld.c
-./hello
-Hello, world!
-~~~
+我们需要使用交叉编译工具链为 ARM 架构编译程序。
 
-上述命令编译得到的可执行程序 hello 可以在 Ubuntu 中运行，但是如果把它放到 ARM板子上去，它是无法执行的。因为它是使用 gcc 编译的，是给 PC 机编译的，里面的机器指令是 x86 的。
+### 交叉编译工具链路径
 
-我们要想给 ARM 板编译出 hello 程序，需要使用相应的交叉编译工具链。T113s3ProV1.3SdNand开发板的交叉编译工具是(实际路径不一定相同)：
+```bash
+/home/ubuntu/t113-tin5-v1.2/out/t113_s4/100ask/buildroot/buildroot/host/bin/arm-linux-gnueabi-gcc
+```
 
-~~~bash
-/home/ubuntu/tina5sdk-bsp/out/t113/evb1_auto/buildroot/buildroot/host/bin/arm-linux-gnueabi-gcc
-~~~
+### 编译程序
 
-## 编译程序
+```bash
+/home/ubuntu/t113-tin5-v1.2/out/t113_s4/100ask/buildroot/buildroot/host/bin/arm-linux-gnueabi-gcc helloworld.c -o helloworld
+```
 
-编写代码完成后，可以使用上面提到的交叉编译工具来进行编译，
+### 验证文件格式
 
-~~~bash
-/home/ubuntu/tina5sdk-bsp/out/t113/evb1_auto/buildroot/buildroot/host/bin/arm-linux-gnueabi-gcc helloworld.c -o helloworld
-~~~
+```bash
+file helloworld
+```
 
-执行指令后，会出现一个可执行文件，就是应用程序 `helloworld`，可以看到helloworld程序的文件类型如下，
+输出示例：
 
-~~~bash
-ubuntu@ubuntu1804:~/C-Test/Hello$ file helloworld
-helloworld: ELF 32-bit LSB executable, ARM, EABI5 version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.3, for GNU/Linux 3.2.0, BuildID[sha1]=28c0d7033e0cd411b5a21eca3c31a04f2115c37c, with debug_info, not stripped
-ubuntu@ubuntu1804:~/C-Test/Hello$
-~~~
+```
+helloworld: ELF 32-bit LSB executable, ARM, EABI5 version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.3
+```
 
-## 登录串口终端
+看到 `ARM` 字样说明编译正确。
 
-如果不清楚如何连接开发板登录串口，请参考 快速启动 中的《启动开发板》章节。
+---
 
-## 上传程序并运行
+## 上传并运行
 
-程序编译之后，通过adb工具上传可执行程序`helloworld`。这里上传至开发板 `/mnt/UDISK/` 路径下，
+### 1. 登录串口终端
 
-> 执行adb之前，需要把开发板otg接口连接至ubuntu。
+参考《快速入门》中的「启动开发板」章节。
 
-~~~bash
-ubuntu@ubuntu1804:~/C-Test/Hello$ adb devices
-List of devices attached
-* daemon not running; starting now at tcp:5037
-* daemon started successfully
-0402101560	device
+### 2. 上传程序到开发板
 
-ubuntu@ubuntu1804:~/C-Test/Hello$ adb push helloworld /mnt/UDISK/
-helloworld: 1 file pushed. 4.1 MB/s (9988 bytes in 0.002s)
-~~~
+通过 ADB 工具上传（需将开发板 OTG 接口连接到 Ubuntu）：
 
-打开串口终端，可以在开发板的`/mnt/udisk/`目录下，看到可执行程序`helloworld`
+```bash
+adb devices
+adb push helloworld /mnt/UDISK/
+```
 
-~~~bash
-# ls
-helloworld
-#
-~~~
+### 3. 运行程序
 
-运行程序，信息如下，
+在开发板的串口终端中执行：
 
-~~~bash
-# ./helloworld
-T113s3ProV1.3SdNand Hello World!
-#
-~~~
+```bash
+cd /mnt/UDISK/
+chmod +x helloworld
+./helloworld
+```
 
-程序运行成功，欢迎开启嵌入式应用之旅！！！
+输出：
 
+```
+T113s4-SdNand Hello World!
+```
+
+程序运行成功，欢迎开启嵌入式应用开发之旅！
