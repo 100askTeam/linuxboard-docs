@@ -161,7 +161,7 @@ tina-d1-h/device/config/chips/d1-h/configs/nezha/uboot-board.dts
 
 ## 驱动程序
 驱动程序参考 [100ASK_T113-PRO开发板适配4寸MIPI屏](https://forums.100ask.net/t/topic/3153) 即可，最终版本如下：
-[tina-d1-h-mipi-lcd.zip|attachment](images/3/lpL5enVXlGXGnTUJ3tEJ09oXjJ4.zip) (27.8 KB)
+> 📎 原文附件 `tina-d1-h-mipi-lcd.zip`（27.8 KB，包含设备树修改与 WiFi 启用配置），未包含在整理素材中。
 包含了设备树的修改，以及WiFi的启用。
 ![image](images/3/6.png)
 
