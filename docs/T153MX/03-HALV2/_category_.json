@@ -1,0 +1,9 @@
+{
+  "label": "HAL V2",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "title": "HAL V2",
+    "description": "T153MX HAL V2 总览及各硬件模块开发资料。"
+  }
+}

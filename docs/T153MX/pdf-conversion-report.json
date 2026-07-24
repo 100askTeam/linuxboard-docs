@@ -1,0 +1,263 @@
+[
+  {
+    "source": "M-Tina_Linux_系统软件_开发指南.pdf",
+    "target": "docs/T153MX/02-DevelopmentGuides/01-system-software-guide.md",
+    "pages": 57,
+    "headings": 99,
+    "generated_headings": 99,
+    "images": 18,
+    "characters": 41023
+  },
+  {
+    "source": "M-Tina_Linux_buildroot_使用指南.pdf",
+    "target": "docs/T153MX/02-DevelopmentGuides/02-buildroot-guide.md",
+    "pages": 26,
+    "headings": 39,
+    "generated_headings": 39,
+    "images": 5,
+    "characters": 19873
+  },
+  {
+    "source": "M-Tina_Linux_配置_开发指南.pdf",
+    "target": "docs/T153MX/02-DevelopmentGuides/03-configuration-guide.md",
+    "pages": 69,
+    "headings": 126,
+    "generated_headings": 126,
+    "images": 8,
+    "characters": 54208
+  },
+  {
+    "source": "M-Tina_Linux_USB_开发指南.pdf",
+    "target": "docs/T153MX/02-DevelopmentGuides/04-usb-guide.md",
+    "pages": 44,
+    "headings": 60,
+    "generated_headings": 60,
+    "images": 3,
+    "characters": 45524
+  },
+  {
+    "source": "M-Tina_Linux_Qt_使用指南.pdf",
+    "target": "docs/T153MX/02-DevelopmentGuides/05-qt-guide.md",
+    "pages": 20,
+    "headings": 21,
+    "generated_headings": 21,
+    "images": 13,
+    "characters": 10065
+  },
+  {
+    "source": "M-Tina_Linux_OTA_开发指南.pdf",
+    "target": "docs/T153MX/02-DevelopmentGuides/06-ota-guide.md",
+    "pages": 87,
+    "headings": 196,
+    "generated_headings": 196,
+    "images": 1,
+    "characters": 80238
+  },
+  {
+    "source": "M-Tina_Linux_同构AMP多系统_开发指南.pdf",
+    "target": "docs/T153MX/02-DevelopmentGuides/07-homogeneous-amp-guide.md",
+    "pages": 36,
+    "headings": 59,
+    "generated_headings": 59,
+    "images": 2,
+    "characters": 38020
+  },
+  {
+    "source": "M-Tina_Linux_异构通信框架_开发指南 (3).pdf",
+    "target": "docs/T153MX/02-DevelopmentGuides/08-heterogeneous-communication-guide.md",
+    "pages": 112,
+    "headings": 191,
+    "generated_headings": 191,
+    "images": 45,
+    "characters": 159817
+  },
+  {
+    "source": "M-HAL_V2_开发指南.pdf",
+    "target": "docs/T153MX/03-HALV2/01-overall.md",
+    "pages": 14,
+    "headings": 23,
+    "generated_headings": 23,
+    "images": 5,
+    "characters": 7239
+  },
+  {
+    "source": "M-HAL_V2_GPIO_开发指南.pdf",
+    "target": "docs/T153MX/03-HALV2/02-gpio.md",
+    "pages": 15,
+    "headings": 30,
+    "generated_headings": 30,
+    "images": 0,
+    "characters": 7284
+  },
+  {
+    "source": "M-HAL_V2_中断控制器_开发指南.pdf",
+    "target": "docs/T153MX/03-HALV2/03-interrupt-controller.md",
+    "pages": 13,
+    "headings": 25,
+    "generated_headings": 25,
+    "images": 1,
+    "characters": 7061
+  },
+  {
+    "source": "M-HAL_V2_CCU_开发指南.pdf",
+    "target": "docs/T153MX/03-HALV2/04-ccu.md",
+    "pages": 31,
+    "headings": 57,
+    "generated_headings": 57,
+    "images": 0,
+    "characters": 31645
+  },
+  {
+    "source": "M-HAL_V2_DMA_开发指南.pdf",
+    "target": "docs/T153MX/03-HALV2/05-dma.md",
+    "pages": 25,
+    "headings": 40,
+    "generated_headings": 40,
+    "images": 1,
+    "characters": 20654
+  },
+  {
+    "source": "M-HAL_V2_TIMER_开发指南.pdf",
+    "target": "docs/T153MX/03-HALV2/06-timer.md",
+    "pages": 16,
+    "headings": 30,
+    "generated_headings": 30,
+    "images": 0,
+    "characters": 9150
+  },
+  {
+    "source": "M-HAL_V2_WATCHDOG_开发指南.pdf",
+    "target": "docs/T153MX/03-HALV2/07-watchdog.md",
+    "pages": 13,
+    "headings": 24,
+    "generated_headings": 24,
+    "images": 0,
+    "characters": 5398
+  },
+  {
+    "source": "M-HAL_V2_RTC_开发指南.pdf",
+    "target": "docs/T153MX/03-HALV2/08-rtc.md",
+    "pages": 16,
+    "headings": 30,
+    "generated_headings": 30,
+    "images": 0,
+    "characters": 9370
+  },
+  {
+    "source": "M-HAL_V2_PWM_开发指南.pdf",
+    "target": "docs/T153MX/03-HALV2/09-pwm.md",
+    "pages": 19,
+    "headings": 28,
+    "generated_headings": 28,
+    "images": 0,
+    "characters": 13462
+  },
+  {
+    "source": "M-HAL_V2_PWMCS_开发指南.pdf",
+    "target": "docs/T153MX/03-HALV2/10-pwmcs.md",
+    "pages": 13,
+    "headings": 17,
+    "generated_headings": 17,
+    "images": 0,
+    "characters": 5183
+  },
+  {
+    "source": "M-HAL_V2_GPADC_开发指南.pdf",
+    "target": "docs/T153MX/03-HALV2/11-gpadc.md",
+    "pages": 15,
+    "headings": 24,
+    "generated_headings": 24,
+    "images": 0,
+    "characters": 7896
+  },
+  {
+    "source": "M-HAL_V2_UART_开发指南.pdf",
+    "target": "docs/T153MX/03-HALV2/12-uart.md",
+    "pages": 16,
+    "headings": 29,
+    "generated_headings": 29,
+    "images": 0,
+    "characters": 8225
+  },
+  {
+    "source": "M-HAL_V2_TWI_开发指南.pdf",
+    "target": "docs/T153MX/03-HALV2/13-twi.md",
+    "pages": 14,
+    "headings": 18,
+    "generated_headings": 18,
+    "images": 2,
+    "characters": 6916
+  },
+  {
+    "source": "M-HAL_V2_SPI_开发指南.pdf",
+    "target": "docs/T153MX/03-HALV2/14-spi.md",
+    "pages": 21,
+    "headings": 35,
+    "generated_headings": 35,
+    "images": 0,
+    "characters": 17542
+  },
+  {
+    "source": "M-HAL_V2_CAN_开发指南.pdf",
+    "target": "docs/T153MX/03-HALV2/15-can.md",
+    "pages": 26,
+    "headings": 34,
+    "generated_headings": 34,
+    "images": 2,
+    "characters": 24694
+  },
+  {
+    "source": "M-HAL_V2_GMAC_开发指南.pdf",
+    "target": "docs/T153MX/03-HALV2/16-gmac.md",
+    "pages": 15,
+    "headings": 27,
+    "generated_headings": 27,
+    "images": 0,
+    "characters": 6792
+  },
+  {
+    "source": "M-HAL_V2_LBC_开发指南.pdf",
+    "target": "docs/T153MX/03-HALV2/17-lbc.md",
+    "pages": 28,
+    "headings": 27,
+    "generated_headings": 27,
+    "images": 7,
+    "characters": 34185
+  },
+  {
+    "source": "M-HAL_V2_MSGBOX_开发指南.pdf",
+    "target": "docs/T153MX/03-HALV2/18-msgbox.md",
+    "pages": 16,
+    "headings": 31,
+    "generated_headings": 31,
+    "images": 0,
+    "characters": 5601
+  },
+  {
+    "source": "M-HAL_V2_HWSPINLOCK_开发指南.pdf",
+    "target": "docs/T153MX/03-HALV2/19-hwspinlock.md",
+    "pages": 15,
+    "headings": 31,
+    "generated_headings": 31,
+    "images": 0,
+    "characters": 5588
+  },
+  {
+    "source": "M-HAL_V2_IRRX_开发指南.pdf",
+    "target": "docs/T153MX/03-HALV2/20-irrx.md",
+    "pages": 14,
+    "headings": 18,
+    "generated_headings": 18,
+    "images": 0,
+    "characters": 7760
+  },
+  {
+    "source": "M-HAL_V2_IRTX_开发指南.pdf",
+    "target": "docs/T153MX/03-HALV2/21-irtx.md",
+    "pages": 14,
+    "headings": 19,
+    "generated_headings": 19,
+    "images": 2,
+    "characters": 7502
+  }
+]
