@@ -30,3 +30,4 @@ description: 开发指南内容索引。
 | [OTA](./06-ota-guide.md) | SWUpdate、Recovery、A/B、差分升级、签名、压缩与调试 |
 | [同构 AMP 多系统](./07-homogeneous-amp-guide.md) | 从系统构建、引导、内存规划、通信与调试 |
 | [异构通信框架](./08-heterogeneous-communication-guide.md) | Remoteproc、RPMsg、共享内存与异构系统调试 |
+| [OmniGate AMP Shell](./09-omnigate-amp-shell-guide.md) | T153MX A7 Linux 与 E907 FreeRTOS 的 AMP Shell 实板开发与诊断 |

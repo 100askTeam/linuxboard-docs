@@ -77,6 +77,7 @@ OmniGate 扩展底板为核心板提供双 4G、双千兆以太网、工业总�
 | eMMC / TF Card | 已配置 | 当前构建目标为 eMMC Buildroot 方案 |
 | MIPI DSI 4-Lane | 调试中 | 背光、初始化和 DRM 已工作，仍存在水平条纹 |
 | 双 4G | 硬件支持 | 需根据实际 4G 模块补充拨号和运营商配置 |
+| E907 AMP Shell | 已实板验证 | A7 Linux 通过 remoteproc、MSGBOX 和 RPMsg 连接 E907 FreeRTOS |
 
 “已配置”表示板级配置中已经启用相关控制器，不代表所有外接设备、线材和应用场景均完成验证。
 
@@ -132,3 +133,4 @@ out/t153_linux_omnigate_uart0.img
 - [WLAN、Bluetooth 与 PCM 调试记录](https://github.com/dshanpi/T153MX-Tina5SDK_OmniGate/blob/main/docs/wlan-bluetooth-bringup.md)
 - [MIPI DSI 4-Lane 屏调试记录](https://github.com/dshanpi/T153MX-Tina5SDK_OmniGate/blob/main/docs/mipi-dsi-debug-record.md)
 - [Bluetooth 音响交付变更说明](https://github.com/dshanpi/T153MX-Tina5SDK_OmniGate/blob/main/docs/bluetooth-speaker-change-set.md)
+- [OmniGate AMP Shell 异构开发](./02-DevelopmentGuides/09-omnigate-amp-shell-guide.md)
