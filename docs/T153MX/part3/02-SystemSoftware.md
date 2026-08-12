@@ -7,6 +7,8 @@ toc_max_heading_level: 3
 
 # 系统软件
 
+本章节将讲解如何在 T153MX Tina Linux SDK 中完成开发环境准备、方案选择、系统编译、固件打包和板端启动验证，并说明 U-Boot、Kernel 与 rootfs 分别在什么位置修改。
+
 :::info 文档说明
 
 - **原始页数：** 57 页
@@ -14,9 +16,55 @@ toc_max_heading_level: 3
 - **发布日期：** 2025-08-25
 - **原始文件：** [查看或下载 PDF](/pdfs/T153MX/01-system-software-guide.pdf)
 
-正文按原始 PDF 的文本层、书签层级和页面顺序转换，仅移除重复页眉、页脚与水印，不改写技术内容。
+正文以原始 PDF 为技术依据，并补充 T153MX 的操作入口、执行位置和验证方法。不同 SDK 发布版本的目录或命令如有差异，应以当前 SDK 为准。
 
 :::
+
+## 目标
+
+从空白开发环境完成 T153MX Tina SDK 的配置、编译、打包与启动验证，并能够定位 U-Boot、Kernel 和 rootfs 的修改入口。
+
+## 准备工作
+
+**开发主机：** Ubuntu 主机、足够的磁盘空间、可访问 SDK 源码的账号，以及 SDK 要求的编译依赖。
+
+**目标设备：** T153MX OmniGate 开发板、稳定电源、调试串口和用于烧录的 USB 连接。
+
+**软件资料：** Tina Linux 5.0 SDK、`t153_omnigate_mmc-buildroot` 板级配置及对应 overlay。本文原始资料适用于 Tina Linux v5.0 及以上版本；具体提交版本和构建主机版本需按项目记录。
+
+## 操作步骤与执行位置
+
+| 操作 | 执行位置 | 主要结果 |
+| --- | --- | --- |
+| 加载环境、选择方案、编译 | Ubuntu 主机的 SDK 根目录 | Kernel、rootfs、Boot 组件 |
+| `pack` 打包 | SDK 根目录 | 可烧录镜像 |
+| U-Boot 命令 | U-Boot 控制台 | 启动参数或临时调试状态 |
+| 运行验证 | 开发板 Linux Shell | 版本、设备节点、日志和应用输出 |
+
+烧录会覆盖目标存储中的系统数据。操作前确认开发板型号、启动介质和镜像绝对路径，并保存需要保留的数据。
+
+## 验证方法与完成标准
+
+1. SDK 能正确选择 `t153_omnigate_mmc-buildroot` 方案。
+2. 编译和打包命令退出成功，并能定位最终镜像。
+3. 镜像烧录到正确设备后，串口能够看到启动日志并进入 Linux Shell。
+4. `uname -a`、挂载信息和目标功能与本次构建配置一致。
+
+## T153MX 最短实操入口
+
+第一次编译不要从本手册的通用平台示例中拼命令，直接完成[Tina SDK 开发环境搭建](./01-DevelopmentEnvironmentSetup.md)。当前板级已经确认的关键值如下：
+
+| 项目 | T153MX OmniGate 当前值 |
+| --- | --- |
+| 配置入口 | `./build.sh config` |
+| 方案逻辑名 | `t153_omnigate_mmc-buildroot` |
+| 内核 | `linux-5.10-origin` / Linux 5.10.198 |
+| 根文件系统 | Buildroot 2022.05 |
+| 完整构建 | `./build.sh` |
+| 打包 | `./build.sh pack` |
+| 镜像目录 | `out/t153/omnigate/buildroot/` |
+
+从系统层定位问题时，先判断日志停在 Boot0/U-Boot、Kernel 还是 rootfs，再阅读本手册对应部分。启动阶段都没确认时，不要先修改用户态应用。
 
 <!-- PDF page 7 -->
 

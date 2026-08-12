@@ -1,11 +1,13 @@
 ---
-sidebar_position: 9
+sidebar_position: 4
 sidebar_label: 异构通信框架
 description: Remoteproc、RPMsg、共享内存与异构系统调试。
 toc_max_heading_level: 3
 ---
 
 # 异构通信框架
+
+本章节将讲解 T153MX Linux 主核管理异构从核的完整流程，包括 remoteproc 生命周期、从核固件、AMP 控制台、RPMsg/RPBuf 通信、异常恢复与调试证据。
 
 :::info 文档说明
 
@@ -14,9 +16,58 @@ toc_max_heading_level: 3
 - **发布日期：** 2026-05-31
 - **原始文件：** [查看或下载 PDF](/pdfs/T153MX/08-heterogeneous-communication-guide.pdf)
 
-正文按原始 PDF 的文本层、书签层级和页面顺序转换，仅移除重复页眉、页脚与水印，不改写技术内容。
+正文以原始 PDF 为技术依据，并补充 T153MX 异构开发的执行位置、固件流向和分层验证方法。
 
 :::
+
+## 目标
+
+完成异构从核固件构建、remoteproc 启停、RPMsg 与 RPBuf 通信和异常调试。
+
+## 准备工作
+
+- 确认 Linux 主核和目标从核类型，以及运行在从核上的 RTOS/裸机项目。
+- 在不同终端分别加载 Linux SDK 与 RTOS 构建环境。
+- 核对从核固件名、入口地址、保留内存、vring 和共享缓冲区。
+- 准备串口和可恢复镜像；从核配置错误可能使通信失败，但不应通过猜测地址绕过检查。
+
+## 操作步骤与执行位置
+
+| 阶段 | 执行位置 | 可观察证据 |
+| --- | --- | --- |
+| 构建从核 | RTOS/裸机构建环境 | 从核 ELF/BIN 固件 |
+| 集成固件 | Linux SDK 根目录 | `/lib/firmware` 与 pack 产物 |
+| 启动从核 | Bootloader 或开发板 Linux Shell | remoteproc 状态和启动日志 |
+| 创建通信 | Linux 与从核两侧 | RPMsg endpoint、收发输出 |
+| 异常定位 | Linux sysfs/debugfs 与从核日志 | coredump、trace、watchdog 状态 |
+
+## 验证方法与分层顺序
+
+先确认固件产物和内存布局，再确认 remoteproc 状态，然后检查 RPMsg 控制设备与 endpoint，最后执行双向数据测试。不要在 remoteproc 尚未运行时直接把 endpoint 创建失败判断为 RPMsg 驱动缺陷。
+
+## 完成标准
+
+从核能够被明确启动和停止，主从两侧能观察到同一通信会话，发送数据与接收数据一致，并且退出测试后 endpoint、线程和共享资源按预期释放。
+
+## OmniGate 已确认的固件流向
+
+```mermaid
+flowchart LR
+    A[E907 FreeRTOS 构建产物] --> B[out/t153/omnigate/pack_out/<br/>amp_rv0.bin]
+    B --> C[pack 写入完整 img]
+    B --> D[Buildroot target<br/>/lib/firmware/amp_rv0.bin]
+    D --> E[Linux remoteproc 装载]
+    E --> F[E907 发布 RPMsg 服务]
+```
+
+在 **Ubuntu 主机、SDK 根目录**检查：
+
+```bash
+ls -lh out/t153/omnigate/pack_out/amp_rv0.bin
+ls -lh out/t153/omnigate/buildroot/buildroot/target/lib/firmware/amp_rv0.bin
+```
+
+两个文件存在只证明固件已进入打包树。烧录后还要在**开发板 Linux Shell**检查 `/sys/class/remoteproc/` 下实际节点、`state`、`firmware` 和 `dmesg`，再验证 RPMsg endpoint。需要一条可直接跟做的板级链路时，继续阅读 [OmniGate AMP Shell](./05-OmniGateAMPShell.md)。
 
 <!-- PDF page 8 -->
 

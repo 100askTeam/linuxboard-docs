@@ -1,11 +1,13 @@
 ---
-sidebar_position: 5
+sidebar_position: 1
 sidebar_label: USB
 description: 设备树、内核配置、Gadget、Host、OTG 与调试。
 toc_max_heading_level: 3
 ---
 
 # USB
+
+本章节将讲解如何在 T153MX Tina Linux 中配置 USB Host、Device 与 OTG 功能，并通过设备节点、内核日志和端到端传输验证配置结果。
 
 :::info 文档说明
 
@@ -14,9 +16,53 @@ toc_max_heading_level: 3
 - **发布日期：** 2025-07-29
 - **原始文件：** [查看或下载 PDF](/pdfs/T153MX/04-usb-guide.pdf)
 
-正文按原始 PDF 的文本层、书签层级和页面顺序转换，仅移除重复页眉、页脚与水印，不改写技术内容。
+正文以原始 PDF 为技术依据，并补充 T153MX USB 实验的连接要求、执行位置和结果判断。
 
 :::
+
+## 目标
+
+正确选择 USB 角色，完成内核和设备树配置，并通过一次端到端数据操作验证 T153MX USB 功能。
+
+## 准备工作
+
+**硬件：** T153MX 开发板、数据功能正常的 USB 线、与测试角色匹配的 U 盘或 USB 主机。确认接口供电方向，禁止两个供电端直接对接。
+
+**软件：** 当前板级设备树、Kernel USB 配置、rootfs 中的 `setusbconfig`/ADB/MTP 工具，以及可查看串口日志的终端。
+
+## 操作步骤与前置确认
+
+1. 确认测试的是 Host、Device 还是 OTG，三者的供电和设备角色不同。
+2. 确认命令运行在 SDK 根目录还是开发板 Linux Shell。
+3. 记录插拔前后的 `dmesg`，不要先清空系统日志。
+4. 检查 USB 端口是否与其他板载功能复用。
+
+## 验证方法与顺序
+
+依次检查控制器驱动、角色状态、设备枚举、设备节点和实际数据传输。只看到 USB 插入日志不代表功能完成，必须执行一次可观察的读写、ADB 连接或 MTP 传输。
+
+## T153MX 首次排查命令
+
+以下命令在**开发板 Linux Shell**执行，不是在 Ubuntu 主机执行：
+
+```bash
+dmesg | grep -Ei 'usb|udc|musb|ehci|ohci'
+ls -l /sys/class/udc 2>/dev/null
+ls -l /sys/bus/usb/devices
+ls -l /dev/bus/usb 2>/dev/null
+```
+
+判断顺序如下：
+
+```mermaid
+flowchart LR
+    A[控制器驱动日志] --> B[Host/Device 角色]
+    B --> C[枚举到对端设备]
+    C --> D[生成设备或功能节点]
+    D --> E[完成实际数据传输]
+```
+
+命令输出会随 Host、Device 或 OTG 角色变化。当前资料未确认 OmniGate 每个外露 USB 连接器的供电与复用关系，具体口位和跳帽请以对应批次原理图为准；不能仅根据 SoC 支持能力推断板级接口。
 
 <!-- PDF page 5 -->
 

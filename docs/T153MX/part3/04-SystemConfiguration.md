@@ -7,6 +7,8 @@ toc_max_heading_level: 3
 
 # 系统配置
 
+本章节将讲解 T153MX Tina Linux 的配置层级，并通过 menuconfig、sysconfig、设备树、分区表和 U-Boot 环境变量完成可验证的系统定制。
+
 :::info 文档说明
 
 - **原始页数：** 69 页
@@ -14,9 +16,51 @@ toc_max_heading_level: 3
 - **发布日期：** 2025-07-28
 - **原始文件：** [查看或下载 PDF](/pdfs/T153MX/03-configuration-guide.pdf)
 
-正文按原始 PDF 的文本层、书签层级和页面顺序转换，仅移除重复页眉、页脚与水印，不改写技术内容。
+正文以原始 PDF 为技术依据，并补充 T153MX 配置修改的生效范围、构建步骤和恢复要求。
 
 :::
+
+## 目标
+
+识别配置所属层级，完成最小修改、对应组件重编译和板端运行时验证。
+
+## 准备工作
+
+- 确认修改目标属于 U-Boot、Kernel、设备树、rootfs 还是分区布局。
+- 记录当前 `./build.sh config` 方案、内核类型和启动介质。
+- 备份板级配置、分区表和重要数据。
+- 准备串口，以便在配置错误导致系统无法启动时读取最早期日志。
+
+## 操作步骤与配置层级
+
+| 配置类型 | 常见文件或入口 | 验证方式 |
+| --- | --- | --- |
+| Buildroot 软件包 | Buildroot defconfig、`menuconfig` | `target/` 文件及板端程序 |
+| Kernel | kernel defconfig、`menuconfig` | `/proc/config.gz`、模块或启动日志 |
+| 设备树 | 板级 `board.dts` | `/proc/device-tree`、驱动探测日志 |
+| sysconfig | `sys_config.fex` | 打包结果和启动阶段配置 |
+| 分区 | `sys_partition.fex` | `/proc/partitions`、`/dev/by-name` |
+| U-Boot env | `env.cfg` 或 U-Boot 命令 | `printenv` 与实际启动参数 |
+
+分区和启动环境变量属于持久化配置，错误修改可能导致无法启动或数据丢失。应先准备可恢复的完整镜像和烧录方式。
+
+## 验证方法与完成标准
+
+修改完成后应重新编译对应组件并打包，不能只检查源码。板端还需使用设备树节点、内核日志、分区节点或环境变量输出验证运行时状态。
+
+## T153MX 配置修改决策
+
+```mermaid
+flowchart TD
+    A{想改变什么} -->|增加用户态文件或服务| B[Buildroot package / overlay]
+    A -->|启用或裁剪驱动| C[Kernel defconfig]
+    A -->|描述板载硬件和地址| D[Device Tree / sysconfig]
+    A -->|改变启动参数| E[env.cfg / U-Boot 环境]
+    A -->|改变容量或升级槽位| F[分区配置]
+    F --> G[先备份并验证可恢复烧录]
+```
+
+板级根目录以 `device/config/chips/t153/configs/omnigate/` 为起点。修改前用 `git diff` 或单独补丁记录基线；修改后重新编译对应组件并 `./build.sh pack`。涉及分区和 U-Boot 环境时必须做断电重启验证，不能只在当前 Shell 查看一次结果。
 
 <!-- PDF page 8 -->
 

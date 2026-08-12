@@ -1,0 +1,5 @@
+{
+  "label": "快速启动",
+  "position": 4,
+  "link": {"type": "generated-index", "title": "快速启动", "description": "连接、启动、登录并更新 OmniGate-T153 系统固件。"}
+}

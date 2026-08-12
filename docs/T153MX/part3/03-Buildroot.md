@@ -7,6 +7,8 @@ toc_max_heading_level: 3
 
 # Buildroot
 
+本章节将讲解如何在 T153MX Tina SDK 中配置和构建 Buildroot 根文件系统，并完成软件包加入、开机启动和板端运行验证。
+
 :::info 文档说明
 
 - **原始页数：** 26 页
@@ -14,9 +16,55 @@ toc_max_heading_level: 3
 - **发布日期：** 2025-08-18
 - **原始文件：** [查看或下载 PDF](/pdfs/T153MX/02-buildroot-guide.pdf)
 
-正文按原始 PDF 的文本层、书签层级和页面顺序转换，仅移除重复页眉、页脚与水印，不改写技术内容。
+正文以原始 PDF 为技术依据，并按 T153MX 的实际开发流程补充执行位置、构建产物和验证标准。
 
 :::
+
+## 目标
+
+完成 T153MX Buildroot 配置、软件包构建、rootfs 集成和板端程序验证。
+
+## 准备工作
+
+- 已能在 Ubuntu 主机进入 Tina SDK 根目录并加载构建环境。
+- 已选择 T153MX 对应的 Buildroot 方案。
+- 已了解软件包源码、Buildroot package 定义和板级 rootfs overlay 的区别。
+- 修改配置前保存现有 defconfig 和尚未提交的源码。
+
+## 操作步骤
+
+1. 在 SDK 根目录加载环境并选择板型。
+2. 进入 Buildroot 配置界面，启用或裁剪软件包。
+3. 编译单个软件包或完整 rootfs。
+4. 检查 `target/`、镜像和最终固件中的文件。
+5. 烧录后在开发板 Linux Shell 验证可执行文件、服务或配置。
+
+## 验证方法与完成标准
+
+不能只以“编译没有报错”作为完成判断。至少确认目标文件进入 Buildroot `target/`，打包后的 rootfs 包含该文件，并在板端通过进程、命令输出或服务状态证明功能生效。
+
+## T153MX 当前构建树
+
+在 **Ubuntu 主机、SDK 根目录**执行：
+
+```bash
+test -d buildroot/buildroot-202205
+test -d device/config/chips/t153/configs/omnigate/buildroot/overlay
+test -d out/t153/omnigate/buildroot/buildroot/target
+```
+
+三个命令均无输出且退出状态为 `0`，说明 Buildroot 源码、OmniGate overlay 和本次输出目录都存在。它们的用途不同：
+
+```mermaid
+flowchart LR
+    A[buildroot-202205<br/>构建系统与软件包定义] --> D[Buildroot 构建]
+    B[板级 defconfig<br/>可复现的功能选择] --> D
+    C[omnigate/buildroot/overlay<br/>板级文件覆盖] --> D
+    D --> E[out/.../target<br/>待打包 rootfs]
+    E --> F[完整 img 固件]
+```
+
+简单配置文件可以先用 overlay 验证；正式应用及其依赖、启动脚本和许可证应做成 Buildroot package。菜单配置生效后还要保存到板级 defconfig，否则清理输出目录后可能丢失。
 
 <!-- PDF page 5 -->
 

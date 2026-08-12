@@ -1,11 +1,13 @@
 ---
-sidebar_position: 6
-sidebar_label: Qt
+sidebar_position: 2
+sidebar_label: Qt 应用环境部署
 description: Qt 5 配置、编译、显示后端、示例运行与常见问题。
 toc_max_heading_level: 3
 ---
 
 # Qt
+
+本章节将讲解如何在 T153MX Buildroot 系统中启用 Qt 5、编译示例程序、选择显示后端并在开发板上验证画面输出。
 
 :::info 文档说明
 
@@ -14,9 +16,54 @@ toc_max_heading_level: 3
 - **发布日期：** 2025-08-05
 - **原始文件：** [查看或下载 PDF](/pdfs/T153MX/05-qt-guide.pdf)
 
-正文按原始 PDF 的文本层、书签层级和页面顺序转换，仅移除重复页眉、页脚与水印，不改写技术内容。
+正文以原始 PDF 为技术依据，并补充 T153MX Qt 应用从配置、构建到板端显示的操作闭环。
 
 :::
+
+## 目标
+
+完成 Qt 组件构建、显示后端选择和 T153MX 板端示例运行。
+
+## 准备工作
+
+- T153MX 开发板与已验证可用的显示屏、背光和输入设备。
+- 已能构建 `t153_omnigate_mmc-buildroot` 根文件系统。
+- 明确使用 framebuffer、eglfs 或其他显示后端，并确认对应驱动节点存在。
+- 准备串口或 SSH，以便读取 Qt 插件加载错误和环境变量。
+
+## 操作步骤
+
+1. 在 Buildroot 配置中启用 Qt 及所需模块。
+2. 构建 rootfs 并确认 Qt 库、插件和示例进入 `target/`。
+3. 打包、烧录并启动开发板。
+4. 在开发板 Linux Shell 设置必要的显示环境变量。
+5. 运行最小示例，观察画面并检查退出状态和日志。
+
+## 验证方法与完成标准
+
+成功结果应同时包含：Qt 程序能够启动、显示后端加载成功、屏幕出现预期画面，并且日志中没有导致渲染失败的 platform plugin 错误。
+
+## T153MX 首次显示验证
+
+先在**开发板 Linux Shell**检查显示和输入节点，再启动 Qt：
+
+```bash
+ls -l /dev/fb* /dev/dri/* 2>/dev/null
+ls -l /dev/input/event* 2>/dev/null
+find /usr/lib -maxdepth 4 -type d -name 'platforms' 2>/dev/null
+```
+
+若找不到任何显示节点，先回到显示驱动和设备树，不要通过反复修改 `QT_QPA_PLATFORM` 掩盖底层问题。节点存在后，再按本手册选择 framebuffer 或 eglfs 后端，并设置 `QT_DEBUG_PLUGINS=1` 收集插件搜索路径、加载库和失败原因。
+
+```mermaid
+flowchart LR
+    A[显示驱动和节点] --> B[Qt 运行库与插件]
+    B --> C[选择 QPA 后端]
+    C --> D[运行最小示例]
+    D --> E[画面 + 输入 + 日志验收]
+```
+
+OmniGate 所接显示屏型号、分辨率、触摸控制器和旋转方向需按实际硬件记录；当前资料不能确认的值统一标记为 `TODO: 待确认`。
 
 <!-- PDF page 5 -->
 

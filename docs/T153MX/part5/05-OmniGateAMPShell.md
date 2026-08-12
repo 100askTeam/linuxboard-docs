@@ -1,5 +1,5 @@
 ---
-sidebar_position: 10
+sidebar_position: 5
 sidebar_label: OmniGate AMP Shell
 description: T153MX OmniGate A7 Linux 与 E907 FreeRTOS 的 remoteproc、RPMsg 和 AMP Shell 开发与调试指南。
 toc_max_heading_level: 3
@@ -405,4 +405,4 @@ sha256sum /usr/bin/amp_shell /lib/firmware/amp_rv0.bin
 
 - [T153MX OmniGate AMP Shell 完整源码指南](https://github.com/dshanpi/T153MX-Tina5SDK_OmniGate/blob/ampcpudev/docs/amp-shell/README.md)
 - [A7 Linux 与 E907 FreeRTOS 核间通信说明](https://github.com/dshanpi/T153MX-Tina5SDK_OmniGate/blob/ampcpudev/docs/a7-e907-rpmsg-development.md)
-- [T153MX 异构通信框架](./08-heterogeneous-communication-guide.md)
+- [T153MX 异构通信框架](./04-HeterogeneousCommunication.md)
