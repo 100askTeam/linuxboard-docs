@@ -103,3 +103,12 @@ OmniGate-T153 Hello World!
 ```
 
 出现以上内容，说明交叉编译、USB 上传和板端运行都已经完成。
+
+## 测试通过标准
+
+- `arm-linux-gnueabihf-gcc --version` 能正常输出编译器版本。
+- `file helloworld` 显示 ARM 32 位 EABI 可执行程序，而不是 x86-64。
+- 文件能够通过 ADB 上传到开发板。
+- 板端运行后准确输出 `OmniGate-T153 Hello World!`。
+
+如果出现 `not found` 但文件确实存在，使用 `file` 和 `readelf -l` 检查程序架构及动态加载器；如果提示 `Permission denied`，先执行 `chmod +x /tmp/helloworld`。

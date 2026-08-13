@@ -69,4 +69,11 @@ cat /proc/partitions
 
 可以看到 Linux 5.10、`armv7l` 和 eMMC 分区信息，说明开发板已经正常启动。
 
-如果串口完全没有输出，先检查供电、GND、TX/RX 是否接反和串口设备是否选错；如果输出乱码，确认波特率为 115200。
+## 启动成功的判断标准
+
+- 串口日志能够依次看到 Boot0、U-Boot 和 Linux 启动过程。
+- 最终进入 Linux Shell，输入命令能够正常返回。
+- `uname -a` 显示 Linux 5.10，`uname -m` 显示 `armv7l`。
+- `cat /proc/partitions` 能看到板载 eMMC 分区。
+
+串口无输出、乱码或系统停在启动阶段时，转到[启动与烧录常见问题](./03-CommonIssues.md)逐项排查。

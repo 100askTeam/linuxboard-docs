@@ -92,3 +92,11 @@ scan on
 scan off
 quit
 ```
+
+## 测试通过标准
+
+- `wlan0` 存在，驱动和 firmware 日志没有加载失败。
+- `wpa_cli` 显示 `wpa_state=COMPLETED`，开发板获得 IP 地址并能 Ping 通网关。
+- `hci0` 能够启用，`bluetoothctl` 可以扫描到附近设备。
+
+Wi-Fi 找不到接口时先检查 AIC8800D80 的 SDIO 驱动与 firmware；蓝牙没有 `hci0` 时检查 UART、复位脚和板级初始化服务，不要只重复执行扫描命令。

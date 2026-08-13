@@ -16,7 +16,19 @@ sidebar_label: CAN FD 测试
 
 :::warning 当前基础配置
 
-当前 SDK 的 `linux-5.10-origin/board.dts` 中 `can0`、`can1` 仍为 `disabled`。因此基础镜像不会出现 CAN 网络接口。需要先把两个节点改为 `okay`，重新编译、打包和烧录，再执行本实验。
+当前 SDK 已启用 CAN、CAN Device 和 CAN RAW 内核配置，但以下文件中的 `can0`、`can1` 仍为 `disabled`：
+
+```text
+device/config/chips/t153/configs/omnigate/linux-5.10-origin/board.dts
+```
+
+因此基础镜像不会出现 CAN 网络接口。把两个控制器节点的状态改为：
+
+```dts
+status = "okay";
+```
+
+然后按[SDK 环境与编译](../part3/01-DevelopmentEnvironmentSetup.md)重新编译、打包并按[更新系统固件](../part1/02-FlashSystem.md)烧录，再继续本实验。
 
 :::
 
@@ -35,6 +47,14 @@ GND     -------- GND
 ## 配置 CAN 接口
 
 在 **开发板 Linux Shell**执行：
+
+```bash
+ip -br link show | grep can
+```
+
+应能看到 `can0` 和 `can1`。如果没有输出，说明控制器尚未启用或当前启动的不是新固件，不要继续执行后面的发送测试。
+
+安装有 `can-utils` 后，继续执行：
 
 ```bash
 ip link set can0 type can bitrate 500000
@@ -74,3 +94,11 @@ cansend can0 123#1122334455667788
 ip link set can0 down
 ip link set can1 down
 ```
+
+## 测试通过标准
+
+- `can0`、`can1` 均能正常置为 UP，状态中没有持续增长的错误计数。
+- CAN0 发送的数据能被 CAN1 原样接收。
+- 交换发送和接收方向后仍能通信。
+
+如果接口进入 `BUS-OFF`，先关闭接口，再检查两端波特率、CAN_H/CAN_L、共地和 120 Ω 终端电阻，确认无误后重新启用。
