@@ -29,6 +29,7 @@ toc_max_heading_level: 3
 
 | 项目 | 版本或配置 |
 | --- | --- |
+| 编译主机 | Ubuntu 24.04.4 LTS x86_64 |
 | Tina SDK | Tina Linux 5.0 |
 | Linux | 5.10，当前 SDK 源码版本为 5.10.198 |
 | Buildroot | 2022.05，SDK 目录名为 `buildroot-202205` |
@@ -58,7 +59,7 @@ flowchart LR
 
 ## 2 准备主机
 
-推荐使用 Ubuntu 20.04/22.04 x86_64。至少预留 100 GB 可用空间；首次完整构建会产生大量
+本文已经在 Ubuntu 24.04.4 LTS x86_64 上完成配置、编译和打包。至少预留 100 GB 可用空间；首次完整构建会产生大量
 中间文件，SDK 与 `out/` 不应放在 FAT/NTFS 共享盘或路径含空格、中文、`@` 的目录中。
 
 安装常用构建依赖：
@@ -130,7 +131,7 @@ T153_Tina_SDK/                     ← 后续命令的执行目录
 └── rtos/                          E907 RTOS 源码
 ```
 
-后续看到“SDK 根目录”，均指上图第一层，而不是 `buildroot/buildroot-202205/`、`kernel/` 或
+后续看到 **SDK 根目录**，均指上图第一层，而不是 `buildroot/buildroot-202205/`、`kernel/` 或
 `out/`。
 
 ## 4 检查或应用 OmniGate 板级配置
@@ -153,6 +154,15 @@ git clone https://github.com/dshanpi/T153MX-Tina5SDK_OmniGate.git ../T153MX-Tina
 应用后再次运行上一条 `test` 命令。overlay 脚本不会自动执行删除清单；若确实需要删除旧文件，
 必须先人工审阅板级仓库中的 `meta/delete_list.txt`。
 
+:::tip 客户网络不能访问 GitHub 时
+
+请提前把完整 OmniGate overlay 仓库和 SDK 一起交付。当前 overlay 已在
+`buildroot/buildroot-202205/dl/` 预置 4G 所需的 ModemManager、libqmi、libmbim、uqmi、pppd 和
+usb-modeswitch 等源码归档，并带有离线校验脚本。应用 overlay 时会验证这些文件，正常情况下无需
+在客户现场再访问 GitHub 下载它们。
+
+:::
+
 ## 5 加载环境并选择方案
 
 当前 SDK 使用 `build.sh config`，不提供旧版 Tina 常见的 `lunch` 函数。准确方案名
@@ -173,6 +183,45 @@ source build/envsetup.sh
 | `board` | `omnigate` |
 | `flash` | `default`（OmniGate 的 BoardConfig 指向 MMC defconfig） |
 | `kern_name` | `linux-5.10-origin` |
+
+### 一次真实的配置操作记录
+
+下面记录来自 Ubuntu 24.04 主机。冒号后的数字是当时菜单中的序号；你的 SDK 若增加了其他板型，
+序号可能改变，所以实际操作仍应核对左侧名称。
+
+```console
+ubuntu@ubuntu2404:~/T153_Tina5SDK-V1$ source build/envsetup.sh
+ubuntu@ubuntu2404:~/T153_Tina5SDK-V1$ ./build.sh config
+All available platform:
+   0. android
+   1. linux
+Choice [linux]: 1
+All available linux_dev:
+   0. bsp
+   1. buildroot
+Choice [buildroot]: 1
+All available ic:
+   0. t153
+Choice [t153]: 0
+All available board:
+  ...
+  12. omnigate
+Choice [omnigate]: 12
+All available flash:
+   0. default
+   1. nor
+Choice [default]: 0
+All available kern_name:
+   0. linux-5.10-origin
+   1. linux-5.10-rt
+   2. linux-5.10-xenomai
+Choice [linux-5.10-origin]: 0
+```
+
+随后出现 `Setup BSP files`、`Prepare toolchain`、`configuration written to .config` 和
+`buildroot defconfig is sun8iw22p1_t153_mmc_defconfig`，说明配置阶段已经把 OmniGate 的 BSP、
+内核 defconfig、工具链和 Buildroot defconfig 准备好。中间出现编译器 `warning` 不等于失败；
+应以命令退出码和最后是否完成配置为准。
 
 配置会写入 SDK 根目录的 `.buildconfig`。不要选择名字相近的 `demo`、NAND 或 NOR 方案。加载
 生成配置并验证：
@@ -235,6 +284,32 @@ set -o pipefail
 echo "exit_code=$?"
 ```
 
+:::warning 两条命令必须按顺序成功
+
+`./build.sh` 负责编译组件，`./build.sh pack` 负责把组件组合成可烧录镜像。编译成功不代表已经
+有完整固件；如果 `pack` 失败，也不能拿目录里的旧 `.img` 交付。
+
+:::
+
+### 一次成功的打包记录
+
+成功结尾会明确出现 `Dragon execute image.cfg SUCCESS`、`image is at` 和 `pack finish`：
+
+```console
+08-14 04:35:43.967  794415 D pack : BuildImg0
+08-14 04:35:43.970  794415 D pack : Dragon execute image.cfg SUCCESS !
+08-14 04:35:43.991  794415 D pack : ----------image is at----------
+08-14 04:35:43.994  794415 I pack : 407M /home/ubuntu/T153_Tina5SDK-V1/out/t153_linux_omnigate_uart0.img
+08-14 04:35:43.999  794415 D pack : pack finish
+```
+
+这里的 `407M` 是该次构建的镜像大小，不是固定值；加入或删除软件包后发生变化很正常。真正要
+记录的是 `image is at` 下一行给出的**绝对路径**。本例最终固件为：
+
+```text
+/home/ubuntu/T153_Tina5SDK-V1/out/t153_linux_omnigate_uart0.img
+```
+
 ### 各阶段关系
 
 ```mermaid
@@ -282,8 +357,9 @@ flowchart TD
 ## 7 核对实际产物
 
 ```bash
-find out/t153/omnigate/buildroot -maxdepth 1 -type f \
-  \( -name '*.img' -o -name 'zImage' \) -printf '%TY-%Tm-%Td %TH:%TM  %10s  %f\n' | sort
+ls -lh out/t153_linux_omnigate_uart0.img
+stat -c '%y  %s bytes  %n' out/t153_linux_omnigate_uart0.img
+sha256sum out/t153_linux_omnigate_uart0.img
 
 find out/t153/omnigate -type f -name amp_rv0.bin -printf '%p  %s bytes\n'
 ```
@@ -292,8 +368,8 @@ find out/t153/omnigate -type f -name amp_rv0.bin -printf '%p  %s bytes\n'
 
 | 产物 | 实际路径 | 用途 |
 | --- | --- | --- |
-| 完整固件 | `out/t153/omnigate/buildroot/t153_linux_omnigate_uart0.img` | 默认 OmniGate eMMC 烧录镜像 |
-| 无线变体固件 | `out/t153/omnigate/buildroot/t153_linux_omnigate_uart0-wifi1.img` | 启用对应 Wi-Fi 配置时使用 |
+| 完整固件（交付路径） | `out/t153_linux_omnigate_uart0.img` | `pack` 日志报告的默认 OmniGate eMMC 烧录镜像 |
+| 完整固件（构建目录副本） | `out/t153/omnigate/buildroot/t153_linux_omnigate_uart0.img` | 与交付镜像内容相同的构建副本 |
 | Linux 内核 | `out/t153/omnigate/buildroot/zImage` | 内核调试，不可代替完整固件烧录 |
 | E907 固件打包副本 | `out/t153/omnigate/pack_out/amp_rv0.bin` | `pack` 使用的 AMP 固件 |
 | E907 根文件系统副本 | `out/t153/omnigate/buildroot/buildroot/target/lib/firmware/amp_rv0.bin` | Linux remoteproc 加载路径的源文件 |
@@ -301,9 +377,12 @@ find out/t153/omnigate -type f -name amp_rv0.bin -printf '%p  %s bytes\n'
 同一目录中可能同时残留多个历史 `.img`。烧录前记录本次构建时间，并运行：
 
 ```bash
-stat -c '%y  %s bytes  %n' out/t153/omnigate/buildroot/*.img
-sha256sum out/t153/omnigate/buildroot/t153_linux_omnigate_uart0.img
+stat -c '%y  %s bytes  %n' out/t153_linux_omnigate_uart0.img
+sha256sum out/t153_linux_omnigate_uart0.img
 ```
+
+如果某个自定义 pack 配置额外生成带后缀的无线变体，以本次 `pack` 日志和时间戳为准；默认
+OmniGate 交付镜像是无后缀的 `t153_linux_omnigate_uart0.img`。
 
 只有时间戳属于本次 `pack`、尺寸非零且文件名与本次配置一致的镜像才可交付。随后进入
 [更新系统固件](../part1/02-FlashSystem.md)。
@@ -315,7 +394,7 @@ sha256sum out/t153/omnigate/buildroot/t153_linux_omnigate_uart0.img
 - `zImage`、根文件系统、`amp_rv0.bin` 和目标 `.img` 均存在且大小非零。
 - 目标 `.img` 的时间戳晚于本次源码修改和编译开始时间。
 - SHA-256 已记录，复制到烧录机后能够再次核对。
-- 没有用另一个旧镜像的“可启动”结果代替本次镜像验证。
+- 没有用另一个旧镜像的**可启动**结果代替本次镜像验证。
 
 ### 关于清理输出目录
 

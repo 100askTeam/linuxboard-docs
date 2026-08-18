@@ -2544,16 +2544,18 @@ sudo python -m http.server 80
 
 例如(不带签名校验版本)：
 
-```text
-swupdate_cmd.sh -d -uhttp://192.168.35.112/xxx.swu -e stable,upgrade_recovery
+```bash
+OTA_SERVER_IP="实际OTA服务器IP"
+swupdate_cmd.sh -d -u"http://${OTA_SERVER_IP}/xxx.swu" -e stable,upgrade_recovery
 ```
 
 例如(带签名校验版本)：
 
 <!-- PDF page 53 -->
 
-```text
-swupdate_cmd.sh -d -uhttp://192.168.35.112/xxx.swu -k /etc/swupdate_public.pem -e stable,upgrade_recovery
+```bash
+OTA_SERVER_IP="实际OTA服务器IP"
+swupdate_cmd.sh -d -u"http://${OTA_SERVER_IP}/xxx.swu" -k /etc/swupdate_public.pem -e stable,upgrade_recovery
 ```
 
 需依赖外部程序，提供自动联网支持。OTA 本身不处理联网。
@@ -2807,8 +2809,9 @@ wifi -c 账号密码
 
 小机端执行：
 
-```text
-swupdate_cmd.sh -d -uhttp://192.168.xxx.xxx/OTA1.swu
+```bash
+OTA_SERVER_IP="实际OTA服务器IP"
+swupdate_cmd.sh -d -u"http://${OTA_SERVER_IP}/OTA1.swu"
 ```
 
 注明：启动后会自动联网，连网后等待OTA 后台脚本尝试更新。中途掉电重启后，正常会在启动后几十秒内，成功联网并开始继续更新。

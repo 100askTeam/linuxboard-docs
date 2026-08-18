@@ -1,5 +1,5 @@
 {
   "label": "板载功能体验",
   "position": 5,
-  "link": {"type": "generated-index", "title": "板载功能体验", "description": "以太网、Wi-Fi、Bluetooth、CAN、RS485、USB、TF 卡和按键功能测试。"}
+  "link": {"type": "generated-index", "title": "板载功能体验", "description": "以太网、Wi-Fi、Bluetooth、CAN、RS485、USB、TF 卡、声音、状态灯和双 4G 功能测试。"}
 }
