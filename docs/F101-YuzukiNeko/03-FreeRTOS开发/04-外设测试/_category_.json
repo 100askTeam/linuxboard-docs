@@ -1,0 +1,9 @@
+{
+  "label": "外设测试",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "title": "外设测试",
+    "description": "USB ADB、SPI NOR、TF 卡和排针 GPIO 的验证方法。"
+  }
+}

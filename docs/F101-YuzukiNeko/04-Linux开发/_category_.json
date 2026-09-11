@@ -1,0 +1,9 @@
+{
+  "label": "Linux 开发",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "title": "Linux 开发",
+    "description": "Linux 源码见 linux-mainline 的 sun252i_f101_7.2 分支；文档后续补充。"
+  }
+}

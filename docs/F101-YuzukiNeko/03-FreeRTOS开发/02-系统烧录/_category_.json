@@ -1,0 +1,9 @@
+{
+  "label": "系统烧录",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "title": "系统烧录",
+    "description": "使用 OpenixSuit 把 16MB NOR 镜像烧写到 YuzukiNeko。"
+  }
+}

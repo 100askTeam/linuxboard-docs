@@ -1,0 +1,9 @@
+{
+  "label": "快速上手",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "title": "快速上手",
+    "description": "上电后通过 USB ADB 进入 FreeRTOS 命令行。"
+  }
+}

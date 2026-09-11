@@ -1,0 +1,9 @@
+{
+  "label": "FreeRTOS 开发",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "title": "FreeRTOS 开发",
+    "description": "YuzukiNeko 的 FreeRTOS 环境搭建、编译打包、烧录、上手和外设测试。"
+  }
+}

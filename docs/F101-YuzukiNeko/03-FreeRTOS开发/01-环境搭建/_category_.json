@@ -1,0 +1,9 @@
+{
+  "label": "环境搭建",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "title": "环境搭建",
+    "description": "在 Ubuntu / WSL 上配置依赖，编译并打包 FreeRTOS 固件。"
+  }
+}

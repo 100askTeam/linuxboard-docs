@@ -196,7 +196,19 @@ const config = {
               label: 'T153-mCore',
               },                           
             ],
-          },                                                     
+          },
+          {
+            type: 'dropdown',
+            label: 'F101系列',
+            position: 'left',
+            items: [
+              {
+              type: 'docSidebar',
+              sidebarId: 'f101Sidebar',
+              label: 'F101-YuzukiNeko',
+              },
+            ],
+          },
           { to: '/blog', label: 'Blog', position: 'right' },
           {
             href: 'https://github.com/dshanpi/Docs',
