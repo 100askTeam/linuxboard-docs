@@ -1,0 +1,526 @@
+.pinout {
+  --ink: #10222a;
+  --muted: #60727a;
+  --surface: var(--ifm-background-surface-color);
+  --line: var(--ifm-color-emphasis-300);
+  width: 100%;
+  box-sizing: border-box;
+  margin: 1.5rem 0 2rem;
+  padding: 1.2rem;
+  color: var(--ink);
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-global-radius);
+  box-shadow: var(--ifm-global-shadow-lw);
+}
+
+.heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 320px);
+  gap: 1.5rem;
+  align-items: end;
+  margin-bottom: 1rem;
+}
+
+.heading h2 {
+  margin: 0.08rem 0 0.35rem;
+  color: var(--ink);
+  font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+}
+
+.heading p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.eyebrow {
+  color: #087f5b !important;
+  font: 700 0.72rem/1.2 ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing: 0.16em;
+}
+
+.search {
+  min-width: 0;
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.search span {
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.search input {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  padding: 0.65rem 0.75rem;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid #cbd7d0;
+  border-radius: 9px;
+  outline: none;
+}
+
+.search input:focus {
+  border-color: #087f5b;
+  box-shadow: 0 0 0 3px rgba(8, 127, 91, 0.14);
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  justify-content: center;
+  margin: 1rem 0 1.15rem;
+}
+
+.toolbar button {
+  padding: 0.42rem 0.7rem;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid #aebbb5;
+  border-radius: var(--ifm-button-border-radius);
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-weight: 700;
+  opacity: 0.58;
+  transition: transform 150ms ease, opacity 150ms ease, background 150ms ease;
+}
+
+.toolbar button:hover,
+.toolbar button:focus-visible {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+.toolbar button.isActive {
+  opacity: 1;
+  background: color-mix(in srgb, var(--chip, #6b7b82) 16%, white);
+  border-color: var(--chip, #6b7b82);
+}
+
+.flipButton {
+  --chip: #263238;
+}
+
+.scroller {
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 0.65rem 0.2rem 0.9rem;
+  overscroll-behavior-x: contain;
+  scrollbar-color: #9fb0a8 transparent;
+}
+
+.canvas {
+  display: grid;
+  grid-template-columns: minmax(390px, 1fr) 222px minmax(390px, 1fr);
+  align-items: stretch;
+  gap: 0.32rem;
+  min-width: 1040px;
+  min-height: 654px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.pinColumn {
+  display: grid;
+  grid-template-rows: repeat(20, minmax(28px, 1fr));
+  gap: 3px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pinRow {
+  min-width: 0;
+  transition: opacity 150ms ease;
+}
+
+.pinRow.dimmed {
+  opacity: 0.15;
+}
+
+.pinButton {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  padding: 0;
+  color: var(--ink);
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+}
+
+.left .pinButton {
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.right .pinButton {
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+.pinButton:hover .pinName,
+.pinButton:focus-visible .pinName,
+.selected .pinName {
+  filter: saturate(1.35);
+  box-shadow: inset 0 0 0 2px #0b8d68;
+}
+
+.pinButton:focus-visible {
+  outline: 2px solid #0b8d68;
+  outline-offset: 1px;
+}
+
+.functions {
+  display: flex;
+  min-width: 0;
+  overflow: hidden;
+  align-items: stretch;
+}
+
+.left .functions {
+  justify-content: flex-end;
+}
+
+.right .functions {
+  justify-content: flex-start;
+}
+
+.functionChip,
+.pinName,
+.pinNumber {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+  min-height: 28px;
+  box-sizing: border-box;
+  white-space: nowrap;
+  font-size: 10px;
+  line-height: 1;
+}
+
+.functionChip {
+  --chip: #6b7b82;
+  margin-left: 3px;
+  padding: 0 5px;
+  background: color-mix(in srgb, var(--chip) 14%, white);
+  border-left: 3px solid var(--chip);
+}
+
+.right .functionChip {
+  margin-right: 3px;
+  margin-left: 0;
+  border-right: 3px solid var(--chip);
+  border-left: 0;
+}
+
+.pinName {
+  flex: 0 0 73px;
+  justify-content: center;
+  padding: 0 5px;
+  color: #10222a;
+  background: #e8edcf;
+  border-left: 4px solid #8fa61a;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.right .pinName {
+  border-right: 4px solid #8fa61a;
+  border-left: 0;
+}
+
+.pinName.power {
+  background: #f8dcda;
+  border-color: #d94d45;
+}
+
+.pinName.ground {
+  color: #e7f1ed;
+  background: #29434b;
+  border-color: #142b32;
+}
+
+.pinName.adc {
+  background: #d6eeea;
+  border-color: #199d8f;
+}
+
+.pinNumber {
+  flex: 0 0 25px;
+  justify-content: center;
+  color: #334249;
+  background: #d8dedb;
+  font-weight: 800;
+}
+
+.display { --chip: #df7d19; }
+.spi { --chip: #d63384; }
+.twi { --chip: #238fc8; }
+.uart { --chip: #6659c8; }
+.pwm { --chip: #687076; }
+.audio { --chip: #8a56a5; }
+.storage { --chip: #0b8d68; }
+.system { --chip: #b36b24; }
+
+.board {
+  position: relative;
+  min-height: 654px;
+  overflow: hidden;
+  color: #f3fae8;
+  background:
+    radial-gradient(circle at 24% 19%, #e8d6a5 0 4px, transparent 5px),
+    radial-gradient(circle at 76% 19%, #e8d6a5 0 4px, transparent 5px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(#0f654a, #073e31);
+  background-size: auto, auto, 22px 22px, auto;
+  border: 5px solid #ad9060;
+  border-radius: 15px;
+  box-shadow: inset 0 0 0 2px #24473b, 0 10px 22px rgba(15, 42, 34, 0.26);
+  transition: background 200ms ease;
+}
+
+.boardFlipped {
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(#174f69, #0e3445);
+  background-size: 22px 22px, auto;
+}
+
+.typeC {
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  width: 90px;
+  padding: 10px 4px 7px;
+  transform: translateX(-50%);
+  color: #364047;
+  background: linear-gradient(#e8ecef, #9aa4aa);
+  border: 3px solid #6e787d;
+  border-radius: 0 0 12px 12px;
+  font-size: 9px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.boardTitle {
+  position: absolute;
+  top: 82px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #d9ecaa;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.soc {
+  position: absolute;
+  top: 205px;
+  left: 50%;
+  display: grid;
+  place-items: center;
+  width: 108px;
+  height: 108px;
+  transform: translateX(-50%);
+  color: #b7d2c5;
+  background: #17201f;
+  border: 5px solid #202b29;
+  box-shadow: 0 7px 12px rgba(0, 0, 0, 0.35);
+}
+
+.soc strong {
+  color: #f3e4a5;
+  font-size: 23px;
+}
+
+.soc span {
+  font-size: 9px;
+}
+
+.flash,
+.card,
+.fel {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  color: #c8d5cf;
+  background: #1d2726;
+  border: 2px solid #50645d;
+  font-size: 9px;
+  text-align: center;
+}
+
+.flash { top: 124px; left: 26px; width: 62px; height: 52px; }
+.card { bottom: 46px; left: 30px; width: 54px; height: 74px; border-radius: 4px 4px 16px 4px; }
+.fel { top: 140px; right: 28px; width: 46px; height: 32px; border-radius: 18px; }
+
+.cat {
+  position: absolute;
+  right: 26px;
+  bottom: 98px;
+  color: #f1df9b;
+  font-size: 12px;
+  transform: rotate(-8deg);
+}
+
+.h1,
+.h2 {
+  position: absolute;
+  bottom: 14px;
+  color: #e7d495;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.h1 { left: 12px; }
+.h2 { right: 12px; }
+
+.pad {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  transform: translateY(-50%);
+  background: #f6f4df;
+  border: 4px solid #bd9d5d;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #4d6b5d;
+}
+
+.padLeft { left: -2px; }
+.padRight { right: -2px; }
+
+.detail {
+  position: sticky;
+  top: calc(var(--ifm-navbar-height) + 0.5rem);
+  z-index: 3;
+  display: grid;
+  grid-template-columns: minmax(145px, 0.25fr) minmax(0, 1fr);
+  gap: 1rem;
+  align-items: center;
+  margin: 0 0 0.35rem;
+  padding: 0.9rem 1rem;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  box-shadow: 0 6px 18px rgba(16, 34, 42, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+.detailIdentity {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+}
+
+.detailIdentity span {
+  color: var(--muted);
+  font: 700 0.76rem/1 ui-monospace, monospace;
+}
+
+.detailIdentity strong {
+  font-size: 1.35rem;
+}
+
+.detailFunctions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.detailFunctions .functionChip {
+  min-height: 26px;
+  margin: 0;
+  border-right: 0;
+  border-left: 3px solid var(--chip);
+  border-radius: 3px;
+}
+
+.detailNote,
+.scrollHint,
+.footnote {
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.scrollHint {
+  margin: 0.55rem 0 0;
+  text-align: center;
+}
+
+.footnote {
+  margin: 0.8rem 0 0;
+  text-align: center;
+}
+
+:global(html[data-theme='dark']) .pinout {
+  --ink: #e5eee9;
+  --muted: #a8b8b1;
+  --surface: #17211e;
+  --line: #35443e;
+  background: linear-gradient(145deg, #17231f, #101815 58%, #211c16);
+  border-color: #35443e;
+}
+
+:global(html[data-theme='dark']) .search input,
+:global(html[data-theme='dark']) .detail {
+  color: var(--ink);
+  background: rgba(17, 27, 23, 0.88);
+}
+
+:global(html[data-theme='dark']) .functionChip {
+  background: color-mix(in srgb, var(--chip) 32%, #17211e);
+}
+
+:global(html[data-theme='dark']) .toolbar button.isActive {
+  color: var(--ink);
+  background: color-mix(in srgb, var(--chip, #6b7b82) 30%, #17211e);
+}
+
+@media (max-width: 1200px) {
+  .heading {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+
+  .toolbar {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 700px) {
+  .pinout {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 1rem 0.65rem;
+  }
+
+  .canvas {
+    grid-template-columns: 375px 206px 375px;
+    min-width: 968px;
+    min-height: 610px;
+  }
+
+  .board {
+    min-height: 610px;
+  }
+
+  .detail {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toolbar button,
+  .pinRow,
+  .board {
+    transition: none;
+  }
+}

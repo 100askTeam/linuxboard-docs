@@ -7,6 +7,14 @@
 /* Import blog page styles */
 @import './blogPage.css';
 
+/* 文档页使用侧栏右侧的完整空间，避免宽屏下正文前出现大块空白。 */
+html.docs-doc-page main[class*='docMainContainer_'] > .container {
+  width: 100%;
+  max-width: none;
+  margin-right: 0;
+  margin-left: 0;
+}
+
 /* You can override the default Infima variables here. */
 :root {
   --ifm-color-primary: #2e8555;

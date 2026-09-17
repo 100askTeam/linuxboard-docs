@@ -1,0 +1,129 @@
+.hero {
+  display: grid;
+  gap: 1.25rem;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0 0 1.5rem;
+  padding: 0.35rem 0 1.4rem;
+  color: var(--ifm-font-color-base);
+  border-bottom: 1px solid var(--ifm-color-emphasis-300);
+}
+
+.copy {
+  min-width: 0;
+  align-self: center;
+}
+
+.kicker {
+  margin: 0 0 0.45rem;
+  color: var(--ifm-color-primary);
+  font: 700 0.72rem/1.2 var(--ifm-font-family-monospace);
+  letter-spacing: 0.12em;
+}
+
+.hero h1 {
+  margin: 0 0 0.65rem;
+  color: var(--ifm-heading-color);
+  font-family: var(--ifm-heading-font-family);
+  font-size: clamp(2.15rem, 5vw, 3.15rem);
+  font-weight: var(--ifm-heading-font-weight);
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.hero h1 span {
+  color: var(--ifm-color-primary-dark);
+}
+
+.summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.7rem;
+  align-items: center;
+  margin: 0;
+  color: var(--ifm-font-color-base);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.summary i {
+  width: 4px;
+  height: 4px;
+  flex: 0 0 4px;
+  background: var(--ifm-color-primary);
+  border-radius: 50%;
+}
+
+.detail {
+  margin: 0.45rem 0 0;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.92rem;
+}
+
+.specs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.55rem;
+  min-width: 0;
+}
+
+.spec {
+  display: grid;
+  gap: 0.3rem;
+  min-width: 0;
+  padding: 0.65rem 0.75rem;
+  background: var(--ifm-color-emphasis-100);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-left: 3px solid var(--ifm-color-primary);
+  border-radius: var(--ifm-global-radius);
+}
+
+.spec span {
+  color: var(--ifm-color-primary-dark);
+  font: 700 0.65rem/1 var(--ifm-font-family-monospace);
+  letter-spacing: 0.08em;
+}
+
+.spec strong {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  color: var(--ifm-font-color-base);
+  font-size: 0.88rem;
+  line-height: 1.25;
+}
+
+@media (max-width: 700px) {
+  .hero {
+    gap: 1rem;
+    padding-top: 0;
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 11vw, 2.65rem);
+  }
+
+  .summary {
+    gap: 0.4rem 0.55rem;
+  }
+
+  .specs {
+    gap: 0.4rem;
+  }
+
+  .spec {
+    padding: 0.65rem;
+  }
+
+  .spec strong {
+    font-size: 0.72rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .specs {
+    grid-template-columns: 1fr;
+  }
+
+  .spec { grid-template-columns: 58px minmax(0, 1fr); }
+}

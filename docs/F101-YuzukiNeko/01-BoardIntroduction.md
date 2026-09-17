@@ -1,29 +1,23 @@
 ---
 sidebar_position: 1
 sidebar_label: 单板介绍
-description: YuzukiNeko F101 是什么、板上有什么、怎么开始用。原理图以 V1.4 为准。
+description: YuzukiNeko F101 交互式排针图、引脚复用、板载资源与快速上手入口。原理图以 REV V1.5 为准。
 slug: /F101-YuzukiNeko/
 hide_title: true
 ---
 
-import boardHero from './images/f101-yuzukineko.png';
+import F101Pinout from '@site/src/components/F101Pinout';
+import F101Hero from '@site/src/components/F101Hero';
 
-<div
-  style={{
-    background: 'linear-gradient(180deg, #ffdcc8 0%, #eaf5fc 52%, #f7fbfe 100%)',
-    margin: '0 0 1.6rem',
-    padding: '1.4rem 1.2rem 0',
-  }}>
-  <h1 style={{color: '#122b69', fontSize: 'clamp(1.8rem, 4vw, 2.6rem)', lineHeight: 1.2, margin: '0 0 0.55rem'}}>YuzukiNeko F101</h1>
-  <p style={{color: '#1a3a63', fontSize: '1.05rem', lineHeight: 1.7, margin: '0 0 1rem'}}>
-    全志 F101（sun252iw2）· 玄铁 C907 RV32 · FreeRTOS。16MB SPI NOR 启动，Type-C 烧录和 ADB 调试。
-  </p>
-  <img src={boardHero} alt="YuzukiNeko F101" style={{display: 'block', width: '100%'}} />
-</div>
+<F101Hero />
+
+<F101Pinout />
 
 YuzukiNeko 是一块面向显示、人机交互和实时控制的 F101 开发板。本文档当前覆盖 **FreeRTOS SDK**。Linux、Zephyr 源码已公开，文档见 [Linux 开发](./04-Linux开发/00-Overview.md)、[Zephyr 开发](./05-Zephyr开发/00-Overview.md)。
 
-原理图以 **V1.4** 为准。V1.3 从 PD10 起网络名写偏了两号，对照见 [排针 GPIO](./03-FreeRTOS开发/04-外设测试/04-GPIO.md)。
+交互引脚图以 `yuzukineko-f101-sch.pdf` **REV V1.5** 为准。V1.3 从 PD10 起网络名写偏了两号，对照见 [排针 GPIO](./03-FreeRTOS开发/04-外设测试/04-GPIO.md)。
+
+第一次拿到板子，建议先不要安装 SDK：下载现成固件，完成一次烧录并用 ADB 进入命令行。确认板卡和 USB 通路都正常后，再搭建编译环境。这样遇到问题时，能先判断是硬件连接问题，还是自己修改代码引入的问题。
 
 ## 规格
 
@@ -48,7 +42,7 @@ YuzukiNeko 是一块面向显示、人机交互和实时控制的 F101 开发板
 | LED1 | 电源指示，上电常亮，**不能用软件控制** |
 | FEL 键 | 进烧录模式。板上没有复位键，重新上电靠拔插 Type-C |
 
-引脚明细、复用和占用情况不在本页展开，见 [排针 GPIO](./03-FreeRTOS开发/04-外设测试/04-GPIO.md)。
+页面顶部的交互图列出芯片符号中的全部引脚复用；当前固件实际占用情况和释放 GPIO 的步骤见 [排针 GPIO](./03-FreeRTOS开发/04-外设测试/04-GPIO.md)。
 
 ## 使用注意
 
@@ -64,5 +58,7 @@ YuzukiNeko 是一块面向显示、人机交互和实时控制的 F101 开发板
 |:---|:---|
 | 只想先把板子跑起来 | [资料获取](./02-资料获取.md) → [安装 USB 驱动](./03-FreeRTOS开发/02-系统烧录/01-UsbDriver.md) → [更新系统固件](./03-FreeRTOS开发/02-系统烧录/02-FlashSystem.md) → [启动开发板](./03-FreeRTOS开发/03-快速上手/01-QuickStart.md) |
 | 要改代码、自己编译 | [工程介绍](./03-FreeRTOS开发/00-工程介绍.md) → [环境搭建](./03-FreeRTOS开发/01-环境搭建/01-HostEnv.md) → [编译与打包](./03-FreeRTOS开发/01-环境搭建/02-Build.md) |
+
+完成第一条路径后，至少应得到两个明确结果：OpenixSuit 提示烧录成功；`adb shell ls /` 能列出 `/res`、`/data` 等目录。没有得到这两个结果时，先不要开始改源码。
 
 SDK 目录、lunch 工程名和板级配置位置写在 [工程介绍](./03-FreeRTOS开发/00-工程介绍.md)。
